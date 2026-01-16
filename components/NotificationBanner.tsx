@@ -85,12 +85,12 @@ export default function NotificationBanner() {
   const current = bannerItems[currentIndex];
 
   const typeStyles: Record<string, string> = {
-    info: 'bg-blue-600',
-    warning: 'bg-amber-500',
-    holiday: 'bg-red-600',
-    important: 'bg-red-600',
-    event: 'bg-indigo-600',
-    activity: 'bg-green-600',
+    info: 'bg-sky-500',
+    warning: 'bg-orange-400',
+    holiday: 'bg-rose-400',
+    important: 'bg-fuchsia-500',
+    event: 'bg-cyan-500',
+    activity: 'bg-lime-500',
   };
 
   const typeIcons: Record<string, string> = {
