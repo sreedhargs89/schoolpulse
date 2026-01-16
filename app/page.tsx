@@ -107,21 +107,15 @@ function HomeContent() {
   const hasNext = currentIndex < availableDates.length - 1;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6">
+    <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
       {/* Header */}
       <div className="mb-6">
-        <div className="flex items-center justify-between mb-1">
+        <div className="flex items-center justify-between">
           <MonthSelector
             months={availableMonths}
             selectedMonthId={selectedMonthId}
             onMonthChange={setSelectedMonthId}
           />
-          <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">
-            {monthData.class}
-          </span>
-        </div>
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Daily Schedule</h1>
           <RecentUpdates />
         </div>
       </div>
@@ -131,11 +125,10 @@ function HomeContent() {
         <button
           onClick={() => navigateDay(-1)}
           disabled={!hasPrev}
-          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
-            hasPrev
-              ? 'hover:bg-gray-100 text-gray-700'
-              : 'text-gray-300 cursor-not-allowed'
-          }`}
+          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${hasPrev
+            ? 'hover:bg-gray-100 text-gray-700'
+            : 'text-gray-300 cursor-not-allowed'
+            }`}
         >
           <span className="hidden sm:inline">← Prev</span>
           <span className="sm:hidden">←</span>
@@ -156,11 +149,10 @@ function HomeContent() {
         <button
           onClick={() => navigateDay(1)}
           disabled={!hasNext}
-          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
-            hasNext
-              ? 'hover:bg-gray-100 text-gray-700'
-              : 'text-gray-300 cursor-not-allowed'
-          }`}
+          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${hasNext
+            ? 'hover:bg-gray-100 text-gray-700'
+            : 'text-gray-300 cursor-not-allowed'
+            }`}
         >
           <span className="hidden sm:inline">Next →</span>
           <span className="sm:hidden">→</span>

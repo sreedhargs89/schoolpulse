@@ -39,26 +39,17 @@ export default function WeekPage() {
   const selectedWeek = weeks[selectedWeekIndex];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6">
-      {/* Header */}
-      <div className="mb-6">
-        <div className="text-sm text-gray-500 mb-1">
-          {monthInfo.month} {monthInfo.year}
-        </div>
-        <h1 className="text-2xl font-bold text-gray-900">Week View</h1>
-      </div>
-
+    <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
       {/* Week Selector */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
         {weeks.map((week, index) => (
           <button
             key={week.weekStart}
             onClick={() => setSelectedWeekIndex(index)}
-            className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors ${
-              selectedWeekIndex === index
-                ? 'bg-orange-500 text-white'
-                : 'bg-white border border-gray-200 text-gray-700 hover:border-orange-300'
-            }`}
+            className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors ${selectedWeekIndex === index
+              ? 'bg-orange-500 text-white'
+              : 'bg-white border border-gray-200 text-gray-700 hover:border-orange-300'
+              }`}
           >
             {formatShortDate(week.weekStart)} - {formatShortDate(week.weekEnd)}
           </button>
