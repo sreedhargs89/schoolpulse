@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import DaySchedule from '@/components/DaySchedule';
 import DictationWords from '@/components/DictationWords';
@@ -23,6 +24,9 @@ import {
 } from '@/lib/data';
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const urlDate = searchParams.get('date');
+
   const [selectedMonthId, setSelectedMonthId] = useState<string>('');
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [dayData, setDayData] = useState<DayScheduleType | null>(null);
@@ -39,6 +43,13 @@ export default function Home() {
     setSelectedMonthId(getCurrentMonthId());
   }, []);
 
+  // Handle URL date parameter changes
+  useEffect(() => {
+    if (urlDate && availableDates.includes(urlDate)) {
+      setSelectedDate(urlDate);
+    }
+  }, [urlDate, availableDates]);
+
   // Update dates when month changes
   useEffect(() => {
     if (!selectedMonthId) return;
@@ -46,10 +57,17 @@ export default function Home() {
     const dates = getAllDates(selectedMonthId);
     setAvailableDates(dates);
 
-    // Default to today if in range, otherwise first available date
-    const today = new Date().toISOString().split('T')[0];
-    const defaultDate = dates.includes(today) ? today : dates[0];
-    setSelectedDate(defaultDate);
+    // Only set default date if no URL date and no date selected yet
+    if (!urlDate && !selectedDate) {
+      const today = new Date().toISOString().split('T')[0];
+      const defaultDate = dates.includes(today) ? today : dates[0];
+      setSelectedDate(defaultDate);
+    } else if (urlDate && dates.includes(urlDate)) {
+      setSelectedDate(urlDate);
+    } else if (!dates.includes(selectedDate)) {
+      // Current date not in this month, reset to first available
+      setSelectedDate(dates[0]);
+    }
 
     const data = getMonthData(selectedMonthId);
     setMonthData({ month: data.month, year: data.year, class: data.class });
