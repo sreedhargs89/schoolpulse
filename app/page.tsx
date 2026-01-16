@@ -8,6 +8,7 @@ import DictationWords from '@/components/DictationWords';
 import MonthSelector from '@/components/MonthSelector';
 import ImportantDates from '@/components/ImportantDates';
 import ShareButton from '@/components/ShareButton';
+import RecentUpdates from '@/components/RecentUpdates';
 import {
   getMonthData,
   getDaySchedule,
@@ -119,7 +120,10 @@ export default function Home() {
             {monthData.class}
           </span>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Daily Schedule</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">Daily Schedule</h1>
+          <RecentUpdates />
+        </div>
       </div>
 
       {/* Date Navigator */}
