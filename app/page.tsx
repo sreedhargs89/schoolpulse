@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import DaySchedule from '@/components/DaySchedule';
@@ -24,7 +24,7 @@ import {
   ImportantDate,
 } from '@/lib/data';
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const urlDate = searchParams.get('date');
 
@@ -209,5 +209,20 @@ export default function Home() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
