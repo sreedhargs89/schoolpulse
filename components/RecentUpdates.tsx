@@ -22,8 +22,8 @@ export default function RecentUpdates() {
   useEffect(() => {
     // Filter out expired updates
     const today = new Date().toISOString().split('T')[0];
-    const activeUpdates = updatesData.updates.filter(
-      (u: Update) => u.expiresAt >= today
+    const activeUpdates = (updatesData.updates as Update[]).filter(
+      (u) => u.expiresAt >= today
     );
     setUpdates(activeUpdates);
 
