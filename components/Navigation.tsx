@@ -8,7 +8,7 @@ export default function Navigation() {
 
   const links = [
     { href: '/', label: 'Today', icon: '📖' },
-    { href: '/week', label: 'Week', icon: '3️⃣0️⃣' },
+    { href: '/week', label: 'Week', icon: '7️⃣' },
     { href: '/month', label: 'Month', icon: '📆' },
     { href: '/dates', label: 'Events', icon: '🔔' },
     { href: '/rhymes', label: 'Rhymes', icon: '🎵' },
