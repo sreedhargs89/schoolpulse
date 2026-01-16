@@ -45,11 +45,11 @@ export default function DaySchedule({ day, showHeader = true, compact = false }:
               {item.time}
             </div>
             <div className="flex-1 min-w-0">
-              <div className={`font-semibold ${compact ? 'text-xs' : 'text-sm'}`}>
+              <div className={`font-semibold ${compact ? 'text-xs' : 'text-sm'} break-words`}>
                 {item.subject}
               </div>
               {item.activity && (
-                <div className={`${compact ? 'text-xs' : 'text-sm'} opacity-80 truncate`}>
+                <div className={`${compact ? 'text-xs' : 'text-sm'} opacity-80 break-words`}>
                   {item.activity}
                 </div>
               )}

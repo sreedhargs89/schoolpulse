@@ -20,14 +20,25 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
 
   if (displayDates.length === 0) return null;
 
-  const typeStyles: Record<string, { bg: string; icon: string; border: string }> = {
-    holiday: { bg: 'bg-red-50', icon: '🎉', border: 'border-red-200' },
-    event: { bg: 'bg-blue-50', icon: '📅', border: 'border-blue-200' },
-    activity: { bg: 'bg-green-50', icon: '🎨', border: 'border-green-200' },
+  const typeStyles: Record<string, { bg: string; textColor: string; border: string }> = {
+    holiday: { bg: 'bg-red-500', textColor: 'text-white', border: 'border-red-200' },
+    event: { bg: 'bg-blue-500', textColor: 'text-white', border: 'border-blue-200' },
+    activity: { bg: 'bg-green-500', textColor: 'text-white', border: 'border-green-200' },
   };
 
   const isToday = (date: string) => date === today;
   const isPast = (date: string) => date < today;
+
+  // Extract day number from date string (YYYY-MM-DD)
+  const getDayNumber = (dateStr: string) => {
+    return parseInt(dateStr.split('-')[2], 10);
+  };
+
+  // Get month abbreviation
+  const getMonthAbbr = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+  };
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-4">
@@ -39,14 +50,20 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
           const style = typeStyles[item.type] || typeStyles.event;
           const todayHighlight = isToday(item.date);
           const past = isPast(item.date);
+          const dayNum = getDayNumber(item.date);
+          const monthAbbr = getMonthAbbr(item.date);
 
           return (
             <div
               key={index}
-              className={`flex items-start gap-3 p-3 rounded-lg border ${style.bg} ${style.border} ${todayHighlight ? 'ring-2 ring-orange-400' : ''
+              className={`flex items-start gap-3 p-3 rounded-lg border ${todayHighlight ? 'ring-2 ring-orange-400 bg-orange-50 border-orange-200' : 'bg-gray-50 border-gray-200'
                 } ${past ? 'opacity-50' : ''}`}
             >
-              <div className="text-xl">{style.icon}</div>
+              {/* Date Badge */}
+              <div className={`flex flex-col items-center justify-center w-12 h-12 rounded-lg ${style.bg} ${style.textColor} flex-shrink-0`}>
+                <div className="text-xs font-semibold leading-none">{monthAbbr}</div>
+                <div className="text-xl font-bold leading-none mt-0.5">{dayNum}</div>
+              </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-gray-800">{item.event}</span>
