@@ -105,23 +105,24 @@ export default function Home() {
       </div>
 
       {/* Date Navigator */}
-      <div className="flex items-center justify-between mb-6 bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
+      <div className="flex items-center justify-between mb-6 bg-white rounded-xl p-2 sm:p-3 border border-gray-200 shadow-sm gap-1 sm:gap-2">
         <button
           onClick={() => navigateDay(-1)}
           disabled={!hasPrev}
-          className={`p-2 rounded-lg transition-colors ${
+          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
             hasPrev
               ? 'hover:bg-gray-100 text-gray-700'
               : 'text-gray-300 cursor-not-allowed'
           }`}
         >
-          ← Previous
+          <span className="hidden sm:inline">← Prev</span>
+          <span className="sm:hidden">←</span>
         </button>
 
         <select
           value={selectedDate}
           onChange={(e) => setSelectedDate(e.target.value)}
-          className="bg-orange-50 border border-orange-200 rounded-lg px-4 py-2 font-medium text-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="bg-orange-50 border border-orange-200 rounded-lg px-2 sm:px-4 py-2 font-medium text-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-300 text-sm sm:text-base min-w-0 flex-1 max-w-[180px] sm:max-w-none"
         >
           {availableDates.map((date) => (
             <option key={date} value={date}>
@@ -133,13 +134,14 @@ export default function Home() {
         <button
           onClick={() => navigateDay(1)}
           disabled={!hasNext}
-          className={`p-2 rounded-lg transition-colors ${
+          className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
             hasNext
               ? 'hover:bg-gray-100 text-gray-700'
               : 'text-gray-300 cursor-not-allowed'
           }`}
         >
-          Next →
+          <span className="hidden sm:inline">Next →</span>
+          <span className="sm:hidden">→</span>
         </button>
       </div>
 
