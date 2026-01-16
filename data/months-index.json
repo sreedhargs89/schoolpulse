@@ -1,0 +1,11 @@
+{
+  "months": [
+    {
+      "id": "january-2026",
+      "month": "January",
+      "year": 2026,
+      "file": "january-2026.json"
+    }
+  ],
+  "currentMonth": "january-2026"
+}

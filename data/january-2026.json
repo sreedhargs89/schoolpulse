@@ -1,0 +1,458 @@
+{
+  "month": "January",
+  "year": 2026,
+  "class": "PP3",
+  "school": "BGS National Public School",
+  "weeks": [
+    {
+      "weekStart": "2026-01-01",
+      "weekEnd": "2026-01-02",
+      "dictationWords": [],
+      "days": [
+        {
+          "date": "2026-01-01",
+          "dayOfWeek": "Thursday",
+          "isHoliday": true,
+          "holidayName": "Winter Break",
+          "schedule": []
+        },
+        {
+          "date": "2026-01-02",
+          "dayOfWeek": "Friday",
+          "isHoliday": true,
+          "holidayName": "Winter Break",
+          "schedule": []
+        }
+      ]
+    },
+    {
+      "weekStart": "2026-01-05",
+      "weekEnd": "2026-01-09",
+      "dictationWords": ["boat", "foam", "cone", "coal", "rose", "bow", "road", "soak", "goat", "hope", "note", "load"],
+      "days": [
+        {
+          "date": "2026-01-05",
+          "dayOfWeek": "Monday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Recap of Digraphs - Phonic Book - Words ending with ff, zz" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Use of It is, I am" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Hands on activity" },
+            { "time": "11:30-12:00", "subject": "NUMERACY", "activity": "Subtraction - Take away" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter ಮ" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "Reading and framing sentences" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-06",
+          "dayOfWeek": "Tuesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Words ending with ss - Fun Time activity" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Fun Time Activity" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Concept of zero" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Save Our Nature" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "ष स" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Digraph (writing and drawing objects)" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-07",
+          "dayOfWeek": "Wednesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with ar, er, ir" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Use of He is, she is, His/her" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Horizontal Subtraction" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Discussion on how trees and plants help us?" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Numbers 1-10 - Activity on letters learnt" },
+            { "time": "12:30-12:50", "subject": "ART", "activity": "Art and craft" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-08",
+          "dayOfWeek": "Thursday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with or, ur, ou" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Fun Time" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Matching" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Save Our Nature" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "ह क्ष" },
+            { "time": "12:30-12:50", "subject": "STORY", "activity": "Intro to story - The Brave boy of Holland" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-09",
+          "dayOfWeek": "Friday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with ow, oy, oi" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Introduction to words ending with ow, oy, oi" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "4 Line Note Book - Digraph (writing and drawing objects)" },
+            { "time": "11:30-12:00", "subject": "NUMERACY", "activity": "Subtraction - Big numbers" },
+            { "time": "12:00-12:30", "subject": "NUMERACY", "activity": "Subtraction - Big numbers" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel o words" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekStart": "2026-01-12",
+      "weekEnd": "2026-01-16",
+      "dictationWords": ["cube", "tube", "fuse", "tune", "mute", "glue", "blue", "June", "flute", "cure", "jute", "mule"],
+      "days": [
+        {
+          "date": "2026-01-12",
+          "dayOfWeek": "Monday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap on different sound words" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Days of the week" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Days of the week" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Introduction to Seasons" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letters ಪ to ಮ in 2 lines note book" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation long vowel u words" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-13",
+          "dayOfWeek": "Tuesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap on different sound words" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Days of the week" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Backward Counting" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Summer season and its characteristics" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "त्र ज्ञ" },
+            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Little Christmas Tree (Activity)" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-14",
+          "dayOfWeek": "Wednesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "MAKAR SANKRANTI ACTIVITY", "activity": "Celebration activity" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Recap of Preposition (Activity)" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Horizontal addition" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Spring season and its characteristics" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಯ, ರ" },
+            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland (question and answers)" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-15",
+          "dayOfWeek": "Thursday",
+          "isHoliday": true,
+          "holidayName": "Makar Sankranti",
+          "schedule": []
+        },
+        {
+          "date": "2026-01-16",
+          "dayOfWeek": "Friday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Recap activities" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Vertical addition" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Rainy season and its characteristics" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "श्र" },
+            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 51-70" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekStart": "2026-01-19",
+      "weekEnd": "2026-01-23",
+      "dictationWords": [],
+      "days": [
+        {
+          "date": "2026-01-19",
+          "dayOfWeek": "Monday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Different sound of (c)" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Months of Year" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Big numbers addition" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Autumn season and its characteristics" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಲ, ವ" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel o and u words" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-20",
+          "dayOfWeek": "Tuesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Different sound of (g)" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Months of Year" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Ordinal numbers" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Winter season and its characteristics" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Recap of Warn Mala" },
+            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Months of the year" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-21",
+          "dayOfWeek": "Wednesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Fun Time" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Word Formation" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction horizontal" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Activity on Seasons" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಶ, ಷ" },
+            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 71-100" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-22",
+          "dayOfWeek": "Thursday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Picture Talk" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Rearrange the sentence" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction Vertical" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concept Air" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti - Do Akshar wale shabd" },
+            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland (Activity)" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-23",
+          "dayOfWeek": "Friday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Rearrange the sentence" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction big numbers" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concepts done so far" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಸ, ಹ" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "My Literacy - What is your name?" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekStart": "2026-01-26",
+      "weekEnd": "2026-01-30",
+      "dictationWords": [],
+      "days": [
+        {
+          "date": "2026-01-26",
+          "dayOfWeek": "Monday",
+          "isHoliday": true,
+          "holidayName": "Republic Day",
+          "schedule": []
+        },
+        {
+          "date": "2026-01-27",
+          "dayOfWeek": "Tuesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Rebus Story" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Picture Composition" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Backward counting 50-1" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap on Water - Save water" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti" },
+            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel a,e,i,o and u words" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-28",
+          "dayOfWeek": "Wednesday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Picture Description" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Picture Composition" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 2's" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Story: The Greedy dog (Water Reflection)" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಳ" },
+            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 71-100" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-29",
+          "dayOfWeek": "Thursday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Reading time (A)" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Comprehension Passage (Question and Answers)" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 5's" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Uses of water (tip, tip story)" },
+            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti" },
+            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland - Roleplay" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        },
+        {
+          "date": "2026-01-30",
+          "dayOfWeek": "Friday",
+          "isHoliday": false,
+          "schedule": [
+            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
+            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Reading time (A)" },
+            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Reading time (A)" },
+            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
+            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 10's" },
+            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concepts done so far" },
+            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Activity" },
+            { "time": "12:30-12:50", "subject": "SOCIO EMOTIONAL SKILLS", "activity": "" },
+            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+          ]
+        }
+      ]
+    }
+  ],
+  "rhymes": [
+    {
+      "title": "Rainbow Rhyme",
+      "content": "How many colors are there in a rainbow?\nHow many colors do you see?\nViolet, Indigo, Blue, Green, Yellow, Orange and Red\nThere are seven colors in the rainbow"
+    },
+    {
+      "title": "I Am Jumbo The Jet Plane",
+      "content": "I am Jumbo the jet plane\nGetting ready to fly\nI will be roaring down the runway\nAnd up into the sky\nI fly through the fluffy clouds\nWith all my engines humming\nI will radio the airport to tell them I'm coming"
+    },
+    {
+      "title": "Pretty Balloons In The Air",
+      "content": "Pretty balloons in the air,\nLots of colors everywhere.\nRed and Yellow, Green and Blue\nCan you see the colors too?\nPretty balloons in the air,\nLots of colors everywhere."
+    },
+    {
+      "title": "Save Our Nature",
+      "content": "Trees so tall and skies so blue,\nNature is for me and you!\nBirds that sing and flowers that grow,\nLet's protect them, let them grow!\n\nPick up trash and plant a tree,\nKeep the Earth clean as can be.\nTurn off lights and don't waste water,\nLet's be Earth's kind son or daughter!\n\nNature's gift is big and bright,\nLet's all treat it with delight"
+    },
+    {
+      "title": "Seasons",
+      "content": "These are the four seasons of the year\nSpring, Summer, Autumn & Winter\nThe flowers & The leaves are growing fast\nAll spring Long!\nThe flowers on the trees are colourful & bright\nAll summer Long!\nThe flowers & The leaves are falling on the ground\nAll autumn Long!\nThe snow is covering\nThe trees and the ground\nAll winter Long"
+    }
+  ],
+  "shloka": {
+    "sanskrit": "अयं निजः परो वेति गणना लघुचेतसाम् । उदारचरितानां तु वसुधैव कुटम्बकम् ॥",
+    "transliteration": "Ayam nijah Paro veti gananaa laghucetasaam. udaaracaritaanaam tu Vasudha iva kutumbakam.",
+    "meaning": "Thoughts like \"this is mine\", \"that's her\" are only thought by people with narrower minds. For those with broader minds, the whole world is one family."
+  },
+  "story": {
+    "title": "The Brave Boy of Holland",
+    "moral": "Courage and determination can overcome challenges."
+  },
+  "importantDates": [
+    {
+      "date": "2026-01-07",
+      "event": "Goloka Shades 2026",
+      "type": "activity",
+      "description": "School activity event"
+    },
+    {
+      "date": "2026-01-15",
+      "event": "Sankranti Festival Holiday",
+      "type": "holiday",
+      "description": "Makar Sankranti - School closed"
+    },
+    {
+      "date": "2026-01-25",
+      "event": "BGS Marathon",
+      "type": "event",
+      "description": "Annual school marathon event - Register and participate!"
+    },
+    {
+      "date": "2026-01-26",
+      "event": "Republic Day",
+      "type": "holiday",
+      "description": "National holiday - School closed"
+    },
+    {
+      "date": "2026-02-10",
+      "event": "Grandparent's Day",
+      "type": "event",
+      "description": "Special day to celebrate grandparents"
+    },
+    {
+      "date": "2026-03-13",
+      "event": "Graduation Day for PP3",
+      "type": "event",
+      "description": "Graduation ceremony for Pre-Primary 3 students"
+    },
+    {
+      "date": "2026-03-18",
+      "event": "Last Parent Teacher Interaction",
+      "type": "event",
+      "description": "Final PTI for Academic year 2025-26"
+    },
+    {
+      "date": "2026-03-23",
+      "event": "Bridge Course Begins",
+      "type": "activity",
+      "description": "Bridge Course for PP3 to Grade 1 (23-25 March)"
+    },
+    {
+      "date": "2026-04-09",
+      "event": "Summer Camp Begins",
+      "type": "activity",
+      "description": "Summer Camp for PP3 to Grade 1 (9-11 April)"
+    },
+    {
+      "date": "2026-05-21",
+      "event": "School Reopens (PP3 to Grade 1)",
+      "type": "event",
+      "description": "New academic year begins for students moving to Grade 1"
+    },
+    {
+      "date": "2026-05-25",
+      "event": "School Reopens (PP1 & PP2)",
+      "type": "event",
+      "description": "New academic year begins for PP1 to PP2 and PP2 to PP3"
+    }
+  ]
+}

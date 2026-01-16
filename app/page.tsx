@@ -1,65 +1,189 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import DaySchedule from '@/components/DaySchedule';
+import DictationWords from '@/components/DictationWords';
+import MonthSelector from '@/components/MonthSelector';
+import ImportantDates from '@/components/ImportantDates';
+import ShareButton from '@/components/ShareButton';
+import {
+  getMonthData,
+  getDaySchedule,
+  getWeekForDate,
+  formatDate,
+  getAllDates,
+  getAvailableMonths,
+  getCurrentMonthId,
+  getImportantDates,
+  DaySchedule as DayScheduleType,
+  WeekData,
+  MonthInfo,
+  ImportantDate,
+} from '@/lib/data';
 
 export default function Home() {
+  const [selectedMonthId, setSelectedMonthId] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [dayData, setDayData] = useState<DayScheduleType | null>(null);
+  const [weekData, setWeekData] = useState<WeekData | null>(null);
+  const [availableDates, setAvailableDates] = useState<string[]>([]);
+  const [availableMonths, setAvailableMonths] = useState<MonthInfo[]>([]);
+  const [monthData, setMonthData] = useState<{ month: string; year: number; class: string } | null>(null);
+  const [importantDates, setImportantDates] = useState<ImportantDate[]>([]);
+
+  // Initialize months
+  useEffect(() => {
+    const months = getAvailableMonths();
+    setAvailableMonths(months);
+    setSelectedMonthId(getCurrentMonthId());
+  }, []);
+
+  // Update dates when month changes
+  useEffect(() => {
+    if (!selectedMonthId) return;
+
+    const dates = getAllDates(selectedMonthId);
+    setAvailableDates(dates);
+
+    // Default to today if in range, otherwise first available date
+    const today = new Date().toISOString().split('T')[0];
+    const defaultDate = dates.includes(today) ? today : dates[0];
+    setSelectedDate(defaultDate);
+
+    const data = getMonthData(selectedMonthId);
+    setMonthData({ month: data.month, year: data.year, class: data.class });
+    setImportantDates(getImportantDates(selectedMonthId));
+  }, [selectedMonthId]);
+
+  // Update day data when date changes
+  useEffect(() => {
+    if (selectedDate && selectedMonthId) {
+      setDayData(getDaySchedule(selectedDate, selectedMonthId));
+      setWeekData(getWeekForDate(selectedDate, selectedMonthId));
+    }
+  }, [selectedDate, selectedMonthId]);
+
+  const navigateDay = (direction: number) => {
+    const currentIndex = availableDates.indexOf(selectedDate);
+    const newIndex = currentIndex + direction;
+    if (newIndex >= 0 && newIndex < availableDates.length) {
+      setSelectedDate(availableDates[newIndex]);
+    }
+  };
+
+  if (!dayData || !monthData) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    );
+  }
+
+  const currentIndex = availableDates.indexOf(selectedDate);
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < availableDates.length - 1;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="max-w-4xl mx-auto px-4 py-6">
+      {/* Header */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-1">
+          <MonthSelector
+            months={availableMonths}
+            selectedMonthId={selectedMonthId}
+            onMonthChange={setSelectedMonthId}
+          />
+          <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">
+            {monthData.class}
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <h1 className="text-2xl font-bold text-gray-900">Daily Schedule</h1>
+      </div>
+
+      {/* Date Navigator */}
+      <div className="flex items-center justify-between mb-6 bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
+        <button
+          onClick={() => navigateDay(-1)}
+          disabled={!hasPrev}
+          className={`p-2 rounded-lg transition-colors ${
+            hasPrev
+              ? 'hover:bg-gray-100 text-gray-700'
+              : 'text-gray-300 cursor-not-allowed'
+          }`}
+        >
+          ← Previous
+        </button>
+
+        <select
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+          className="bg-orange-50 border border-orange-200 rounded-lg px-4 py-2 font-medium text-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-300"
+        >
+          {availableDates.map((date) => (
+            <option key={date} value={date}>
+              {formatDate(date)}
+            </option>
+          ))}
+        </select>
+
+        <button
+          onClick={() => navigateDay(1)}
+          disabled={!hasNext}
+          className={`p-2 rounded-lg transition-colors ${
+            hasNext
+              ? 'hover:bg-gray-100 text-gray-700'
+              : 'text-gray-300 cursor-not-allowed'
+          }`}
+        >
+          Next →
+        </button>
+      </div>
+
+      {/* Day Schedule */}
+      <DaySchedule day={dayData} showHeader={false} />
+
+      {/* Share Buttons */}
+      <div className="mt-4 flex justify-end">
+        <ShareButton day={dayData} />
+      </div>
+
+      {/* Dictation Words */}
+      {weekData && weekData.dictationWords.length > 0 && (
+        <div className="mt-6">
+          <DictationWords words={weekData.dictationWords} />
         </div>
-      </main>
+      )}
+
+      {/* Important Dates */}
+      {importantDates.length > 0 && (
+        <div className="mt-6">
+          <ImportantDates dates={importantDates} title="Upcoming Important Dates" />
+        </div>
+      )}
+
+      {/* Quick Links */}
+      <div className="mt-6 grid grid-cols-2 gap-4">
+        <Link
+          href={`/week?month=${selectedMonthId}`}
+          className="bg-white rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all"
+        >
+          <div className="text-2xl mb-2">📆</div>
+          <div className="font-semibold text-gray-800">View Full Week</div>
+          <div className="text-sm text-gray-500">See all activities for the week</div>
+        </Link>
+        <Link
+          href={`/rhymes?month=${selectedMonthId}`}
+          className="bg-white rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all"
+        >
+          <div className="text-2xl mb-2">🎵</div>
+          <div className="font-semibold text-gray-800">Rhymes & Shloka</div>
+          <div className="text-sm text-gray-500">This month&apos;s songs and verses</div>
+        </Link>
+      </div>
     </div>
   );
 }

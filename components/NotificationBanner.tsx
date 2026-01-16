@@ -1,0 +1,118 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import {
+  Announcement,
+  getAnnouncements,
+  getUpcomingEvents,
+  getTodayEvent,
+  formatShortDate,
+  ImportantDate,
+} from '@/lib/data';
+
+interface BannerItem {
+  message: string;
+  type: 'info' | 'warning' | 'holiday' | 'important' | 'event' | 'activity';
+  isToday?: boolean;
+}
+
+export default function NotificationBanner() {
+  const [bannerItems, setBannerItems] = useState<BannerItem[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const items: BannerItem[] = [];
+
+    // Check for today's event first (highest priority)
+    const todayEvent = getTodayEvent();
+    if (todayEvent) {
+      items.push({
+        message: `TODAY: ${todayEvent.event} - ${todayEvent.description}`,
+        type: todayEvent.type,
+        isToday: true,
+      });
+    }
+
+    // Add manual announcements
+    const announcements = getAnnouncements();
+    for (const a of announcements) {
+      items.push({
+        message: a.message,
+        type: a.type,
+      });
+    }
+
+    // Add upcoming events (next 3 days) if not already today
+    const upcomingEvents = getUpcomingEvents(3);
+    for (const event of upcomingEvents) {
+      // Skip if it's today's event (already added)
+      if (todayEvent && event.date === todayEvent.date) continue;
+
+      const daysUntil = Math.ceil(
+        (new Date(event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      let prefix = '';
+      if (daysUntil === 1) {
+        prefix = 'TOMORROW: ';
+      } else if (daysUntil === 2) {
+        prefix = 'In 2 days: ';
+      } else {
+        prefix = `${formatShortDate(event.date)}: `;
+      }
+
+      items.push({
+        message: `${prefix}${event.event}`,
+        type: event.type,
+      });
+    }
+
+    setBannerItems(items);
+  }, []);
+
+  useEffect(() => {
+    if (bannerItems.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % bannerItems.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [bannerItems.length]);
+
+  if (bannerItems.length === 0) return null;
+
+  const current = bannerItems[currentIndex];
+
+  const typeStyles: Record<string, string> = {
+    info: 'bg-blue-600',
+    warning: 'bg-amber-500',
+    holiday: 'bg-red-600',
+    important: 'bg-red-600',
+    event: 'bg-indigo-600',
+    activity: 'bg-green-600',
+  };
+
+  const typeIcons: Record<string, string> = {
+    info: '📢',
+    warning: '⚠️',
+    holiday: '🎉',
+    important: '❗',
+    event: '📅',
+    activity: '🎨',
+  };
+
+  return (
+    <div className={`${typeStyles[current.type]} text-white py-2 px-4 ${current.isToday ? 'animate-pulse' : ''}`}>
+      <div className="max-w-4xl mx-auto flex items-center justify-center gap-2">
+        <span className="text-lg">{typeIcons[current.type]}</span>
+        <span className="font-medium text-sm sm:text-base">{current.message}</span>
+        {bannerItems.length > 1 && (
+          <span className="ml-2 text-xs opacity-75">
+            ({currentIndex + 1}/{bannerItems.length})
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
