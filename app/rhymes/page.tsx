@@ -1,9 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getMonthData, Rhyme } from '@/lib/data';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { getMonthData, Rhyme, getAvailableMonths, getCurrentMonthId, MonthInfo } from '@/lib/data';
+import MonthSelector from '@/components/MonthSelector';
 
-export default function RhymesPage() {
+function RhymesContent() {
+  const searchParams = useSearchParams();
+  const urlMonth = searchParams.get('month');
+
+  const [selectedMonthId, setSelectedMonthId] = useState<string>('');
   const [rhymes, setRhymes] = useState<Rhyme[]>([]);
   const [shloka, setShloka] = useState<{
     sanskrit: string;
@@ -12,14 +18,33 @@ export default function RhymesPage() {
   } | null>(null);
   const [story, setStory] = useState<{ title: string; moral: string } | null>(null);
   const [monthInfo, setMonthInfo] = useState<{ month: string; year: number } | null>(null);
+  const [availableMonths, setAvailableMonths] = useState<MonthInfo[]>([]);
 
+  // Initialize months
   useEffect(() => {
-    const data = getMonthData();
+    const months = getAvailableMonths();
+    setAvailableMonths(months);
+    const defaultMonth = urlMonth || getCurrentMonthId();
+    setSelectedMonthId(defaultMonth);
+  }, []);
+
+  // Handle URL month parameter changes
+  useEffect(() => {
+    if (urlMonth && availableMonths.length > 0) {
+      setSelectedMonthId(urlMonth);
+    }
+  }, [urlMonth, availableMonths]);
+
+  // Update data when month changes
+  useEffect(() => {
+    if (!selectedMonthId) return;
+
+    const data = getMonthData(selectedMonthId);
     setRhymes(data.rhymes);
     setShloka(data.shloka);
     setStory(data.story);
     setMonthInfo({ month: data.month, year: data.year });
-  }, []);
+  }, [selectedMonthId]);
 
   if (!monthInfo) {
     return (
@@ -36,8 +61,12 @@ export default function RhymesPage() {
     <div className="max-w-4xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
-        <div className="text-sm text-gray-500 mb-1">
-          {monthInfo.month} {monthInfo.year}
+        <div className="flex items-center justify-between mb-1">
+          <MonthSelector
+            months={availableMonths}
+            selectedMonthId={selectedMonthId}
+            onMonthChange={setSelectedMonthId}
+          />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Rhymes & Shloka</h1>
         <p className="text-sm text-gray-500">Practice these at home with your child</p>
@@ -98,5 +127,20 @@ export default function RhymesPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function RhymesPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    }>
+      <RhymesContent />
+    </Suspense>
   );
 }

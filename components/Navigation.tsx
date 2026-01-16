@@ -7,10 +7,10 @@ export default function Navigation() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: 'Today', icon: '📅' },
-    { href: '/week', label: 'Week', icon: '📆' },
-    { href: '/month', label: 'Month', icon: '🗓️' },
-    { href: '/dates', label: 'Events', icon: '📌' },
+    { href: '/', label: 'Today', icon: '☀️' },
+    { href: '/week', label: 'Week', icon: '📊' },
+    { href: '/month', label: 'Month', icon: '📅' },
+    { href: '/dates', label: 'Events', icon: '🎯' },
     { href: '/rhymes', label: 'Rhymes', icon: '🎵' },
     { href: '/admin', label: 'Admin', icon: '⚙️' },
   ];
@@ -30,11 +30,10 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isActive
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive
                       ? 'bg-orange-100 text-orange-700'
                       : 'text-gray-600 hover:bg-gray-100'
-                  }`}
+                    }`}
                 >
                   <span className="sm:hidden">{link.icon}</span>
                   <span className="hidden sm:inline">{link.label}</span>

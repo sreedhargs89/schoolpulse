@@ -1,15 +1,40 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { getMonthData, DaySchedule as DayScheduleType } from '@/lib/data';
+import { getMonthData, DaySchedule as DayScheduleType, getAvailableMonths, getCurrentMonthId, MonthInfo } from '@/lib/data';
+import MonthSelector from '@/components/MonthSelector';
 
-export default function MonthPage() {
+function MonthViewContent() {
+  const searchParams = useSearchParams();
+  const urlMonth = searchParams.get('month');
+
+  const [selectedMonthId, setSelectedMonthId] = useState<string>('');
   const [monthInfo, setMonthInfo] = useState<{ month: string; year: number } | null>(null);
   const [daysMap, setDaysMap] = useState<Map<string, DayScheduleType>>(new Map());
+  const [availableMonths, setAvailableMonths] = useState<MonthInfo[]>([]);
 
+  // Initialize months
   useEffect(() => {
-    const data = getMonthData();
+    const months = getAvailableMonths();
+    setAvailableMonths(months);
+    const defaultMonth = urlMonth || getCurrentMonthId();
+    setSelectedMonthId(defaultMonth);
+  }, []);
+
+  // Handle URL month parameter changes
+  useEffect(() => {
+    if (urlMonth && availableMonths.length > 0) {
+      setSelectedMonthId(urlMonth);
+    }
+  }, [urlMonth, availableMonths]);
+
+  // Update data when month changes
+  useEffect(() => {
+    if (!selectedMonthId) return;
+
+    const data = getMonthData(selectedMonthId);
     setMonthInfo({ month: data.month, year: data.year });
 
     const map = new Map<string, DayScheduleType>();
@@ -19,7 +44,7 @@ export default function MonthPage() {
       }
     }
     setDaysMap(map);
-  }, []);
+  }, [selectedMonthId]);
 
   if (!monthInfo) {
     return (
@@ -75,6 +100,13 @@ export default function MonthPage() {
     <div className="max-w-4xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
+        <div className="flex items-center justify-between mb-2">
+          <MonthSelector
+            months={availableMonths}
+            selectedMonthId={selectedMonthId}
+            onMonthChange={setSelectedMonthId}
+          />
+        </div>
         <h1 className="text-2xl font-bold text-gray-900">
           {monthInfo.month} {monthInfo.year}
         </h1>
@@ -114,19 +146,17 @@ export default function MonthPage() {
                 <Link
                   href={`/?date=${dateStr}`}
                   key={dayIndex}
-                  className={`h-24 p-2 border-r border-gray-100 last:border-r-0 hover:bg-orange-50 transition-colors ${
-                    isWeekend && !hasSchedule ? 'bg-gray-50' : ''
-                  } ${isToday ? 'ring-2 ring-orange-400 ring-inset' : ''}`}
+                  className={`h-24 p-2 border-r border-gray-100 last:border-r-0 hover:bg-orange-50 transition-colors ${isWeekend && !hasSchedule ? 'bg-gray-50' : ''
+                    } ${isToday ? 'ring-2 ring-orange-400 ring-inset' : ''}`}
                 >
                   <div className="flex flex-col h-full">
                     <span
-                      className={`text-sm font-medium ${
-                        isHoliday
-                          ? 'text-orange-600'
-                          : isWeekend
+                      className={`text-sm font-medium ${isHoliday
+                        ? 'text-orange-600'
+                        : isWeekend
                           ? 'text-gray-400'
                           : 'text-gray-700'
-                      }`}
+                        }`}
                     >
                       {day}
                     </span>
@@ -170,5 +200,20 @@ export default function MonthPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function MonthPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    }>
+      <MonthViewContent />
+    </Suspense>
   );
 }

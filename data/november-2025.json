@@ -1,0 +1,1155 @@
+{
+    "month": "November",
+    "year": 2025,
+    "class": "PP3",
+    "school": "BGS National Public School",
+    "weeks": [
+        {
+            "weekStart": "2025-11-03",
+            "weekEnd": "2025-11-07",
+            "dictationWords": [
+                "cat",
+                "bat",
+                "hat",
+                "mat",
+                "rat",
+                "sat",
+                "fat",
+                "pat",
+                "vat",
+                "flat",
+                "chat",
+                "that"
+            ],
+            "days": [
+                {
+                    "date": "2025-11-03",
+                    "dayOfWeek": "Monday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Writing exercises"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Counting activities"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Number recognition"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Letter practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Story time"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-04",
+                    "dayOfWeek": "Tuesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Phonics practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Word building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Addition basics"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Nature study"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Letter practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Reading comprehension"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-05",
+                    "dayOfWeek": "Wednesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Sentence formation"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Creative writing"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Shapes and patterns"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Environmental awareness"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Word formation"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "ART",
+                            "activity": "Drawing and coloring"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-06",
+                    "dayOfWeek": "Thursday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Vocabulary building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Subtraction basics"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Community helpers"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Conversation practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "STORY",
+                            "activity": "Story narration"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-07",
+                    "dayOfWeek": "Friday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "General Assembly",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Weekly review"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Fun activities"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Math games"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Problem solving"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Review activities"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Dictation practice"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "weekStart": "2025-11-10",
+            "weekEnd": "2025-11-14",
+            "dictationWords": [
+                "pen",
+                "hen",
+                "ten",
+                "den",
+                "men",
+                "then",
+                "when",
+                "glen",
+                "wren",
+                "fen",
+                "zen",
+                "ken"
+            ],
+            "days": [
+                {
+                    "date": "2025-11-10",
+                    "dayOfWeek": "Monday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading comprehension"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Grammar basics"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Number patterns"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Measurement activities"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Creative writing"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-11",
+                    "dayOfWeek": "Tuesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Phonics review"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Sentence building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Addition practice"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Seasons and weather"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Vocabulary building"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "STORY",
+                            "activity": "Story comprehension"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-12",
+                    "dayOfWeek": "Wednesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading fluency"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Writing practice"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Subtraction practice"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Animals and habitats"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Conversation practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "ART",
+                            "activity": "Craft activities"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-13",
+                    "dayOfWeek": "Thursday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Comprehension skills"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Story sequencing"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Time concepts"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Health and hygiene"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Vocabulary review"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-14",
+                    "dayOfWeek": "Friday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "General Assembly",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Weekly assessment"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Fun reading"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Math review"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Games and activities"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Cultural activities"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "SOCIO EMOTIONAL SKILLS",
+                            "activity": ""
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "weekStart": "2025-11-17",
+            "weekEnd": "2025-11-21",
+            "dictationWords": [
+                "big",
+                "dig",
+                "fig",
+                "jig",
+                "pig",
+                "wig",
+                "twig",
+                "gig",
+                "rig",
+                "swig",
+                "brig",
+                "sprig"
+            ],
+            "days": [
+                {
+                    "date": "2025-11-17",
+                    "dayOfWeek": "Monday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Writing exercises"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Counting activities"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Number recognition"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Letter practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Story time"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-18",
+                    "dayOfWeek": "Tuesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Phonics practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Word building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Addition basics"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Nature study"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Letter practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Reading comprehension"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-19",
+                    "dayOfWeek": "Wednesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Sentence formation"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Creative writing"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Shapes and patterns"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Environmental awareness"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Word formation"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "ART",
+                            "activity": "Drawing and coloring"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-20",
+                    "dayOfWeek": "Thursday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Vocabulary building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Subtraction basics"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Community helpers"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Conversation practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "STORY",
+                            "activity": "Story narration"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-21",
+                    "dayOfWeek": "Friday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "General Assembly",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Weekly review"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Fun activities"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Math games"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Problem solving"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Review activities"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "SOCIO EMOTIONAL SKILLS",
+                            "activity": ""
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "weekStart": "2025-11-24",
+            "weekEnd": "2025-11-28",
+            "dictationWords": [
+                "hot",
+                "pot",
+                "dot",
+                "lot",
+                "cot",
+                "got",
+                "not",
+                "rot",
+                "shot",
+                "spot",
+                "plot",
+                "knot"
+            ],
+            "days": [
+                {
+                    "date": "2025-11-24",
+                    "dayOfWeek": "Monday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading comprehension"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Grammar basics"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Number patterns"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Measurement activities"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Creative writing"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-25",
+                    "dayOfWeek": "Tuesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Phonics review"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Sentence building"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Addition practice"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Seasons and weather"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Vocabulary building"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "STORY",
+                            "activity": "Story comprehension"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-26",
+                    "dayOfWeek": "Wednesday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Reading fluency"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Writing practice"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Subtraction practice"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Animals and habitats"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Conversation practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "ART",
+                            "activity": "Craft activities"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-27",
+                    "dayOfWeek": "Thursday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "Prayer/Rhymes & Circle Time",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Comprehension skills"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Story sequencing"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Time concepts"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "GENERAL AWARENESS",
+                            "activity": "Health and hygiene"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "HINDI",
+                            "activity": "Reading practice"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Vocabulary review"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                },
+                {
+                    "date": "2025-11-28",
+                    "dayOfWeek": "Friday",
+                    "isHoliday": false,
+                    "schedule": [
+                        {
+                            "time": "9:10-9:30",
+                            "subject": "General Assembly",
+                            "activity": ""
+                        },
+                        {
+                            "time": "9:30-10:00",
+                            "subject": "LITERACY",
+                            "activity": "Monthly assessment"
+                        },
+                        {
+                            "time": "10:00-10:30",
+                            "subject": "LITERACY",
+                            "activity": "Fun reading"
+                        },
+                        {
+                            "time": "10:30-11:00",
+                            "subject": "Snack Break",
+                            "activity": ""
+                        },
+                        {
+                            "time": "11:00-11:30",
+                            "subject": "NUMERACY",
+                            "activity": "Math review"
+                        },
+                        {
+                            "time": "11:30-12:00",
+                            "subject": "NUMERACY",
+                            "activity": "Games and activities"
+                        },
+                        {
+                            "time": "12:00-12:30",
+                            "subject": "KANNADA",
+                            "activity": "Cultural activities"
+                        },
+                        {
+                            "time": "12:30-12:50",
+                            "subject": "LITERACY",
+                            "activity": "Dictation practice"
+                        },
+                        {
+                            "time": "12:50-1:00",
+                            "subject": "Meditation",
+                            "activity": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "rhymes": [
+        {
+            "title": "November Song",
+            "content": "November days are here,\nAutumn leaves appear,\nCool breeze in the air,\nJoy and fun everywhere!"
+        },
+        {
+            "title": "Counting Rhyme",
+            "content": "One, two, three, four, five,\nOnce I caught a fish alive,\nSix, seven, eight, nine, ten,\nThen I let it go again!"
+        }
+    ],
+    "shloka": {
+        "sanskrit": "सत्यं वद धर्मं चर",
+        "transliteration": "Satyam vada, dharmam chara",
+        "meaning": "Speak the truth, follow righteousness"
+    },
+    "story": {
+        "title": "The Helpful Squirrel",
+        "moral": "Helping others brings happiness"
+    },
+    "importantDates": [
+        {
+            "date": "2025-11-14",
+            "event": "Children's Day",
+            "type": "event",
+            "description": "Celebration of Children's Day"
+        }
+    ]
+}

@@ -43,9 +43,8 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
           return (
             <div
               key={index}
-              className={`flex items-start gap-3 p-3 rounded-lg border ${style.bg} ${style.border} ${
-                todayHighlight ? 'ring-2 ring-orange-400' : ''
-              } ${past ? 'opacity-50' : ''}`}
+              className={`flex items-start gap-3 p-3 rounded-lg border ${style.bg} ${style.border} ${todayHighlight ? 'ring-2 ring-orange-400' : ''
+                } ${past ? 'opacity-50' : ''}`}
             >
               <div className="text-xl">{style.icon}</div>
               <div className="flex-1 min-w-0">
@@ -67,9 +66,12 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
         })}
       </div>
       {!showAll && dates.filter(d => d.date >= today).length > 5 && (
-        <p className="text-xs text-gray-500 mt-3 text-center">
-          + {dates.filter(d => d.date >= today).length - 5} more dates
-        </p>
+        <div className="text-xs text-gray-500 mt-3 text-center">
+          <span className="bg-gray-100 px-2 py-1 rounded">
+            + {dates.filter(d => d.date >= today).length - 5} more upcoming events
+          </span>
+          <p className="mt-1 text-gray-400">Visit Events page to see all dates</p>
+        </div>
       )}
     </div>
   );

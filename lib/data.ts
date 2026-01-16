@@ -2,6 +2,8 @@ import monthsIndex from '@/data/months-index.json';
 import announcementsData from '@/data/announcements.json';
 
 // Import all month data files
+import november2025 from '@/data/november-2025.json';
+import december2025 from '@/data/december-2025.json';
 import january2026 from '@/data/january-2026.json';
 
 export interface ScheduleItem {
@@ -73,6 +75,8 @@ export interface Announcement {
 
 // Map of month IDs to their data
 const monthDataMap: Record<string, MonthData> = {
+  'november-2025': november2025 as MonthData,
+  'december-2025': december2025 as MonthData,
   'january-2026': january2026 as MonthData,
   // Add more months here as they are created:
   // 'february-2026': february2026 as MonthData,
@@ -82,7 +86,32 @@ export function getAvailableMonths(): MonthInfo[] {
   return monthsIndex.months;
 }
 
+export function findMonthForDate(date: string): string | null {
+  const months = getAvailableMonths();
+  for (const month of months) {
+    const data = monthDataMap[month.id];
+    if (data) {
+      for (const week of data.weeks) {
+        if (week.days.some((d) => d.date === date)) {
+          return month.id;
+        }
+      }
+    }
+  }
+  return null;
+}
+
 export function getCurrentMonthId(): string {
+  // Try to find the month that contains today's date
+  const today = new Date().toISOString().split('T')[0];
+  const monthForToday = findMonthForDate(today);
+
+  // If today's date is found in any month data, use that month
+  if (monthForToday) {
+    return monthForToday;
+  }
+
+  // Otherwise, fall back to the configured current month
   return monthsIndex.currentMonth;
 }
 
@@ -152,21 +181,6 @@ export function getAllDates(monthId?: string): string[] {
     }
   }
   return dates.sort();
-}
-
-export function findMonthForDate(date: string): string | null {
-  const months = getAvailableMonths();
-  for (const month of months) {
-    const data = monthDataMap[month.id];
-    if (data) {
-      for (const week of data.weeks) {
-        if (week.days.some((d) => d.date === date)) {
-          return month.id;
-        }
-      }
-    }
-  }
-  return null;
 }
 
 export function getImportantDates(monthId?: string): ImportantDate[] {
