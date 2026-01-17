@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { fetchExternalUpdates } from '@/app/actions';
 import {
   getUpcomingEvents,
   getTodayEvent,
   formatShortDate,
-  getExternalUpdates,
   Announcement
 } from '@/lib/data';
 
@@ -23,7 +23,7 @@ export default function RecentUpdates() {
       const today = new Date().toISOString().split('T')[0];
 
       // 1. Fetch from Google Sheets
-      const externalUpdates = await getExternalUpdates();
+      const externalUpdates = await fetchExternalUpdates();
 
       // 2. Get today's events from lib/data.ts (System events)
       const todayEvent = getTodayEvent();

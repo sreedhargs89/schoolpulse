@@ -1,0 +1,171 @@
+'use server';
+
+import { Announcement } from '@/lib/data';
+
+export async function fetchExternalUpdates(): Promise<Announcement[]> {
+    const SHEET_URL = process.env.NEXT_PUBLIC_UPDATES_SHEET_URL;
+
+    console.log('SERVER ACTION: Fetching updates...');
+
+    if (!SHEET_URL) {
+        console.error('SERVER ACTION ERROR: NEXT_PUBLIC_UPDATES_SHEET_URL is missing');
+        return [];
+    }
+
+    console.log('SERVER ACTION: URL is:', SHEET_URL);
+
+    try {
+        const response = await fetch(SHEET_URL, {
+            next: { revalidate: 0 }, // No cache
+            cache: 'no-store'
+        });
+
+        console.log('SERVER ACTION: Response status:', response.status);
+
+        if (!response.ok) {
+            console.error('SERVER ACTION ERROR: Failed to fetch CSV', response.status, response.statusText);
+            return [];
+        }
+
+        const csvData = await response.text();
+        console.log('SERVER ACTION: CSV Data received, length:', csvData.length);
+        console.log('SERVER ACTION: Start of CSV:', csvData.substring(0, 100));
+
+        // Simple CSV Parser
+        const parseCSV = (text: string) => {
+            const rows: string[][] = [];
+            let currentRow: string[] = [];
+            let currentCell = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (char === '"') inQuotes = !inQuotes;
+                else if (char === ',' && !inQuotes) {
+                    currentRow.push(currentCell.trim());
+                    currentCell = '';
+                } else if (char === '\n' && !inQuotes) {
+                    currentRow.push(currentCell.trim());
+                    rows.push(currentRow);
+                    currentRow = [];
+                    currentCell = '';
+                } else {
+                    currentCell += char;
+                }
+            }
+            if (currentCell || currentRow.length > 0) {
+                currentRow.push(currentCell.trim());
+                rows.push(currentRow);
+            }
+            return rows;
+        };
+
+        const rows = parseCSV(csvData);
+        if (rows.length < 2) {
+            console.warn('SERVER ACTION: CSV has fewer than 2 rows (no data?)');
+            return [];
+        }
+
+        // Find header
+        let headerRowIndex = -1;
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i].map(c => c.toLowerCase().trim());
+            if (row.includes('category') && row.includes('title')) {
+                headerRowIndex = i;
+                break;
+            }
+        }
+
+        if (headerRowIndex === -1) {
+            console.warn('SERVER ACTION: Could not find header row');
+            return [];
+        }
+
+        const row0 = rows[headerRowIndex].map(h => h.toLowerCase().trim());
+        const headerMap = {
+            status: row0.indexOf('status'),
+            category: row0.indexOf('category'),
+            title: row0.indexOf('title'),
+            message: row0.indexOf('notification message'),
+            action: row0.indexOf('action'),
+            link: row0.indexOf('link to action'),
+            date: row0.indexOf('date'),
+            expires: row0.indexOf('expires')
+        };
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const parseSheetDate = (dateStr: string) => {
+            if (!dateStr || dateStr === '-') return null;
+            const date = new Date(dateStr);
+            return isNaN(date.getTime()) ? null : date;
+        };
+
+        const updates = rows.slice(headerRowIndex + 1).map((row, idx) => {
+            try {
+                const status = row[headerMap.status] || '';
+                const category = row[headerMap.category] || '';
+                const title = row[headerMap.title] || '';
+
+                if (!category && !title) return null;
+
+                const message = row[headerMap.message] || '';
+                const actionText = row[headerMap.action] === '-' ? '' : row[headerMap.action];
+                const link = row[headerMap.link] === '-' ? '' : row[headerMap.link];
+                const date = row[headerMap.date] || '';
+                const expires = row[headerMap.expires] || '';
+
+                let priority = 3;
+                let type: any = 'info';
+
+                if (category.toLowerCase().includes('urgent')) {
+                    priority = 1;
+                    type = 'urgent';
+                } else if (category.toLowerCase().includes('holiday')) {
+                    priority = 2;
+                    type = 'holiday';
+                } else if (category.toLowerCase().includes('school')) {
+                    priority = 2;
+                    type = 'notice';
+                } else if (category.toLowerCase().includes('home')) {
+                    priority = 2;
+                    type = 'info';
+                }
+
+                return {
+                    id: idx + 1,
+                    status,
+                    priority,
+                    category,
+                    title,
+                    message,
+                    type,
+                    link,
+                    linkText: actionText,
+                    createdAt: date,
+                    expiresAt: expires
+                } as Announcement;
+            } catch (err) {
+                return null;
+            }
+        }).filter((u): u is Announcement => u !== null).filter(u => {
+            // 1. Inactive -> Hide
+            if (u.status && u.status.toLowerCase().trim() === 'inactive') return false;
+            // 2. Empty -> Show Always
+            if (!u.status || u.status.trim() === '') return true;
+            // 3. Active -> Check Date
+            const expiry = parseSheetDate(u.expiresAt);
+            if (!expiry) return true;
+            expiry.setHours(23, 59, 59, 999);
+            return expiry >= today;
+        });
+
+        console.log('SERVER ACTION: Processed updates count:', updates.length);
+        return updates.sort((a, b) => (a.priority || 3) - (b.priority || 3));
+
+    } catch (error) {
+        console.error('SERVER ACTION ERROR: Exception during fetch/parse', error);
+        return [];
+    }
+}

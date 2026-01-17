@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { fetchExternalUpdates } from '@/app/actions';
 import {
-  getExternalUpdates,
   getUpcomingEvents,
   getTodayEvent,
   formatShortDate,
@@ -34,7 +34,7 @@ export default function NotificationBanner() {
       }
 
       // Add external updates (from Google Sheet)
-      const externalUpdates = await getExternalUpdates();
+      const externalUpdates = await fetchExternalUpdates();
       // Only show high priority or specific updates in banner to avoid clutter?
       // Or show all. Let's show all for now as per previous logic.
       for (const a of externalUpdates) {
