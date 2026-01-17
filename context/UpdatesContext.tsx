@@ -31,7 +31,15 @@ export function UpdatesProvider({ children }: { children: ReactNode }) {
     };
 
     useEffect(() => {
+        // Initial fetch
         loadUpdates();
+
+        // Auto-refresh every 5 minutes
+        const intervalId = setInterval(() => {
+            loadUpdates();
+        }, 5 * 60 * 1000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     return (
