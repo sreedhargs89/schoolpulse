@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import DaySchedule from '@/components/DaySchedule';
 import DictationWords from '@/components/DictationWords';
+import WeekendRevision from '@/components/WeekendRevision';
 import { getMonthData, WeekData, formatShortDate } from '@/lib/data';
 
 export default function WeekPage() {
@@ -38,6 +39,16 @@ export default function WeekPage() {
 
   const selectedWeek = weeks[selectedWeekIndex];
 
+  // Find Saturday's revision content for this week
+  const saturdayRevision = selectedWeek.days.find(
+    day => day.dayOfWeek === 'Saturday' && day.isWeekendRevision && day.weekendRevisionContent
+  );
+
+  // Filter to show only holidays (not weekend revision, not Sunday, not regular weekdays)
+  const specialDays = selectedWeek.days.filter(day =>
+    day.isHoliday && !day.isWeekendRevision && day.dayOfWeek !== 'Sunday'
+  );
+
   return (
     <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
       {/* Week Selector */}
@@ -56,6 +67,16 @@ export default function WeekPage() {
         ))}
       </div>
 
+      {/* Week Revision Summary (if available) */}
+      {saturdayRevision && saturdayRevision.weekendRevisionContent && (
+        <div className="mb-6">
+          <WeekendRevision
+            content={saturdayRevision.weekendRevisionContent}
+            date={saturdayRevision.date}
+          />
+        </div>
+      )}
+
       {/* Dictation Words for the Week */}
       {selectedWeek.dictationWords.length > 0 && (
         <div className="mb-6">
@@ -63,12 +84,15 @@ export default function WeekPage() {
         </div>
       )}
 
-      {/* Days of the Week */}
-      <div className="space-y-4">
-        {selectedWeek.days.map((day) => (
-          <DaySchedule key={day.date} day={day} compact />
-        ))}
-      </div>
+      {/* Special Days (Holidays, Events) */}
+      {specialDays.length > 0 && (
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-800">🎉 Special Days This Week</h3>
+          {specialDays.map((day) => (
+            <DaySchedule key={day.date} day={day} compact />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -18,6 +18,7 @@ import {
   getAvailableMonths,
   getCurrentMonthId,
   getImportantDates,
+  findMonthForDate,
   DaySchedule as DayScheduleType,
   WeekData,
   MonthInfo,
@@ -61,8 +62,21 @@ function HomeContent() {
     const today = new Date().toISOString().split('T')[0];
 
     // Priority 1: URL parameter (deep linking)
-    if (urlDate && dates.includes(urlDate)) {
-      setSelectedDate(urlDate);
+    if (urlDate) {
+      // Check if URL date is in current month
+      if (dates.includes(urlDate)) {
+        setSelectedDate(urlDate);
+      } else {
+        // URL date is from a different month - find and switch to that month
+        const correctMonth = findMonthForDate(urlDate);
+        if (correctMonth && correctMonth !== selectedMonthId) {
+          setSelectedMonthId(correctMonth);
+          return; // Let the next effect handle setting the date
+        } else if (correctMonth === selectedMonthId) {
+          // Month is correct but date not found - use first date
+          setSelectedDate(dates[0]);
+        }
+      }
     }
     // Priority 2: Today's date if it exists in this month (default behavior)
     else if (!urlDate && dates.includes(today)) {
@@ -76,7 +90,7 @@ function HomeContent() {
     const data = getMonthData(selectedMonthId);
     setMonthData({ month: data.month, year: data.year, class: data.class });
     setImportantDates(getImportantDates(selectedMonthId));
-  }, [selectedMonthId]);
+  }, [selectedMonthId, urlDate]);
 
   // Update day data when date changes
   useEffect(() => {

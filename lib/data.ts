@@ -14,9 +14,9 @@ export interface ScheduleItem {
 
 export interface WeekendRevisionContent {
   weekCovered: string;
-  literacy: string[];
-  numeracy: string[];
-  generalAwareness: string[];
+  subjects: {
+    [key: string]: string[]; // Dynamic subject names with their topics
+  };
 }
 
 export interface DaySchedule {

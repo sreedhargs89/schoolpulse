@@ -30,18 +30,20 @@
           "isWeekendRevision": true,
           "weekendRevisionContent": {
             "weekCovered": "Jan 1-2, 2026",
-            "literacy": [
-              "Winter Break - No classes this week",
-              "Enjoy reading storybooks at home"
-            ],
-            "numeracy": [
-              "Winter Break - No classes this week",
-              "Practice counting and number recognition"
-            ],
-            "generalAwareness": [
-              "Winter Break - No classes this week",
-              "Enjoy time with family and friends"
-            ]
+            "subjects": {
+              "Literacy": [
+                "Winter Break - No classes this week",
+                "Enjoy reading storybooks at home"
+              ],
+              "Numeracy": [
+                "Winter Break - No classes this week",
+                "Practice counting and number recognition"
+              ],
+              "General Awareness": [
+                "Winter Break - No classes this week",
+                "Enjoy time with family and friends"
+              ]
+            }
           },
           "schedule": []
         },
@@ -339,24 +341,40 @@
           "isWeekendRevision": true,
           "weekendRevisionContent": {
             "weekCovered": "Jan 5-9, 2026",
-            "literacy": [
-              "Digraphs: Words ending with ff, zz, ss",
-              "Words ending with ar, er, ir, or, ur, ou, ow, oy, oi",
-              "Use of 'It is' and 'I am'",
-              "Reading and framing sentences",
-              "Dictation: Long vowel 'o' words (boat, foam, cone, coal, rose, bow, road, soak, goat, hope, note, load)"
-            ],
-            "numeracy": [
-              "Subtraction - hands on activity",
-              "Subtraction - take away method",
-              "Concept of zero in subtraction",
-              "Horizontal subtraction",
-              "Matching and big numbers"
-            ],
-            "generalAwareness": [
-              "Save Our Nature - importance of environment",
-              "How trees and plants help us"
-            ]
+            "subjects": {
+              "Literacy": [
+                "Digraphs: Words ending with ff, zz, ss",
+                "Words ending with ar, er, ir, or, ur, ou, ow, oy, oi",
+                "Use of 'It is' and 'I am'",
+                "Reading and framing sentences",
+                "Dictation: Long vowel 'o' words (boat, foam, cone, coal, rose, bow, road, soak, goat, hope, note, load)"
+              ],
+              "Numeracy": [
+                "Subtraction - hands on activity",
+                "Subtraction - take away method",
+                "Concept of zero in subtraction",
+                "Horizontal subtraction",
+                "Matching and big numbers"
+              ],
+              "General Awareness": [
+                "Save Our Nature - importance of environment",
+                "How trees and plants help us"
+              ],
+              "Kannada": [
+                "Letter ಮ",
+                "Numbers 1-10 - Activity on letters learnt"
+              ],
+              "Hindi": [
+                "ष स",
+                "ह क्ष"
+              ],
+              "Story": [
+                "Intro to story - The Brave boy of Holland"
+              ],
+              "Art": [
+                "4 Line Note Book - Digraph (writing and drawing objects)"
+              ]
+            }
           },
           "schedule": []
         },
@@ -609,24 +627,42 @@
           "isWeekendRevision": true,
           "weekendRevisionContent": {
             "weekCovered": "Jan 12-16, 2026",
-            "literacy": [
-              "Phonic sounds: ar, er, ir, or, ur, ou (different sound words)",
-              "Days of the week - reading and writing",
-              "Prepositions - recap activity",
-              "Dictation: Long vowel 'u' words (cube, tube, fuse, tune, mute, glue, blue, June, flute, cure, jute, mule)"
-            ],
-            "numeracy": [
-              "Days of the week - understanding sequence",
-              "Backward counting practice",
-              "Addition - horizontal and vertical methods",
-              "Number names: 51-70 (dictation practice)"
-            ],
-            "generalAwareness": [
-              "Introduction to Seasons",
-              "Summer season characteristics",
-              "Spring season characteristics",
-              "Rainy season characteristics"
-            ]
+            "subjects": {
+              "Literacy": [
+                "Phonic sounds: ar, er, ir, or, ur, ou (different sound words)",
+                "Days of the week - reading and writing",
+                "Prepositions - recap activity",
+                "Dictation: Long vowel 'u' words (cube, tube, fuse, tune, mute, glue, blue, June, flute, cure, jute, mule)"
+              ],
+              "Numeracy": [
+                "Days of the week - understanding sequence",
+                "Backward counting practice",
+                "Addition - horizontal and vertical methods",
+                "Number names: 51-70 (dictation practice)"
+              ],
+              "General Awareness": [
+                "Introduction to Seasons",
+                "Summer season characteristics",
+                "Spring season characteristics",
+                "Rainy season characteristics"
+              ],
+              "Kannada": [
+                "Letters ಪ to ಮ in 2 lines note book",
+                "Letter - ಯ, ರ",
+                "Activity on letters learnt"
+              ],
+              "Hindi": [
+                "त्र ज्ञ",
+                "श्र"
+              ],
+              "Story": [
+                "The Little Christmas Tree (Activity)",
+                "The Brave boy of Holland (question and answers)"
+              ],
+              "Art": [
+                "Art and craft activities"
+              ]
+            }
           },
           "schedule": []
         },
@@ -911,23 +947,42 @@
           "isWeekendRevision": true,
           "weekendRevisionContent": {
             "weekCovered": "Jan 19-23, 2026",
-            "literacy": [
-              "Different sounds of 'c' (hard and soft)",
-              "Recap of long vowels (a, e, i, o, u)",
-              "Reading practice and comprehension",
-              "Sentence formation"
-            ],
-            "numeracy": [
-              "Subtraction - word problems",
-              "Subtraction - story sums",
-              "Practical application of subtraction",
-              "Number patterns and sequences"
-            ],
-            "generalAwareness": [
-              "Winter season and its characteristics",
-              "Autumn season and its characteristics",
-              "Understanding seasonal changes"
-            ]
+            "subjects": {
+              "Literacy": [
+                "Phonic Book - Different sounds of 'c' and 'g'",
+                "Phonic Book - Fun Time and Picture Talk",
+                "My Literacy - Months of Year",
+                "My Literacy - Word Formation and Rearrange the sentence",
+                "My Literacy - What is your name?",
+                "Dictation on long vowel o and u words"
+              ],
+              "Numeracy": [
+                "Big numbers addition",
+                "Ordinal numbers",
+                "Subtraction - horizontal and vertical methods",
+                "Subtraction - big numbers",
+                "Months of the year",
+                "Dictation - Number names 71-100"
+              ],
+              "General Awareness": [
+                "Autumn season and its characteristics",
+                "Winter season and its characteristics",
+                "Activity on Seasons",
+                "Recap of concept Air"
+              ],
+              "Kannada": [
+                "Letter ಲ, ವ",
+                "Letter ಶ, ಷ",
+                "Letter ಸ, ಹ"
+              ],
+              "Hindi": [
+                "Recap of Warn Mala (वर्ण माला)",
+                "Nirjhar Moti - Do Akshar wale shabd (दो अक्षर वाले शब्द)"
+              ],
+              "Story": [
+                "The Brave boy of Holland (Activity)"
+              ]
+            }
           },
           "schedule": []
         },
@@ -1167,24 +1222,36 @@
           "isWeekendRevision": true,
           "weekendRevisionContent": {
             "weekCovered": "Jan 26-30, 2026",
-            "literacy": [
-              "Recap of all phonic sounds learned",
-              "Reading comprehension and fluency",
-              "Sentence writing practice",
-              "Story reading and understanding"
-            ],
-            "numeracy": [
-              "Addition and subtraction review",
-              "Number recognition and writing",
-              "Counting and number sequences",
-              "Practical math applications"
-            ],
-            "generalAwareness": [
-              "Republic Day celebration (Jan 26)",
-              "Understanding national symbols",
-              "Importance of being a good citizen",
-              "Review of all seasons learned"
-            ]
+            "subjects": {
+              "Literacy": [
+                "My Literacy - Rebus Story",
+                "Picture Composition",
+                "My Literacy - Picture Description",
+                "Dictation on long vowel a, e, i, o and u words"
+              ],
+              "Numeracy": [
+                "Backward counting 50-1",
+                "Skip counting by 2's",
+                "Skip counting by 5's"
+              ],
+              "General Awareness": [
+                "Recap on Water - Save water",
+                "Story: The Greedy dog (Water Reflection)",
+                "Uses of water (tip, tip story)"
+              ],
+              "Socio Emotional Skills": [
+                "Republic Day celebration (Jan 26)"
+              ],
+              "Kannada": [
+                "Letter ಳ"
+              ],
+              "Hindi": [
+                "Nirjhar Moti"
+              ],
+              "Story": [
+                "The Brave boy of Holland - Roleplay"
+              ]
+            }
           },
           "schedule": []
         },

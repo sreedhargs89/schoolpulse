@@ -25,6 +25,47 @@ git push origin main --force
 
 ---
 
+## [v1.4.0] - 2026-01-17
+
+**Tag**: `v1.4.0`  
+**Commit**: TBD  
+**Rollback to**: `v1.3.0` (previous stable version)
+
+### Added
+- **Dynamic Subject Support**: Weekly Summary now supports ALL subjects dynamically
+  - Literacy, Numeracy, General Awareness, Kannada, Hindi, Art, Story, Socio Emotional Skills
+  - Color-coded sections with subject-specific icons
+  - Automatically adapts to any number of subjects
+
+### Changed
+- **Week View Enhancements**:
+  - Renamed "Weekend Revision" to "Weekly Summary" for clarity
+  - Removed day-by-day schedules from Week view
+  - Shows only: Weekly Summary, Dictation Words, Special Days (holidays except Sunday)
+  - Cleaner, focused week-level overview
+
+### Fixed
+- **Critical Navigation Bug**: Month view date selection now works correctly
+  - Clicking a date from Month view (e.g., November) now navigates to that specific date
+  - Previously navigated to January 1st instead
+  - Added automatic month detection and switching
+- **Content Completeness**: Audited and fixed all January weekly summaries
+  - Week 4: Added missing Kannada subject, made all content specific
+  - Week 5: Replaced all generic content with actual topics from schedules
+  - All weeks now have complete, specific content (no assumptions)
+
+### Data Quality
+- **Week 4 (Jan 19-23)**: 6 subjects, 22 specific learning points
+- **Week 5 (Jan 26-30)**: 7 subjects with actual activities (Rebus Story, Picture Composition, Skip counting, etc.)
+- All content extracted from actual daily schedules
+
+### Technical
+- Updated `WeekendRevisionContent` interface to use dynamic `subjects` object
+- Added `findMonthForDate` function for cross-month navigation
+- Enhanced `WeekendRevision` component with subject color/icon mapping
+
+---
+
 ## [v1.3.0] - 2026-01-17
 
 **Tag**: `v1.3.0`  
@@ -128,6 +169,7 @@ git push origin main --force
 
 | Version | Date | Description | Rollback To |
 |---------|------|-------------|-------------|
+| v1.4.0 | 2026-01-17 | Weekly Summary enhancements, Navigation fix, Content audit | v1.3.0 |
 | v1.3.0 | 2026-01-17 | Weekend Revision feature | v1.2.0 |
 | v1.2.0 | 2026-01-17 | Weekend support | v1.1.0 |
 | v1.1.0 | 2026-01-17 | Nov/Dec integration, Mobile UX improvements | v1.0.0 |
