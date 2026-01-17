@@ -19,6 +19,17 @@ export interface WeekendRevisionContent {
   };
 }
 
+export interface AISuggestedRecap {
+  todayMission: string;
+  activities: {
+    subject: string;
+    action: string;
+    question?: string;
+    goal: string;
+  }[];
+  parentTip: string;
+}
+
 export interface DaySchedule {
   date: string;
   dayOfWeek: string;
@@ -27,6 +38,7 @@ export interface DaySchedule {
   isWeekendRevision?: boolean;
   weekendRevisionContent?: WeekendRevisionContent;
   schedule: ScheduleItem[];
+  aiSuggestedRecap?: AISuggestedRecap;
 }
 
 export interface WeekData {

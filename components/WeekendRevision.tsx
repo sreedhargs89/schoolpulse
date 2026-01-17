@@ -47,16 +47,18 @@ export default function WeekendRevision({ content, date }: WeekendRevisionProps)
     };
 
     return (
-        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+        <div className="bg-gradient-to-br from-purple-50/50 to-blue-50/50 rounded-2xl border border-purple-100 p-4 sm:p-5 shadow-sm">
             {/* Header */}
-            <div className="mb-6 text-center">
-                <div className="text-4xl mb-2">📚</div>
-                <h2 className="text-2xl font-bold text-purple-800 mb-1">Weekly Summary</h2>
-                <p className="text-sm text-purple-600">Week: {content.weekCovered}</p>
+            <div className="mb-4 flex items-center gap-3 border-b border-purple-100 pb-3">
+                <div className="text-2xl bg-white p-2 rounded-xl shadow-sm">📚</div>
+                <div>
+                    <h2 className="text-base font-bold text-gray-800">Weekly Summary</h2>
+                    <p className="text-[10px] text-purple-500 font-bold uppercase tracking-tight">Week: {content.weekCovered}</p>
+                </div>
             </div>
 
-            {/* Revision Sections - Dynamic */}
-            <div className="space-y-6">
+            {/* Revision Sections - Dynamic Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {Object.entries(content.subjects).map(([subject, topics]) => {
                     if (topics.length === 0) return null;
 
@@ -64,15 +66,15 @@ export default function WeekendRevision({ content, date }: WeekendRevisionProps)
                     const icon = getSubjectIcon(subject);
 
                     return (
-                        <div key={subject} className={`bg-white rounded-lg p-4 border ${style.border}`}>
-                            <h3 className={`font-semibold ${style.text} mb-3 flex items-center gap-2`}>
-                                <span className="text-xl">{icon}</span>
+                        <div key={subject} className={`bg-white/60 backdrop-blur-sm rounded-xl p-3 border ${style.border} hover:shadow-sm transition-shadow`}>
+                            <h3 className={`font-bold text-[11px] ${style.text} mb-2 flex items-center gap-1.5 uppercase tracking-wide`}>
+                                <span className="text-sm">{icon}</span>
                                 <span>{subject}</span>
                             </h3>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1">
                                 {topics.map((topic, index) => (
-                                    <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
-                                        <span className={`${style.bullet} mt-1`}>•</span>
+                                    <li key={index} className="text-xs text-gray-600 flex items-start gap-1.5 leading-snug">
+                                        <span className={`${style.bullet} mt-1 text-[8px]`}>●</span>
                                         <span>{topic}</span>
                                     </li>
                                 ))}
@@ -83,9 +85,9 @@ export default function WeekendRevision({ content, date }: WeekendRevisionProps)
             </div>
 
             {/* Footer Message */}
-            <div className="mt-6 text-center">
-                <p className="text-sm text-purple-600 bg-purple-100 rounded-lg py-2 px-4 inline-block">
-                    💡 Practice these topics at home for better understanding!
+            <div className="mt-4 text-center">
+                <p className="text-[10px] text-purple-400 font-medium">
+                    💡 Tip: Practice these together for better understanding!
                 </p>
             </div>
         </div>

@@ -9,6 +9,7 @@ import MonthSelector from '@/components/MonthSelector';
 import ImportantDates from '@/components/ImportantDates';
 import ShareButton from '@/components/ShareButton';
 import RecentUpdates from '@/components/RecentUpdates';
+import AISuggestedRecap from '@/components/AISuggestedRecap';
 import {
   getMonthData,
   getDaySchedule,
@@ -37,6 +38,7 @@ function HomeContent() {
   const [availableMonths, setAvailableMonths] = useState<MonthInfo[]>([]);
   const [monthData, setMonthData] = useState<{ month: string; year: number; class: string } | null>(null);
   const [importantDates, setImportantDates] = useState<ImportantDate[]>([]);
+  const [showAI, setShowAI] = useState<boolean>(false);
 
   // Initialize months
   useEffect(() => {
@@ -175,6 +177,54 @@ function HomeContent() {
           <span className="sm:hidden">→</span>
         </button>
       </div>
+
+      {/* AI Suggested Recap Toggle */}
+      {dayData.aiSuggestedRecap && (
+        <div className="mb-4">
+          <button
+            onClick={() => setShowAI(!showAI)}
+            className={`w-full group relative overflow-hidden rounded-xl p-[1px] transition-all duration-500 hover:shadow-md ${showAI ? 'shadow-purple-100' : 'shadow-gray-50'
+              }`}
+          >
+            <div className={`absolute inset-0 bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 animate-shimmer opacity-60`} style={{ backgroundSize: '200% 100%' }} />
+            <div className="relative flex items-center justify-between gap-3 bg-white rounded-[11px] px-4 py-2 transition-colors group-hover:bg-white/95">
+              <div className="flex items-center gap-3">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-lg transition-all duration-500 ${showAI
+                  ? 'bg-purple-100 rotate-12 shadow-inner shadow-purple-200'
+                  : 'bg-gradient-to-tr from-purple-50 to-blue-50'
+                  }`}>
+                  <span className={showAI ? 'animate-pulse' : 'animate-slow-pulse'}> ✨ </span>
+                </div>
+                <div className="text-left">
+                  <h3 className={`font-bold text-xs sm:text-sm tracking-tight ${showAI ? 'text-purple-900' : 'text-gray-600'
+                    }`}>
+                    Daily Recap Mission
+                  </h3>
+                  <p className="text-[9px] text-gray-400 font-bold uppercase tracking-tight">
+                    {showAI ? 'Mission Active' : 'Action-Oriented Learning'}
+                  </p>
+                </div>
+              </div>
+
+              <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[9px] font-bold uppercase transition-all duration-500 ${showAI
+                ? 'bg-purple-50 border-purple-200 text-purple-600'
+                : 'bg-gray-50 border-gray-100 text-gray-400'
+                }`}>
+                <span>{showAI ? 'Hide' : 'Show'}</span>
+                <div className={`w-1 h-1 rounded-full ${showAI ? 'bg-purple-500 animate-pulse' : 'bg-gray-300'}`} />
+              </div>
+            </div>
+          </button>
+
+          {/* AI Content Section */}
+          <div className={`grid transition-all duration-500 ease-in-out ${showAI ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
+            }`}>
+            <div className="overflow-hidden">
+              <AISuggestedRecap content={dayData.aiSuggestedRecap} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Day Schedule */}
       <DaySchedule day={dayData} showHeader={false} />

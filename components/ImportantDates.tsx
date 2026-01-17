@@ -41,11 +41,11 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
   };
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4">
-      <h3 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
+    <div className="bg-white rounded-xl border border-gray-100 p-3 shadow-sm">
+      <h3 className="text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-1.5 font-sans">
         <span>📌</span> {title}
       </h3>
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         {displayDates.map((item, index) => {
           const style = typeStyles[item.type] || typeStyles.event;
           const todayHighlight = isToday(item.date);
@@ -56,38 +56,37 @@ export default function ImportantDates({ dates, title = "Important Dates", showA
           return (
             <div
               key={index}
-              className={`flex items-start gap-3 p-3 rounded-lg border ${todayHighlight ? 'ring-2 ring-orange-400 bg-orange-50 border-orange-200' : 'bg-gray-50 border-gray-200'
-                } ${past ? 'opacity-50' : ''}`}
+              className={`flex items-center gap-3 p-2 rounded-lg border transition-all ${todayHighlight ? 'ring-1 ring-orange-300 bg-orange-50/50 border-orange-200 shadow-sm' : 'bg-gray-50/30 border-gray-100 hover:bg-white hover:shadow-sm'
+                } ${past ? 'opacity-40' : ''}`}
             >
-              {/* Date Badge */}
-              <div className={`flex flex-col items-center justify-center w-12 h-12 rounded-lg ${style.bg} ${style.textColor} flex-shrink-0`}>
-                <div className="text-xs font-semibold leading-none">{monthAbbr}</div>
-                <div className="text-xl font-bold leading-none mt-0.5">{dayNum}</div>
+              {/* Compact Date Badge */}
+              <div className={`flex flex-col items-center justify-center w-10 h-10 rounded-lg ${style.bg} ${style.textColor} flex-shrink-0 shadow-sm`}>
+                <div className="text-[8px] font-bold leading-none uppercase">{monthAbbr}</div>
+                <div className="text-sm font-black leading-none mt-0.5">{dayNum}</div>
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-medium text-gray-800">{item.event}</span>
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="font-bold text-xs text-gray-800 truncate">{item.event}</span>
                   {todayHighlight && (
-                    <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-full">
+                    <span className="text-[8px] font-black bg-orange-500 text-white px-1.5 py-0.5 rounded-full animate-pulse">
                       TODAY
                     </span>
                   )}
                 </div>
-                <div className="text-sm text-gray-600">{item.description}</div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {formatShortDate(item.date)}
-                </div>
+                <div className="text-[10px] text-gray-500 leading-tight line-clamp-1">{item.description}</div>
+              </div>
+              <div className="text-[9px] font-bold text-gray-400 whitespace-nowrap hidden sm:block">
+                {formatShortDate(item.date).split(',')[0]}
               </div>
             </div>
           );
         })}
       </div>
       {!showAll && dates.filter(d => d.date >= today).length > 5 && (
-        <div className="text-xs text-gray-500 mt-3 text-center">
-          <span className="bg-gray-100 px-2 py-1 rounded">
-            + {dates.filter(d => d.date >= today).length - 5} more upcoming events
+        <div className="text-[9px] text-gray-400 mt-3 text-center font-bold uppercase tracking-tighter">
+          <span className="bg-gray-100 px-2 py-0.5 rounded-full">
+            + {dates.filter(d => d.date >= today).length - 5} More • View All
           </span>
-          <p className="mt-1 text-gray-400">Visit Events page to see all dates</p>
         </div>
       )}
     </div>

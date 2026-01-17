@@ -115,16 +115,41 @@
               "activity": "Letter ಮ"
             },
             {
-              "time": "12:30-12:50",
-              "subject": "LITERACY",
-              "activity": "Reading and framing sentences"
-            },
-            {
               "time": "12:50-1:00",
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Digraph Detectives & Take-Away Time!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Open the Phonic Book and look for words ending with 'ff' and 'zz'.",
+                "question": "Can you make the buzzing 'zz' sound like a bee? What words end with 'ff' (like puff or cliff)?",
+                "goal": "Recognize ending digraphs in words."
+              },
+              {
+                "subject": "Grammar Skills",
+                "action": "Point to an object and say 'It is...'. Point to yourself and say 'I am...'.",
+                "question": "Complete this: '____ a beautiful flower' (It is) and '____ a brave student' (I am).",
+                "goal": "Correct use of 'It is' and 'I am' pronouns."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Gather 5 small blocks or pencils. Take away 2.",
+                "question": "If we have 5 and we take away 2, how many are left? What do we call this in math? (Subtraction!)",
+                "goal": "Hands-on understanding of 'taking away' in subtraction."
+              },
+              {
+                "subject": "Kannada Corner",
+                "action": "Practice tracing the letter 'ಮ' in the palm of your hand.",
+                "question": "Can you think of a word starting with 'ಮ'? (like Magu/Child)?",
+                "goal": "Memorizing the shape and sound of 'ಮ'."
+              }
+            ],
+            "parentTip": "Tactile Learning: Using physical objects for subtraction makes the concept of 'less' very real for children. Use snacks like raisins for extra fun!"
+          }
         },
         {
           "date": "2026-01-06",
@@ -167,16 +192,41 @@
               "activity": "ष स"
             },
             {
-              "time": "12:30-12:50",
-              "subject": "LITERACY",
-              "activity": "4 Line Note Book - Digraph (writing and drawing objects)"
-            },
-            {
               "time": "12:50-1:00",
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Nature Guardians & The Power of Zero!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Read the words ending with 'ss' in your Phonic Book (like glass, grass).",
+                "question": "Is 'grass' a short word or a long word? Can you find another 'ss' word?",
+                "goal": "Recognizing the 'ss' digraph in context."
+              },
+              {
+                "subject": "Numeracy Challenge",
+                "action": "Hold up 3 fingers. Take away 0 fingers.",
+                "question": "How many fingers are left? If we subtract zero from any number, what happens? (It stays the same!)",
+                "goal": "Understanding the identity property of zero in subtraction."
+              },
+              {
+                "subject": "Save Our Nature",
+                "action": "Look at a plant nearby and talk about how it breathes.",
+                "question": "Why should we not pick leaves for no reason? How can we save nature?",
+                "goal": "Fostering environmental empathy and responsibility."
+              },
+              {
+                "subject": "Hindi Practice",
+                "action": "Air-write the letters 'ष' and 'स'.",
+                "question": "Which one looks like a 'P' with a cut? (ष). Try saying them both!",
+                "goal": "Distinguishing between similar sounding Hindi sibilants."
+              }
+            ],
+            "parentTip": "Environmental Talk: Simple conversations about nature during a walk help children appreciate life around them more deeply."
+          }
         },
         {
           "date": "2026-01-07",
@@ -219,16 +269,41 @@
               "activity": "Numbers 1-10 - Activity on letters learnt"
             },
             {
-              "time": "12:30-12:50",
-              "subject": "ART",
-              "activity": "Art and craft"
-            },
-            {
               "time": "12:50-1:00",
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Tree Huggers & Horizontal Math!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Listen for 'ar', 'er', and 'ir' sounds in 'Car', 'Tiger', and 'Girl'.",
+                "question": "Which two sounds feel the same? (er and ir). Can you find an 'ar' word?",
+                "goal": "Differentiating vowel digraphs that sound similar."
+              },
+              {
+                "subject": "Grammar Skills",
+                "action": "Look at pictures in your book. Say 'He is...' for boys and 'She is...' for girls.",
+                "question": "When do we use 'His' and when do we use 'Her'?",
+                "goal": "Applying gender-specific pronouns and possessives correctly."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Solve '6 - 2 =' written horizontally (side-by-side).",
+                "question": "Where does the minus sign go? Let's count back starting from 6.",
+                "goal": "Transitioning from vertical to horizontal subtraction layouts."
+              },
+              {
+                "subject": "Nature Discussion",
+                "action": "Discuss: 'How do plants give us food?'",
+                "question": "Can you name three things we get from trees? (Fruits, Shade, Oxygen!)",
+                "goal": "Understanding the vital role of plants in human life."
+              }
+            ],
+            "parentTip": "Observation Skills: Ask your child to spot 'He' and 'She' in their favorite cartoons to practice pronouns naturally."
+          }
         },
         {
           "date": "2026-01-08",
@@ -271,16 +346,41 @@
               "activity": "ह क्ष"
             },
             {
-              "time": "12:30-12:50",
-              "subject": "STORY",
-              "activity": "Intro to story - The Brave boy of Holland"
-            },
-            {
               "time": "12:50-1:00",
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Vowel Voyagers & Brave Boy Tales!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Read the sounds 'or', 'ur', and 'ou' in your book.",
+                "question": "Can you find 'Fork', 'Turtle', and 'Cloud'? Which one has the 'ou' sound?",
+                "goal": "Blending 'or', 'ur', and 'ou' digraphs."
+              },
+              {
+                "subject": "Numeracy Challenge",
+                "action": "Draw 4 circles. Match them to the number card '4'. Then subtract 1 circle.",
+                "question": "Now which number card matches the circles? (3!)",
+                "goal": "Relating numbers to quantities using subtraction."
+              },
+              {
+                "subject": "Story Time Recap",
+                "action": "Start talking about a boy named Peter from Holland.",
+                "question": "Where did Peter live? (Holland!) What were we just beginning to learn about him?",
+                "goal": "Basic setting and character recall for a new story."
+              },
+              {
+                "subject": "Hindi Corner",
+                "action": "Trace 'ह' and 'क्ष' on a slate.",
+                "question": "Which letter looks like a little elephant trunk? (ह). Can you say 'Ksha'?",
+                "goal": "Pronunciation and formation of complex Hindi letters."
+              }
+            ],
+            "parentTip": "Story Hook: Leave the story on a cliffhanger! Ask your child what they think the 'Brave Boy' will do next to build excitement."
+          }
         },
         {
           "date": "2026-01-09",
@@ -332,7 +432,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Big Number Hunters & Vowel Mastery!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Say the 'ow', 'oy', and 'oi' sounds (like Cow, Boy, Coin).",
+                "question": "Which sound is in 'Toy'? Which sound is in 'Cloud'? (Wait, 'ow' and 'ou' sound same!)",
+                "goal": "Distinguishing between 'oy' and 'oi' diphthongs."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Try Subtracting from big numbers like '15 - 5'.",
+                "question": "If you have 15 chocolates and give 5 to your friend, how many tens are left? (One 10!)",
+                "goal": "Subtracting single digits from double digits."
+              },
+              {
+                "subject": "Spelling Bee",
+                "action": "Practice spelling 'boat', 'foam', and 'cone' (Long Vowel O).",
+                "question": "How do we make the 'O' sound in 'Goat'? (o and a come together!)",
+                "goal": "Understanding 'oa' and 'o-e' spelling patterns."
+              },
+              {
+                "subject": "Art Recap",
+                "action": "Look at the digraph drawings you made today.",
+                "question": "Which digraph was the most fun to draw? Why?",
+                "goal": "Reflecting on creative connections to literacy."
+              }
+            ],
+            "parentTip": "Math Visualization: For '15 - 5', show 10 fingers and then imagine 5 more. Folding down the 5 makes it easy to see 10 is left."
+          }
         },
         {
           "date": "2026-01-10",
@@ -455,7 +585,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Weekly Wizards & Season Searchers!",
+            "activities": [
+              {
+                "subject": "Literacy & Time",
+                "action": "Recite the days of the week starting from Monday.",
+                "question": "What day comes after Wednesday? Which day is your favorite school day?",
+                "goal": "Sequential memory of the days of the week."
+              },
+              {
+                "subject": "Numeracy & Logic",
+                "action": "Count the days: 'Today is Monday. Tomorrow will be...?'",
+                "question": "If today is day 1, what day number is Sunday?",
+                "goal": "Relating days to numerical order."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Talk about why we wear different clothes in different months.",
+                "question": "Can you name the four main seasons? What happens in the rainy season?",
+                "goal": "Introduction to the concept of seasonal change."
+              },
+              {
+                "subject": "Kannada Practice",
+                "action": "Show me how to write 'ಪ' (Pa) and 'ಮ' (Ma) in your notebook.",
+                "question": "Can you find a word for 'Pa' (like Puta/Page)?",
+                "goal": "Writing fluency for Kannada consonants ಪ to ಮ."
+              }
+            ],
+            "parentTip": "Time Concept: Using a physical calendar at home helps children visualize 'yesterday', 'today', and 'tomorrow' much better."
+          }
         },
         {
           "date": "2026-01-13",
@@ -507,7 +667,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Summer Sun & Backward Blast-off!",
+            "activities": [
+              {
+                "subject": "Numeracy Skills",
+                "action": "Count backwards from 10 to 0 like a rocket launch!",
+                "question": "What number comes just before 5 when we count backwards?",
+                "goal": "Fluency in backward numerical sequencing."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Discuss things we use in Summer (fans, ice-cream, cotton clothes).",
+                "question": "Why do we feel thirsty more in Summer? Is the sun hot or cold?",
+                "goal": "Identifying characteristics of the Summer season."
+              },
+              {
+                "subject": "Story Reflection",
+                "action": "Talk about 'The Little Christmas Tree'.",
+                "question": "Why was the little tree sad at first? What made it happy?",
+                "goal": "Recalling story plot and emotional themes."
+              },
+              {
+                "subject": "Hindi Corner",
+                "action": "Trace the letters 'त्र' (Tra) and 'ज्ञ' (Gya).",
+                "question": "Can you say 'Tra' like in 'Trishul'?",
+                "goal": "Identifying and pronouncing compound Hindi letters."
+              }
+            ],
+            "parentTip": "Summer Safety: While discussing summer, remind them why we drink lots of water when it's hot. It connects GA with health!"
+          }
         },
         {
           "date": "2026-01-14",
@@ -559,7 +749,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Spring Sprinkles & Preposition Play!",
+            "activities": [
+              {
+                "subject": "Literacy & Grammar",
+                "action": "Place a ball 'on', 'under', or 'behind' a chair.",
+                "question": "Can you describe where the ball is using a full sentence? (e.g., 'The ball is under the chair.')",
+                "goal": "Practical use of prepositions in speech."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Discuss the 'Spring' season. What happens to flowers and birds?",
+                "question": "Does it get very hot in spring, or is it just right? Can you name a spring flower?",
+                "goal": "Recognizing the pleasant characteristics of Spring."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Look at some horizontal addition sums you did today.",
+                "question": "If you have 5 dots and add 3 more, how many in total? Explain the '+' sign.",
+                "goal": "Reinforcing horizontal addition logic."
+              },
+              {
+                "subject": "Kannada Practice",
+                "action": "Draw 'ಯ' (Ya) and 'ರ' (Ra) in a tray of salt or sand.",
+                "question": "Which letter looks like a circle with a tail? (Ya!).",
+                "goal": "Fine motor practice of new Kannada letters."
+              }
+            ],
+            "parentTip": "Festivity Talk: Since it's Makar Sankranti season, talk about the tradition of flying kites or sharing ‘Ellu Bella’ for a cultural connection."
+          }
         },
         {
           "date": "2026-01-15",
@@ -618,7 +838,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Mastering Mix: Sounds, Sums & Survival!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Open Phonic Book to 'ar' and 'er' pages.",
+                "question": "Can you find a 'Tiger' and a 'Star'? Which sound goes with which?",
+                "goal": "Reinforce decoding tricky sounds."
+              },
+              {
+                "subject": "Numeracy & Math",
+                "action": "Write '42 + 15' vertically on a slate.",
+                "question": "Does the 5 go under the 2 or the 4?",
+                "goal": "Perfect column alignment in addition."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Point to a window and talk about clouds.",
+                "question": "What's the one thing Peter used to save Holland? (His finger!)",
+                "goal": "Connect story moral with nature."
+              },
+              {
+                "subject": "Language Practice",
+                "action": "Air-write the letter 'श्र' and 'ರ'.",
+                "question": "Can you make the 'Shra' sound for me?",
+                "goal": "Sensory memory of new letters."
+              }
+            ],
+            "parentTip": "Recall and Praise: Let them be the teacher! Ask them to 'teach' you how to write the new letters."
+          }
         },
         {
           "date": "2026-01-17",
@@ -730,7 +980,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Calendar Creators & Crunchy Leaves!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Say the word 'Cat' (hard c) and 'City' (soft c).",
+                "question": "Can you hear the difference? What sound does 'c' make in 'Cake'?",
+                "goal": "Understanding the two sounds of the letter 'c'."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Look at trees and talk about 'Autumn' (the fall season).",
+                "question": "What happens to the leaves in Autumn? Do they stay green or turn brown?",
+                "goal": "Identifying the transformation of nature in Autumn."
+              },
+              {
+                "subject": "Numeracy Challenges",
+                "action": "Try a few 'Big Number' additions on a piece of paper.",
+                "question": "How do we add two-digit numbers? Where do we start counting from?",
+                "goal": "Increasing confidence in adding larger numbers."
+              },
+              {
+                "subject": "Language Skills",
+                "action": "Air-write the Kannada letters 'ಲ' (La) and 'ವ' (Va).",
+                "question": "Can you name the first month of the year? (January!)",
+                "goal": "Recalling months and practicing new scripts."
+              }
+            ],
+            "parentTip": "Calender Fun: Ask your child what month their birthday is in. It makes learning the 'Months of the Year' personally exciting!"
+          }
         },
         {
           "date": "2026-01-20",
@@ -782,7 +1062,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Ordinal Orders & Winter Warmth!",
+            "activities": [
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Compare the sounds of 'g' in 'Goat' and 'Giraffe'.",
+                "question": "Which one sounds like 'j'? What's the sound in 'Garden'?",
+                "goal": "Differentiating hard and soft 'g' sounds."
+              },
+              {
+                "subject": "Numeracy Logic",
+                "action": "Line up 3 toys. Who is 1st (First)? Who is 2nd (Second)?",
+                "question": "What word do we use for the toy in 3rd place? (Third!)",
+                "goal": "Introduction to ordinal number terminology."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Discuss 'Winter'. Why are the nights longer?",
+                "question": "What kind of clothes do we wear in winter? Do we see snow everywhere?",
+                "goal": "Learning about the cold season's traits."
+              },
+              {
+                "subject": "Months of Year",
+                "action": "List the months from January to June.",
+                "question": "Which month comes just after February?",
+                "goal": "Fluency in monthly sequence."
+              }
+            ],
+            "parentTip": "Daily Ordinals: During dinner, use ordinals like 'My 1st bite was yummy' to make math part of real life."
+          }
         },
         {
           "date": "2026-01-21",
@@ -834,7 +1144,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Monthly Melodies & Script Stars!",
+            "activities": [
+              {
+                "subject": "Months of Year",
+                "action": "Sing the 'Months of the Year' song or say them in order.",
+                "question": "Which month are we in right now? (January!) How many months are there in total?",
+                "goal": "Confidence in naming all 12 months."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Look at a line of cars or toys. Say their ordinal positions.",
+                "question": "If the red car is 1st, what position is the blue car if it's right behind it?",
+                "goal": "Practical application of ordinal numbers."
+              },
+              {
+                "subject": "Kannada Corner",
+                "action": "Write 'ಶ' (Sha) and 'ಷ' (Ssha) on a slate.",
+                "question": "Which one has a little loop inside? (ಷ). Let's practice the 'Sha' sound together.",
+                "goal": "Writing and pronouncing sister consonants in Kannada."
+              },
+              {
+                "subject": "Story Time",
+                "action": "Check the progress of 'The Brave boy of Holland'.",
+                "question": "What did Peter do when he found the leak in the dike? Is he a hero?",
+                "goal": "Deepening character analysis and moral understanding."
+              }
+            ],
+            "parentTip": "Memory Games: Try asking 'Which month comes before my birthday?' to help them navigate the calendar backward and forward."
+          }
         },
         {
           "date": "2026-01-22",
@@ -886,7 +1226,37 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Storytellers & Math Masters!",
+            "activities": [
+              {
+                "subject": "Literacy & Story",
+                "action": "Retell the 'Brave Boy of Holland' story in your own words.",
+                "question": "What would you do if you were Peter and saw a hole in a wall? Why is courage important?",
+                "goal": "Story summarization and personal reflection."
+              },
+              {
+                "subject": "Math Recap",
+                "action": "Practice 3 simple 'Big Number' additions (like 20 + 10).",
+                "question": "What is 2 tens plus 1 ten? (3 tens / 30!). Count by tens.",
+                "goal": "Mental math and place value understanding."
+              },
+              {
+                "subject": "Nature Guardians",
+                "action": "Discuss why we shouldn't waste paper.",
+                "question": "Where does paper come from? (Trees!). How can we help save trees today?",
+                "goal": "Connecting conservation to daily habits."
+              },
+              {
+                "subject": "Hindi Practice",
+                "action": "Review the Hindi symbols/Matras taught today.",
+                "question": "Can you show me how a small 'u' symbol looks in Hindi?",
+                "goal": "Identifying and writing vowel markers."
+              }
+            ],
+            "parentTip": "Moral Lessons: Stories like Peter's are great for bedtime. Ask 'What was the bravest thing you did today?' to connect the story to their life."
+          }
         },
         {
           "date": "2026-01-23",
@@ -938,7 +1308,31 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Sentence Builders & Month Masters!",
+            "activities": [
+              {
+                "subject": "Literacy & Grammar",
+                "action": "Find 3 objects and make a sentence for each (e.g., 'This is my book').",
+                "question": "Can you make a sentence using the word 'Friend'?",
+                "goal": "Verbally framing simple, correct sentences."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Recap: What was the hardest math problem you solved this month?",
+                "question": "Can you count by 5s up to 20? (5, 10, 15, 20!).",
+                "goal": "Reflecting on monthly numeracy progress."
+              },
+              {
+                "subject": "Months of Year",
+                "action": "Say all the months in one go without stopping!",
+                "question": "Which month comes after October?",
+                "goal": "Complete mastery of the months of the year."
+              }
+            ],
+            "parentTip": "Sentence Fun: When they make a mistake in a sentence, instead of 'correcting', just say the correct version back to them. They learn best through hearing the right way!"
+          }
         },
         {
           "date": "2026-01-24",
@@ -1057,7 +1451,31 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Republic Reflection & Ordered Objects!",
+            "activities": [
+              {
+                "subject": "General Awareness",
+                "action": "Talk about Republic Day (Jan 26). Did you see the flag?",
+                "question": "What are the colors of our national flag? (Saffron, White, Green!).",
+                "goal": "Understanding national significance and symbols."
+              },
+              {
+                "subject": "Numeracy Logic",
+                "action": "Place 5 spoons in a row. Ask for the 4th (Fourth) spoon.",
+                "question": "If you move the 4th spoon to the front, which position does it become? (1st!).",
+                "goal": "Dynamic understanding of ordinal positions."
+              },
+              {
+                "subject": "Months of Year",
+                "action": "Start from 'July' and say the months until 'December'.",
+                "question": "Which month is the very last one of the year?",
+                "goal": "Segmented memory of the yearly calendar."
+              }
+            ],
+            "parentTip": "Flag Colors: Ask them what 'White' in the flag stands for (Peace) to introduce simple values."
+          }
         },
         {
           "date": "2026-01-28",
@@ -1109,7 +1527,31 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Season Superstars & Phonic Finales!",
+            "activities": [
+              {
+                "subject": "General Awareness",
+                "action": "Recap: Summer, Spring, Rainy, Winter, Autumn.",
+                "question": "In which season do we see lots of new flowers? (Spring!).",
+                "goal": "Synthesizing monthly learning about seasons."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Count backwards from 20 down to 10.",
+                "question": "What number is missing: 15, 14, __, 12? (13!).",
+                "goal": "Extending backward counting to higher numbers."
+              },
+              {
+                "subject": "Literacy & Phonics",
+                "action": "Review the 'ar', 'er', 'ur' sounds one last time today.",
+                "question": "Can you find a word for each: Star (ar), Sister (er), Fur (ur)?",
+                "goal": "Final mastery of r-controlled vowels."
+              }
+            ],
+            "parentTip": "Celebrating Progress: This is the end of the month! Give your child a big hug for all the new things they've learned in January."
+          }
         },
         {
           "date": "2026-01-29",
@@ -1161,7 +1603,31 @@
               "subject": "Meditation",
               "activity": ""
             }
-          ]
+          ],
+          "aiSuggestedRecap": {
+            "todayMission": "Grand Finale: Stories & Sums!",
+            "activities": [
+              {
+                "subject": "Literacy & Story",
+                "action": "Tell me the most important thing Peter did in Holland.",
+                "question": "If you saw a small problem that could become big, what would you do? Like Peter did?",
+                "goal": "Applying story morals to real-life problem solving."
+              },
+              {
+                "subject": "Numeracy Mission",
+                "action": "Do a quick dictation of number names (like 65, 42).",
+                "question": "How do we write 'Seventy' in numbers and words?",
+                "goal": "Consolidating number name spellings 1-70."
+              },
+              {
+                "subject": "General Awareness",
+                "action": "Which season did you like learning about the most this month?",
+                "question": "Can you describe a 'Rainy' day in three words? (Wet, Cold, Fun!).",
+                "goal": "Verbal expression of seasonal concepts."
+              }
+            ],
+            "parentTip": "Reflection Time: Ask your child what their favorite thing to study was this month. It helps them build a positive identity as a learner."
+          }
         },
         {
           "date": "2026-01-30",
