@@ -1,0 +1,50 @@
+'use client';
+
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { fetchExternalUpdates } from '@/app/actions';
+import { Announcement } from '@/lib/data';
+
+interface UpdatesContextType {
+    updates: Announcement[];
+    loading: boolean;
+    refreshUpdates: () => Promise<void>;
+}
+
+const UpdatesContext = createContext<UpdatesContextType | undefined>(undefined);
+
+export function UpdatesProvider({ children }: { children: ReactNode }) {
+    const [updates, setUpdates] = useState<Announcement[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    // This function fetches the updates from the server action
+    // The server action itself handles the revalidation/caching strategy (e.g. 5-10 mins)
+    const loadUpdates = async () => {
+        try {
+            const data = await fetchExternalUpdates();
+            // Only update state if data actually changed to verify fewer re-renders
+            setUpdates(data);
+        } catch (error) {
+            console.error('Context: Failed to load updates', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        loadUpdates();
+    }, []);
+
+    return (
+        <UpdatesContext.Provider value={{ updates, loading, refreshUpdates: loadUpdates }}>
+            {children}
+        </UpdatesContext.Provider>
+    );
+}
+
+export function useUpdates() {
+    const context = useContext(UpdatesContext);
+    if (context === undefined) {
+        throw new Error('useUpdates must be used within an UpdatesProvider');
+    }
+    return context;
+}

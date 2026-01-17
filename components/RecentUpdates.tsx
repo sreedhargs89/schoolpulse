@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { fetchExternalUpdates } from '@/app/actions';
+import { useUpdates } from '@/context/UpdatesContext';
 import {
   getUpcomingEvents,
   getTodayEvent,
@@ -18,12 +18,12 @@ export default function RecentUpdates() {
   const [updates, setUpdates] = useState<Update[]>([]);
   const [hasNew, setHasNew] = useState(false);
 
-  useEffect(() => {
-    async function loadUpdates() {
-      const today = new Date().toISOString().split('T')[0];
+  // Use Context
+  const { updates: externalUpdates, loading } = useUpdates();
 
-      // 1. Fetch from Google Sheets
-      const externalUpdates = await fetchExternalUpdates();
+  useEffect(() => {
+    function calculateUpdates() {
+      const today = new Date().toISOString().split('T')[0];
 
       // 2. Get today's events from lib/data.ts (System events)
       const todayEvent = getTodayEvent();
@@ -50,26 +50,35 @@ export default function RecentUpdates() {
           type: e.type === 'holiday' ? 'holiday' : 'info',
           priority: 2,
           category: 'EVENT',
+          link: '',
+          linkText: '',
           expiresAt: e.date
         }));
 
-      // Combine all. Sort by Priority FIRST, then by Date descending
-      const allUpdates = [
-        ...todayEventUpdate,
-        ...externalUpdates,
-        ...eventUpdates
-      ].sort((a, b) => {
-        const pA = a.priority || 3;
-        const pB = b.priority || 3;
-        if (pA !== pB) return pA - pB;
-        return b.createdAt.localeCompare(a.createdAt);
+      // Combine all updates
+      const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates].sort((a, b) => {
+        // Sort by priority (1 is highest)
+        if (a.priority !== b.priority) return (a.priority || 3) - (b.priority || 3);
+        // Then by date (newest first)
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
 
       setUpdates(allUpdates);
 
-      // Check if there are updates user hasn't seen
+      // Check for new updates
       const lastSeen = localStorage.getItem('updates_last_seen');
       if (allUpdates.length > 0) {
+        // Simple logic: if count > 0 and no lastSeen, or simple diff?
+        // Logic: if any update is newer than lastSeen.
+        // Actually, just showing dot if ANY updates exist is handled by badge count now. 
+        // But the dot logic was:
+        /*
+        const latestUpdate = allUpdates[0];
+        if (!lastSeen || lastSeen < latestUpdate.createdAt) {
+          setHasNew(true);
+        }
+        */
+        // Re-implementing logic to satisfy linter but context might have changed
         const latestUpdate = allUpdates[0];
         if (!lastSeen || lastSeen < latestUpdate.createdAt) {
           setHasNew(true);
@@ -77,8 +86,8 @@ export default function RecentUpdates() {
       }
     }
 
-    loadUpdates();
-  }, []);
+    calculateUpdates();
+  }, [externalUpdates]); // Re-run when context updates arrive
 
   const handleOpen = () => {
     setIsOpen(true);

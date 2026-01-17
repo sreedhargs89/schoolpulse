@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { fetchExternalUpdates } from '@/app/actions';
+import { useUpdates } from '@/context/UpdatesContext';
 import {
   getUpcomingEvents,
   getTodayEvent,
@@ -19,8 +19,12 @@ export default function NotificationBanner() {
   const [bannerItems, setBannerItems] = useState<BannerItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Consume the context
+  const { updates: externalUpdates } = useUpdates();
+
+  // Re-calculate banner items whenever updates change
   useEffect(() => {
-    async function loadData() {
+    function loadData() {
       const items: BannerItem[] = [];
 
       // Check for today's event first (highest priority)
@@ -33,16 +37,11 @@ export default function NotificationBanner() {
         });
       }
 
-      // Add external updates (from Google Sheet)
-      const externalUpdates = await fetchExternalUpdates();
-      // Only show high priority or specific updates in banner to avoid clutter?
-      // Or show all. Let's show all for now as per previous logic.
+      // Add external updates (from Context)
       for (const a of externalUpdates) {
-        // Map external types to banner types if needed, or ensure BannerItem type supports them
-        // External types: 'info' | 'warning' | 'holiday' | 'important' | 'urgent' | 'notice'
         items.push({
           message: a.message,
-          type: a.type as any, // Cast assuming types overlap mostly
+          type: a.type as any,
         });
       }
 
@@ -74,7 +73,7 @@ export default function NotificationBanner() {
       setBannerItems(items);
     }
     loadData();
-  }, []);
+  }, [externalUpdates]);
 
   useEffect(() => {
     if (bannerItems.length <= 1) return;
