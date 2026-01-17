@@ -58,15 +58,18 @@ function HomeContent() {
     const dates = getAllDates(selectedMonthId);
     setAvailableDates(dates);
 
-    // Only set default date if no URL date and no date selected yet
-    if (!urlDate && !selectedDate) {
-      const today = new Date().toISOString().split('T')[0];
-      const defaultDate = dates.includes(today) ? today : dates[0];
-      setSelectedDate(defaultDate);
-    } else if (urlDate && dates.includes(urlDate)) {
+    const today = new Date().toISOString().split('T')[0];
+
+    // Priority 1: URL parameter (deep linking)
+    if (urlDate && dates.includes(urlDate)) {
       setSelectedDate(urlDate);
-    } else if (!dates.includes(selectedDate)) {
-      // Current date not in this month, reset to first available
+    }
+    // Priority 2: Today's date if it exists in this month (default behavior)
+    else if (!urlDate && dates.includes(today)) {
+      setSelectedDate(today);
+    }
+    // Priority 3: First available date (fallback)
+    else if (!dates.includes(selectedDate)) {
       setSelectedDate(dates[0]);
     }
 
