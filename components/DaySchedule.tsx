@@ -1,6 +1,7 @@
 'use client';
 
 import { DaySchedule as DayScheduleType, getSubjectColor, formatDate } from '@/lib/data';
+import WeekendRevision from './WeekendRevision';
 
 interface DayScheduleProps {
   day: DayScheduleType;
@@ -9,6 +10,20 @@ interface DayScheduleProps {
 }
 
 export default function DaySchedule({ day, showHeader = true, compact = false }: DayScheduleProps) {
+  // Weekend Revision takes priority
+  if (day.isWeekendRevision && day.weekendRevisionContent) {
+    return (
+      <div>
+        {showHeader && (
+          <h2 className={`${compact ? 'text-base' : 'text-lg'} font-semibold text-gray-800 mb-4`}>
+            {formatDate(day.date)}
+          </h2>
+        )}
+        <WeekendRevision content={day.weekendRevisionContent} date={day.date} />
+      </div>
+    );
+  }
+
   if (day.isHoliday) {
     return (
       <div className={`${compact ? 'p-3' : 'p-6'} bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-200`}>

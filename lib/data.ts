@@ -12,11 +12,20 @@ export interface ScheduleItem {
   activity: string;
 }
 
+export interface WeekendRevisionContent {
+  weekCovered: string;
+  literacy: string[];
+  numeracy: string[];
+  generalAwareness: string[];
+}
+
 export interface DaySchedule {
   date: string;
   dayOfWeek: string;
   isHoliday: boolean;
   holidayName?: string;
+  isWeekendRevision?: boolean;
+  weekendRevisionContent?: WeekendRevisionContent;
   schedule: ScheduleItem[];
 }
 

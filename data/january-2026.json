@@ -6,7 +6,7 @@
   "weeks": [
     {
       "weekStart": "2026-01-01",
-      "weekEnd": "2026-01-02",
+      "weekEnd": "2026-01-04",
       "dictationWords": [],
       "days": [
         {
@@ -21,6 +21,35 @@
           "dayOfWeek": "Friday",
           "isHoliday": true,
           "holidayName": "Winter Break",
+          "schedule": []
+        },
+        {
+          "date": "2026-01-03",
+          "dayOfWeek": "Saturday",
+          "isHoliday": false,
+          "isWeekendRevision": true,
+          "weekendRevisionContent": {
+            "weekCovered": "Jan 1-2, 2026",
+            "literacy": [
+              "Winter Break - No classes this week",
+              "Enjoy reading storybooks at home"
+            ],
+            "numeracy": [
+              "Winter Break - No classes this week",
+              "Practice counting and number recognition"
+            ],
+            "generalAwareness": [
+              "Winter Break - No classes this week",
+              "Enjoy time with family and friends"
+            ]
+          },
+          "schedule": []
+        },
+        {
+          "date": "2026-01-04",
+          "dayOfWeek": "Sunday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
           "schedule": []
         }
       ]
@@ -302,6 +331,41 @@
               "activity": ""
             }
           ]
+        },
+        {
+          "date": "2026-01-10",
+          "dayOfWeek": "Saturday",
+          "isHoliday": false,
+          "isWeekendRevision": true,
+          "weekendRevisionContent": {
+            "weekCovered": "Jan 5-9, 2026",
+            "literacy": [
+              "Digraphs: Words ending with ff, zz, ss",
+              "Words ending with ar, er, ir, or, ur, ou, ow, oy, oi",
+              "Use of 'It is' and 'I am'",
+              "Reading and framing sentences",
+              "Dictation: Long vowel 'o' words (boat, foam, cone, coal, rose, bow, road, soak, goat, hope, note, load)"
+            ],
+            "numeracy": [
+              "Subtraction - hands on activity",
+              "Subtraction - take away method",
+              "Concept of zero in subtraction",
+              "Horizontal subtraction",
+              "Matching and big numbers"
+            ],
+            "generalAwareness": [
+              "Save Our Nature - importance of environment",
+              "How trees and plants help us"
+            ]
+          },
+          "schedule": []
+        },
+        {
+          "date": "2026-01-11",
+          "dayOfWeek": "Sunday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
+          "schedule": []
         }
       ]
     },
@@ -541,8 +605,29 @@
         {
           "date": "2026-01-17",
           "dayOfWeek": "Saturday",
-          "isHoliday": true,
-          "holidayName": "Weekend",
+          "isHoliday": false,
+          "isWeekendRevision": true,
+          "weekendRevisionContent": {
+            "weekCovered": "Jan 12-16, 2026",
+            "literacy": [
+              "Phonic sounds: ar, er, ir, or, ur, ou (different sound words)",
+              "Days of the week - reading and writing",
+              "Prepositions - recap activity",
+              "Dictation: Long vowel 'u' words (cube, tube, fuse, tune, mute, glue, blue, June, flute, cure, jute, mule)"
+            ],
+            "numeracy": [
+              "Days of the week - understanding sequence",
+              "Backward counting practice",
+              "Addition - horizontal and vertical methods",
+              "Number names: 51-70 (dictation practice)"
+            ],
+            "generalAwareness": [
+              "Introduction to Seasons",
+              "Summer season characteristics",
+              "Spring season characteristics",
+              "Rainy season characteristics"
+            ]
+          },
           "schedule": []
         },
         {
@@ -818,6 +903,40 @@
               "activity": ""
             }
           ]
+        },
+        {
+          "date": "2026-01-24",
+          "dayOfWeek": "Saturday",
+          "isHoliday": false,
+          "isWeekendRevision": true,
+          "weekendRevisionContent": {
+            "weekCovered": "Jan 19-23, 2026",
+            "literacy": [
+              "Different sounds of 'c' (hard and soft)",
+              "Recap of long vowels (a, e, i, o, u)",
+              "Reading practice and comprehension",
+              "Sentence formation"
+            ],
+            "numeracy": [
+              "Subtraction - word problems",
+              "Subtraction - story sums",
+              "Practical application of subtraction",
+              "Number patterns and sequences"
+            ],
+            "generalAwareness": [
+              "Winter season and its characteristics",
+              "Autumn season and its characteristics",
+              "Understanding seasonal changes"
+            ]
+          },
+          "schedule": []
+        },
+        {
+          "date": "2026-01-25",
+          "dayOfWeek": "Sunday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
+          "schedule": []
         }
       ]
     },
@@ -1040,6 +1159,41 @@
               "activity": ""
             }
           ]
+        },
+        {
+          "date": "2026-01-31",
+          "dayOfWeek": "Saturday",
+          "isHoliday": false,
+          "isWeekendRevision": true,
+          "weekendRevisionContent": {
+            "weekCovered": "Jan 26-30, 2026",
+            "literacy": [
+              "Recap of all phonic sounds learned",
+              "Reading comprehension and fluency",
+              "Sentence writing practice",
+              "Story reading and understanding"
+            ],
+            "numeracy": [
+              "Addition and subtraction review",
+              "Number recognition and writing",
+              "Counting and number sequences",
+              "Practical math applications"
+            ],
+            "generalAwareness": [
+              "Republic Day celebration (Jan 26)",
+              "Understanding national symbols",
+              "Importance of being a good citizen",
+              "Review of all seasons learned"
+            ]
+          },
+          "schedule": []
+        },
+        {
+          "date": "2026-02-01",
+          "dayOfWeek": "Sunday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
+          "schedule": []
         }
       ]
     }

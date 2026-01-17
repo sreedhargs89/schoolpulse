@@ -25,6 +25,37 @@ git push origin main --force
 
 ---
 
+## [v1.3.0] - 2026-01-17
+
+**Tag**: `v1.3.0`  
+**Commit**: `c1dda15`  
+**Rollback to**: `v1.2.0` (previous stable version)
+
+### Added
+- **Weekend Revision Feature**: Saturdays now show weekly learning summaries
+  - Beautiful purple/blue gradient revision cards
+  - Color-coded sections: 📖 Literacy (blue), 🔢 Numeracy (green), 🌍 General Awareness (orange)
+  - All 5 Saturdays in January 2026 have curated revision content
+  - Sundays remain as "Weekend" holidays
+
+### New Components
+- `components/WeekendRevision.tsx`: Displays weekly learning summaries
+- Updated `components/DaySchedule.tsx`: Renders weekend revision when applicable
+
+### Data Changes
+- `data/january-2026.json`: Added 10 weekend days (5 Saturdays + 5 Sundays)
+  - Week 1 (Jan 3): Winter Break activities
+  - Week 2 (Jan 10): Digraphs, Subtraction, Nature
+  - Week 3 (Jan 17): Phonic sounds, Addition, Seasons
+  - Week 4 (Jan 24): Long vowels, Word problems, Seasons
+  - Week 5 (Jan 31): Month recap, Republic Day
+
+### Technical
+- Added `WeekendRevisionContent` interface to `lib/data.ts`
+- Added `isWeekendRevision` and `weekendRevisionContent` fields to `DaySchedule` type
+
+---
+
 ## [v1.2.0] - 2026-01-17
 
 **Tag**: `v1.2.0`  
@@ -97,6 +128,7 @@ git push origin main --force
 
 | Version | Date | Description | Rollback To |
 |---------|------|-------------|-------------|
+| v1.3.0 | 2026-01-17 | Weekend Revision feature | v1.2.0 |
 | v1.2.0 | 2026-01-17 | Weekend support | v1.1.0 |
 | v1.1.0 | 2026-01-17 | Nov/Dec integration, Mobile UX improvements | v1.0.0 |
 
