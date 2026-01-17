@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useUpdates } from '@/context/UpdatesContext';
 import {
   getUpcomingEvents,
@@ -15,79 +15,65 @@ interface Update extends Announcement {
 
 export default function RecentUpdates() {
   const [isOpen, setIsOpen] = useState(false);
-  const [updates, setUpdates] = useState<Update[]>([]);
   const [hasNew, setHasNew] = useState(false);
 
   // Use Context
   const { updates: externalUpdates, loading } = useUpdates();
 
-  useEffect(() => {
-    function calculateUpdates() {
-      const today = new Date().toISOString().split('T')[0];
+  const updates = useMemo(() => {
+    const today = new Date().toISOString().split('T')[0];
 
-      // 2. Get today's events from lib/data.ts (System events)
-      const todayEvent = getTodayEvent();
-      const todayEventUpdate: Update[] = todayEvent ? [{
-        id: 9000,
-        createdAt: todayEvent.date,
-        title: 'EVENT TODAY',
-        message: `${todayEvent.event}: ${todayEvent.description}`,
-        type: 'urgent',
-        priority: 1,
+    // 2. Get today's events from lib/data.ts (System events)
+    const todayEvent = getTodayEvent();
+    const todayEventUpdate: Update[] = todayEvent ? [{
+      id: 9000,
+      createdAt: todayEvent.date,
+      title: 'EVENT TODAY',
+      message: `${todayEvent.event}: ${todayEvent.description}`,
+      type: 'urgent',
+      priority: 1,
+      category: 'EVENT',
+      expiresAt: todayEvent.date
+    }] : [];
+
+    // 3. Get upcoming events from lib/data.ts (System events)
+    const upcomingEvents = getUpcomingEvents(3);
+    const eventUpdates: Update[] = upcomingEvents
+      .filter(e => e.date !== today)
+      .map((e, idx) => ({
+        id: 7000 + idx,
+        createdAt: e.date,
+        title: 'UPCOMING EVENT',
+        message: `${formatShortDate(e.date)}: ${e.event}`,
+        type: e.type === 'holiday' ? 'holiday' : 'info',
+        priority: 2,
         category: 'EVENT',
-        expiresAt: todayEvent.date
-      }] : [];
+        link: '',
+        linkText: '',
+        expiresAt: e.date
+      }));
 
-      // 3. Get upcoming events from lib/data.ts (System events)
-      const upcomingEvents = getUpcomingEvents(3);
-      const eventUpdates: Update[] = upcomingEvents
-        .filter(e => e.date !== today)
-        .map((e, idx) => ({
-          id: 7000 + idx,
-          createdAt: e.date,
-          title: 'UPCOMING EVENT',
-          message: `${formatShortDate(e.date)}: ${e.event}`,
-          type: e.type === 'holiday' ? 'holiday' : 'info',
-          priority: 2,
-          category: 'EVENT',
-          link: '',
-          linkText: '',
-          expiresAt: e.date
-        }));
+    // Combine all updates
+    const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates].sort((a, b) => {
+      // Sort by priority (1 is highest)
+      if (a.priority !== b.priority) return (a.priority || 3) - (b.priority || 3);
+      // Then by date (newest first)
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
 
-      // Combine all updates
-      const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates].sort((a, b) => {
-        // Sort by priority (1 is highest)
-        if (a.priority !== b.priority) return (a.priority || 3) - (b.priority || 3);
-        // Then by date (newest first)
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-      });
+    return allUpdates;
+  }, [externalUpdates]);
 
-      setUpdates(allUpdates);
-
-      // Check for new updates
-      const lastSeen = localStorage.getItem('updates_last_seen');
-      if (allUpdates.length > 0) {
-        // Simple logic: if count > 0 and no lastSeen, or simple diff?
-        // Logic: if any update is newer than lastSeen.
-        // Actually, just showing dot if ANY updates exist is handled by badge count now. 
-        // But the dot logic was:
-        /*
-        const latestUpdate = allUpdates[0];
-        if (!lastSeen || lastSeen < latestUpdate.createdAt) {
-          setHasNew(true);
-        }
-        */
-        // Re-implementing logic to satisfy linter but context might have changed
-        const latestUpdate = allUpdates[0];
-        if (!lastSeen || lastSeen < latestUpdate.createdAt) {
-          setHasNew(true);
-        }
+  useEffect(() => {
+    // Check for new updates
+    const lastSeen = localStorage.getItem('updates_last_seen');
+    if (updates.length > 0) {
+      const latestUpdate = updates[0];
+      if (!lastSeen || lastSeen < latestUpdate.createdAt) {
+        setHasNew(true);
       }
     }
-
-    calculateUpdates();
-  }, [externalUpdates]); // Re-run when context updates arrive
+  }, [updates]);
 
   const handleOpen = () => {
     setIsOpen(true);

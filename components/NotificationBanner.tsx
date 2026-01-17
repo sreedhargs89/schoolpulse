@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useUpdates } from '@/context/UpdatesContext';
 import {
   getUpcomingEvents,
@@ -16,63 +16,59 @@ interface BannerItem {
 }
 
 export default function NotificationBanner() {
-  const [bannerItems, setBannerItems] = useState<BannerItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Consume the context
   const { updates: externalUpdates } = useUpdates();
 
   // Re-calculate banner items whenever updates change
-  useEffect(() => {
-    function loadData() {
-      const items: BannerItem[] = [];
+  const bannerItems = useMemo(() => {
+    const items: BannerItem[] = [];
 
-      // Check for today's event first (highest priority)
-      const todayEvent = getTodayEvent();
-      if (todayEvent) {
-        items.push({
-          message: `TODAY: ${todayEvent.event} - ${todayEvent.description}`,
-          type: todayEvent.type,
-          isToday: true,
-        });
-      }
-
-      // Add external updates (from Context)
-      for (const a of externalUpdates) {
-        items.push({
-          message: a.message,
-          type: a.type as any,
-        });
-      }
-
-      // Add upcoming events (next 3 days) if not already today
-      const upcomingEvents = getUpcomingEvents(3);
-      for (const event of upcomingEvents) {
-        // Skip if it's today's event (already added)
-        if (todayEvent && event.date === todayEvent.date) continue;
-
-        const daysUntil = Math.ceil(
-          (new Date(event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
-        );
-
-        let prefix = '';
-        if (daysUntil === 1) {
-          prefix = 'TOMORROW: ';
-        } else if (daysUntil === 2) {
-          prefix = 'In 2 days: ';
-        } else {
-          prefix = `${formatShortDate(event.date)}: `;
-        }
-
-        items.push({
-          message: `${prefix}${event.event}`,
-          type: event.type,
-        });
-      }
-
-      setBannerItems(items);
+    // Check for today's event first (highest priority)
+    const todayEvent = getTodayEvent();
+    if (todayEvent) {
+      items.push({
+        message: `TODAY: ${todayEvent.event} - ${todayEvent.description}`,
+        type: todayEvent.type,
+        isToday: true,
+      });
     }
-    loadData();
+
+    // Add external updates (from Context)
+    for (const a of externalUpdates) {
+      items.push({
+        message: a.message,
+        type: a.type as any,
+      });
+    }
+
+    // Add upcoming events (next 3 days) if not already today
+    const upcomingEvents = getUpcomingEvents(3);
+    for (const event of upcomingEvents) {
+      // Skip if it's today's event (already added)
+      if (todayEvent && event.date === todayEvent.date) continue;
+
+      const daysUntil = Math.ceil(
+        (new Date(event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      let prefix = '';
+      if (daysUntil === 1) {
+        prefix = 'TOMORROW: ';
+      } else if (daysUntil === 2) {
+        prefix = 'In 2 days: ';
+      } else {
+        prefix = `${formatShortDate(event.date)}: `;
+      }
+
+      items.push({
+        message: `${prefix}${event.event}`,
+        type: event.type,
+      });
+    }
+
+    return items;
   }, [externalUpdates]);
 
   useEffect(() => {

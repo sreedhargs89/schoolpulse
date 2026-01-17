@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useMemo } from 'react';
 import { fetchExternalUpdates } from '@/app/actions';
 import { Announcement } from '@/lib/data';
 
@@ -18,7 +18,7 @@ export function UpdatesProvider({ children }: { children: ReactNode }) {
 
     // This function fetches the updates from the server action
     // The server action itself handles the revalidation/caching strategy (e.g. 5-10 mins)
-    const loadUpdates = async () => {
+    const loadUpdates = useCallback(async () => {
         try {
             const data = await fetchExternalUpdates();
             // Only update state if data actually changed to verify fewer re-renders
@@ -28,7 +28,7 @@ export function UpdatesProvider({ children }: { children: ReactNode }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     useEffect(() => {
         // Initial fetch
@@ -40,10 +40,16 @@ export function UpdatesProvider({ children }: { children: ReactNode }) {
         }, 5 * 60 * 1000);
 
         return () => clearInterval(intervalId);
-    }, []);
+    }, [loadUpdates]);
+
+    const value = useMemo(() => ({
+        updates,
+        loading,
+        refreshUpdates: loadUpdates
+    }), [updates, loading, loadUpdates]);
 
     return (
-        <UpdatesContext.Provider value={{ updates, loading, refreshUpdates: loadUpdates }}>
+        <UpdatesContext.Provider value={value}>
             {children}
         </UpdatesContext.Provider>
     );
