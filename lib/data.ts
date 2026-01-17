@@ -1,5 +1,4 @@
 import monthsIndex from '@/data/months-index.json';
-import announcementsData from '@/data/announcements.json';
 
 // Import all month data files
 import november2025 from '@/data/november-2025.json';
@@ -89,9 +88,15 @@ export interface MonthInfo {
 export interface Announcement {
   id: number;
   message: string;
-  type: 'info' | 'warning' | 'holiday' | 'important';
+  title?: string;
+  priority?: number;
+  category?: string;
+  type: 'info' | 'warning' | 'holiday' | 'important' | 'urgent' | 'notice' | 'event';
+  link?: string;
+  linkText?: string;
   createdAt: string;
   expiresAt: string;
+  status?: string;
 }
 
 // Map of month IDs to their data
@@ -141,12 +146,6 @@ export function getMonthData(monthId?: string): MonthData {
   return monthDataMap[id] || monthDataMap[getCurrentMonthId()];
 }
 
-export function getAnnouncements(): Announcement[] {
-  const today = new Date().toISOString().split('T')[0];
-  return (announcementsData.announcements as Announcement[]).filter(
-    (a) => a.expiresAt >= today
-  );
-}
 
 export function getDaySchedule(date: string, monthId?: string): DaySchedule | null {
   const data = getMonthData(monthId);
@@ -272,4 +271,152 @@ export function getSubjectColor(subject: string): string {
   }
 
   return 'bg-gray-100 text-gray-800 border-gray-200';
+}
+export async function getExternalUpdates(): Promise<Announcement[]> {
+  const SHEET_URL = process.env.NEXT_PUBLIC_UPDATES_SHEET_URL;
+  if (!SHEET_URL) {
+    console.warn('NEXT_PUBLIC_UPDATES_SHEET_URL not set');
+    return [];
+  }
+
+  try {
+    const response = await fetch(SHEET_URL, {
+      next: { revalidate: 3600 },
+    });
+    const csvData = await response.text();
+
+    // Robust CSV parser to handle commas inside quotes
+    const parseCSV = (text: string) => {
+      const rows: string[][] = [];
+      let currentRow: string[] = [];
+      let currentCell = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') inQuotes = !inQuotes;
+        else if (char === ',' && !inQuotes) {
+          currentRow.push(currentCell.trim());
+          currentCell = '';
+        } else if (char === '\n' && !inQuotes) {
+          currentRow.push(currentCell.trim());
+          rows.push(currentRow);
+          currentRow = [];
+          currentCell = '';
+        } else {
+          currentCell += char;
+        }
+      }
+      if (currentCell || currentRow.length > 0) {
+        currentRow.push(currentCell.trim());
+        rows.push(currentRow);
+      }
+      return rows;
+    };
+
+    const rows = parseCSV(csvData);
+    if (rows.length < 2) return [];
+
+    // Find the header row (it might not be the first row due to empty lines)
+    let headerRowIndex = -1;
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i].map(c => c.toLowerCase().trim());
+      if (row.includes('category') && row.includes('title')) {
+        headerRowIndex = i;
+        break;
+      }
+    }
+
+    if (headerRowIndex === -1) {
+      console.warn('Could not find header row in CSV');
+      return [];
+    }
+
+    // Map the new human-friendly headers
+    const row0 = rows[headerRowIndex].map(h => h.toLowerCase().trim());
+    const headerMap = {
+      status: row0.indexOf('status'),
+      category: row0.indexOf('category'),
+      title: row0.indexOf('title'),
+      message: row0.indexOf('notification message'),
+      action: row0.indexOf('action'),
+      link: row0.indexOf('link to action'),
+      date: row0.indexOf('date'),
+      expires: row0.indexOf('expires')
+    };
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const parseSheetDate = (dateStr: string) => {
+      if (!dateStr || dateStr === '-') return null;
+      const date = new Date(dateStr);
+      return isNaN(date.getTime()) ? null : date;
+    };
+
+    const updates = rows.slice(headerRowIndex + 1).map((row, idx) => {
+      try {
+        const status = row[headerMap.status] || '';
+        const category = row[headerMap.category] || '';
+        const title = row[headerMap.title] || '';
+        const message = row[headerMap.message] || '';
+        const actionText = row[headerMap.action] === '-' ? '' : row[headerMap.action];
+        const link = row[headerMap.link] === '-' ? '' : row[headerMap.link];
+        const date = row[headerMap.date] || '';
+        const expires = row[headerMap.expires] || '';
+
+        // Infer priority and type from Category
+        let priority = 3;
+        let type: any = 'info';
+
+        if (category.toLowerCase().includes('urgent')) {
+          priority = 1;
+          type = 'urgent';
+        } else if (category.toLowerCase().includes('holiday')) {
+          priority = 2;
+          type = 'holiday';
+        } else if (category.toLowerCase().includes('school')) {
+          priority = 2;
+          type = 'notice';
+        } else if (category.toLowerCase().includes('home')) {
+          priority = 2;
+          type = 'info';
+        }
+
+        return {
+          id: idx + 1,
+          status, // Store status
+          priority,
+          category,
+          title,
+          message,
+          type,
+          link,
+          linkText: actionText,
+          createdAt: date,
+          expiresAt: expires
+        };
+      } catch (e) {
+        console.warn('Error parsing update row:', e);
+        return null;
+      }
+    }).filter((u): u is NonNullable<typeof u> => u !== null).filter(u => {
+      // 1. If Status is 'inactive', hide it.
+      if (u.status && u.status.toLowerCase().trim() === 'inactive') return false;
+
+      // 2. If Status is empty, show it (irrespective of expiry).
+      if (!u.status || u.status.trim() === '') return true;
+
+      // 3. Otherwise (e.g. Status is 'Active'), check expiry.
+      const expiry = parseSheetDate(u.expiresAt);
+      if (!expiry) return true;
+      expiry.setHours(23, 59, 59, 999);
+      return expiry >= today;
+    });
+
+    return updates.sort((a, b) => a.priority - b.priority);
+  } catch (error) {
+    console.error('Error fetching external updates:', error);
+    return [];
+  }
 }

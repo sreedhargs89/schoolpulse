@@ -1,17 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import updatesData from '@/data/updates.json';
+import {
+  getUpcomingEvents,
+  getTodayEvent,
+  formatShortDate,
+  getExternalUpdates,
+  Announcement
+} from '@/lib/data';
 
-interface Update {
-  id: number;
-  date: string;
-  title: string;
-  message: string;
-  type: 'info' | 'notice' | 'urgent';
-  expiresAt: string;
-  link?: string;
-  linkText?: string;
+interface Update extends Announcement {
+  isExternal?: boolean;
 }
 
 export default function RecentUpdates() {
@@ -20,21 +19,65 @@ export default function RecentUpdates() {
   const [hasNew, setHasNew] = useState(false);
 
   useEffect(() => {
-    // Filter out expired updates
-    const today = new Date().toISOString().split('T')[0];
-    const activeUpdates = (updatesData.updates as Update[]).filter(
-      (u) => u.expiresAt >= today
-    );
-    setUpdates(activeUpdates);
+    async function loadUpdates() {
+      const today = new Date().toISOString().split('T')[0];
 
-    // Check if there are updates user hasn't seen
-    const lastSeen = localStorage.getItem('updates_last_seen');
-    if (activeUpdates.length > 0) {
-      const latestUpdate = activeUpdates[0];
-      if (!lastSeen || lastSeen < latestUpdate.date) {
-        setHasNew(true);
+      // 1. Fetch from Google Sheets
+      const externalUpdates = await getExternalUpdates();
+
+      // 2. Get today's events from lib/data.ts (System events)
+      const todayEvent = getTodayEvent();
+      const todayEventUpdate: Update[] = todayEvent ? [{
+        id: 9000,
+        createdAt: todayEvent.date,
+        title: 'EVENT TODAY',
+        message: `${todayEvent.event}: ${todayEvent.description}`,
+        type: 'urgent',
+        priority: 1,
+        category: 'EVENT',
+        expiresAt: todayEvent.date
+      }] : [];
+
+      // 3. Get upcoming events from lib/data.ts (System events)
+      const upcomingEvents = getUpcomingEvents(3);
+      const eventUpdates: Update[] = upcomingEvents
+        .filter(e => e.date !== today)
+        .map((e, idx) => ({
+          id: 7000 + idx,
+          createdAt: e.date,
+          title: 'UPCOMING EVENT',
+          message: `${formatShortDate(e.date)}: ${e.event}`,
+          type: e.type === 'holiday' ? 'holiday' : 'info',
+          priority: 2,
+          category: 'EVENT',
+          expiresAt: e.date
+        }));
+
+      // Combine all. Sort by Priority FIRST, then by Date descending
+      const allUpdates = [
+        ...todayEventUpdate,
+        ...externalUpdates,
+        ...eventUpdates
+      ].sort((a, b) => {
+        const pA = a.priority || 3;
+        const pB = b.priority || 3;
+        if (pA !== pB) return pA - pB;
+        return b.createdAt.localeCompare(a.createdAt);
+      });
+
+      setUpdates(allUpdates);
+
+      // Check if there are updates user hasn't seen
+      const lastSeen = localStorage.getItem('updates_last_seen');
+      if (allUpdates.length > 0) {
+        const latestUpdate = allUpdates[0];
+        if (!lastSeen || lastSeen < latestUpdate.createdAt) {
+          setHasNew(true);
+        }
       }
     }
+
+    loadUpdates();
   }, []);
 
   const handleOpen = () => {
@@ -50,10 +93,13 @@ export default function RecentUpdates() {
     });
   };
 
-  const getTypeStyle = (type: string) => {
+  const getTypeStyle = (type: string, priority?: number) => {
+    if (priority === 1) return 'bg-white border-orange-500 shadow-lg border-2 ring-4 ring-orange-50';
     switch (type) {
       case 'urgent':
         return 'bg-red-50 border-red-200 text-red-800';
+      case 'holiday':
+        return 'bg-green-50 border-green-200 text-green-800';
       case 'notice':
         return 'bg-orange-50 border-orange-200 text-orange-800';
       default:
@@ -73,7 +119,7 @@ export default function RecentUpdates() {
         </svg>
         <span className="hidden sm:inline">Updates</span>
         {updates.length > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-5 h-5 flex items-center justify-center bg-red-500 text-white text-xs font-bold rounded-full px-1">
+          <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-sm ring-2 ring-white animate-pulse">
             {updates.length}
           </span>
         )}
@@ -91,56 +137,75 @@ export default function RecentUpdates() {
           {/* Content */}
           <div className="relative bg-white w-full sm:w-96 max-h-[70vh] rounded-t-2xl sm:rounded-2xl overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-orange-50">
-              <h2 className="font-semibold text-gray-900 flex items-center gap-2">
-                <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center justify-between p-3 border-b border-gray-100 bg-orange-50/50">
+              <h2 className="text-sm font-bold text-gray-900 flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
-                Recent Updates
+                Updates
               </h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
             {/* Updates List */}
-            <div className="p-4 overflow-y-auto max-h-[50vh]">
+            <div className="p-2 sm:p-3 overflow-y-auto max-h-[65vh]">
               {updates.length === 0 ? (
-                <p className="text-center text-gray-500 py-8">No updates at the moment</p>
+                <p className="text-center text-xs text-gray-500 py-6 font-medium">No updates at the moment</p>
               ) : (
-                <div className="space-y-3">
-                  {updates.map((update) => (
-                    <div
-                      key={update.id}
-                      className={`p-3 rounded-lg border ${getTypeStyle(update.type)}`}
-                    >
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-medium">{update.title}</h3>
-                        <span className="text-xs opacity-70 whitespace-nowrap">
-                          {formatDate(update.date)}
-                        </span>
+                <div className="space-y-4">
+                  {/* Category Grouping Logic */}
+                  {[
+                    { title: 'Urgent Action / High Priority', items: updates.filter(u => u.category?.toLowerCase().includes('urgent')) },
+                    { title: 'Home Work / Daily Tasks', items: updates.filter(u => u.category?.toLowerCase().includes('home')) },
+                    { title: 'School Actions & Notices', items: updates.filter(u => u.category?.toLowerCase().includes('school')) },
+                    { title: 'Holidays & Closures', items: updates.filter(u => u.category?.toLowerCase().includes('holiday')) },
+                    { title: 'General Information', items: updates.filter(u => u.category?.toLowerCase().includes('general')) },
+                  ]
+                    .filter(group => group.items.length > 0)
+                    .map((group, gIdx) => (
+                      <div key={gIdx} className="space-y-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">
+                          {group.title}
+                        </h4>
+                        <div className="space-y-2">
+                          {group.items.map((update) => (
+                            <div
+                              key={update.id}
+                              className={`p-2.5 rounded-lg border transition-all duration-300 ${getTypeStyle(update.type, update.priority)}`}
+                            >
+                              <div className="flex items-start justify-between gap-1.5">
+                                <div className="flex flex-col min-w-0">
+                                  <h3 className="font-bold text-[13px] leading-snug">{update.title}</h3>
+                                </div>
+                              </div>
+                              <p className="text-[12px] mt-1 opacity-80 leading-relaxed font-medium">
+                                {update.message}
+                              </p>
+                              {update.link && (
+                                <a
+                                  href={update.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-md hover:bg-orange-600 transition-all shadow-sm shadow-orange-100 uppercase tracking-wide"
+                                >
+                                  {update.linkText || 'Learn More'}
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                  </svg>
+                                </a>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-sm mt-1 opacity-90 whitespace-pre-line">{update.message}</p>
-                      {update.link && (
-                        <a
-                          href={update.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-orange-500 text-white text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors"
-                        >
-                          {update.linkText || 'Learn More'}
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </a>
-                      )}
-                    </div>
-                  ))}
+                    ))}
                 </div>
               )}
             </div>

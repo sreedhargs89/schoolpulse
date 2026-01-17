@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import {
-  Announcement,
-  getAnnouncements,
+  getExternalUpdates,
   getUpcomingEvents,
   getTodayEvent,
   formatShortDate,
@@ -12,7 +11,7 @@ import {
 
 interface BannerItem {
   message: string;
-  type: 'info' | 'warning' | 'holiday' | 'important' | 'event' | 'activity';
+  type: 'info' | 'warning' | 'holiday' | 'important' | 'event' | 'activity' | 'urgent' | 'notice';
   isToday?: boolean;
 }
 
@@ -21,53 +20,60 @@ export default function NotificationBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const items: BannerItem[] = [];
+    async function loadData() {
+      const items: BannerItem[] = [];
 
-    // Check for today's event first (highest priority)
-    const todayEvent = getTodayEvent();
-    if (todayEvent) {
-      items.push({
-        message: `TODAY: ${todayEvent.event} - ${todayEvent.description}`,
-        type: todayEvent.type,
-        isToday: true,
-      });
-    }
-
-    // Add manual announcements
-    const announcements = getAnnouncements();
-    for (const a of announcements) {
-      items.push({
-        message: a.message,
-        type: a.type,
-      });
-    }
-
-    // Add upcoming events (next 3 days) if not already today
-    const upcomingEvents = getUpcomingEvents(3);
-    for (const event of upcomingEvents) {
-      // Skip if it's today's event (already added)
-      if (todayEvent && event.date === todayEvent.date) continue;
-
-      const daysUntil = Math.ceil(
-        (new Date(event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
-      );
-
-      let prefix = '';
-      if (daysUntil === 1) {
-        prefix = 'TOMORROW: ';
-      } else if (daysUntil === 2) {
-        prefix = 'In 2 days: ';
-      } else {
-        prefix = `${formatShortDate(event.date)}: `;
+      // Check for today's event first (highest priority)
+      const todayEvent = getTodayEvent();
+      if (todayEvent) {
+        items.push({
+          message: `TODAY: ${todayEvent.event} - ${todayEvent.description}`,
+          type: todayEvent.type,
+          isToday: true,
+        });
       }
 
-      items.push({
-        message: `${prefix}${event.event}`,
-        type: event.type,
-      });
-    }
+      // Add external updates (from Google Sheet)
+      const externalUpdates = await getExternalUpdates();
+      // Only show high priority or specific updates in banner to avoid clutter?
+      // Or show all. Let's show all for now as per previous logic.
+      for (const a of externalUpdates) {
+        // Map external types to banner types if needed, or ensure BannerItem type supports them
+        // External types: 'info' | 'warning' | 'holiday' | 'important' | 'urgent' | 'notice'
+        items.push({
+          message: a.message,
+          type: a.type as any, // Cast assuming types overlap mostly
+        });
+      }
 
-    setBannerItems(items);
+      // Add upcoming events (next 3 days) if not already today
+      const upcomingEvents = getUpcomingEvents(3);
+      for (const event of upcomingEvents) {
+        // Skip if it's today's event (already added)
+        if (todayEvent && event.date === todayEvent.date) continue;
+
+        const daysUntil = Math.ceil(
+          (new Date(event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+        );
+
+        let prefix = '';
+        if (daysUntil === 1) {
+          prefix = 'TOMORROW: ';
+        } else if (daysUntil === 2) {
+          prefix = 'In 2 days: ';
+        } else {
+          prefix = `${formatShortDate(event.date)}: `;
+        }
+
+        items.push({
+          message: `${prefix}${event.event}`,
+          type: event.type,
+        });
+      }
+
+      setBannerItems(items);
+    }
+    loadData();
   }, []);
 
   useEffect(() => {
@@ -91,6 +97,8 @@ export default function NotificationBanner() {
     important: 'bg-fuchsia-500',
     event: 'bg-cyan-500',
     activity: 'bg-lime-500',
+    urgent: 'bg-red-600',
+    notice: 'bg-indigo-500',
   };
 
   const typeIcons: Record<string, string> = {
@@ -100,6 +108,8 @@ export default function NotificationBanner() {
     important: '❗',
     event: '📅',
     activity: '🎨',
+    urgent: '🚨',
+    notice: '📝',
   };
 
   return (

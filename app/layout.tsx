@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
-import NotificationBanner from "@/components/NotificationBanner";
 import InstallPrompt from "@/components/InstallPrompt";
 
 const inter = Inter({
