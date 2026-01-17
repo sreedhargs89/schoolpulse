@@ -125,6 +125,9 @@ export async function fetchExternalUpdates(): Promise<Announcement[]> {
                 } else if (category.toLowerCase().includes('holiday')) {
                     priority = 2;
                     type = 'holiday';
+                } else if (category.toLowerCase().includes('homework')) {
+                    priority = 2;
+                    type = 'homework';
                 } else if (category.toLowerCase().includes('school')) {
                     priority = 2;
                     type = 'notice';

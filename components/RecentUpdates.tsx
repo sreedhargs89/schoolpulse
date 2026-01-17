@@ -111,6 +111,8 @@ export default function RecentUpdates() {
         return 'bg-green-50 border-green-200 text-green-800';
       case 'notice':
         return 'bg-orange-50 border-orange-200 text-orange-800';
+      case 'homework':
+        return 'bg-purple-50 border-purple-200 text-purple-800';
       default:
         return 'bg-blue-50 border-blue-200 text-blue-800';
     }
@@ -172,10 +174,11 @@ export default function RecentUpdates() {
                   {/* Category Grouping Logic */}
                   {[
                     { title: 'Urgent Action / High Priority', items: updates.filter(u => u.category?.toLowerCase().includes('urgent')) },
-                    { title: 'Home Work / Daily Tasks', items: updates.filter(u => u.category?.toLowerCase().includes('home')) },
+                    { title: 'Home Work / Daily Tasks', items: updates.filter(u => u.category?.toLowerCase().includes('home') || u.category?.toLowerCase().includes('homework')) },
                     { title: 'School Actions & Notices', items: updates.filter(u => u.category?.toLowerCase().includes('school')) },
                     { title: 'Holidays & Closures', items: updates.filter(u => u.category?.toLowerCase().includes('holiday')) },
-                    { title: 'General Information', items: updates.filter(u => u.category?.toLowerCase().includes('general')) },
+                    { title: 'Upcoming Events', items: updates.filter(u => u.category?.toLowerCase().includes('event')) },
+                    { title: 'General Information', items: updates.filter(u => !['urgent', 'home', 'homework', 'school', 'holiday', 'event'].some(k => u.category?.toLowerCase().includes(k))) },
                   ]
                     .filter(group => group.items.length > 0)
                     .map((group, gIdx) => (
