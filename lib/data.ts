@@ -275,15 +275,27 @@ export function getSubjectColor(subject: string): string {
 export async function getExternalUpdates(): Promise<Announcement[]> {
   const SHEET_URL = process.env.NEXT_PUBLIC_UPDATES_SHEET_URL;
   if (!SHEET_URL) {
-    console.warn('NEXT_PUBLIC_UPDATES_SHEET_URL not set');
+    console.error('DEBUG: NEXT_PUBLIC_UPDATES_SHEET_URL is missing or empty');
     return [];
   }
+
+  console.log('DEBUG: Fetching from URL:', SHEET_URL);
 
   try {
     const response = await fetch(SHEET_URL, {
       next: { revalidate: 0 },
     });
+
+    console.log('DEBUG: Response Status:', response.status);
+
+    if (!response.ok) {
+      console.error('DEBUG: Fetch failed with status:', response.status);
+      return [];
+    }
+
     const csvData = await response.text();
+    console.log('DEBUG: CSV Data Length:', csvData.length);
+    console.log('DEBUG: First 100 chars:', csvData.substring(0, 100));
 
     // Robust CSV parser to handle commas inside quotes
     const parseCSV = (text: string) => {
