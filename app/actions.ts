@@ -6,6 +6,7 @@ export async function fetchExternalUpdates(): Promise<Announcement[]> {
     const SHEET_URL = process.env.NEXT_PUBLIC_UPDATES_SHEET_URL;
 
     console.log('SERVER ACTION: Fetching updates...');
+    console.log('SERVER ACTION: Env Var Check:', process.env.NEXT_PUBLIC_UPDATES_SHEET_URL ? 'Exists' : 'Missing');
 
     if (!SHEET_URL) {
         console.error('SERVER ACTION ERROR: NEXT_PUBLIC_UPDATES_SHEET_URL is missing');
