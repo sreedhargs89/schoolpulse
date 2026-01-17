@@ -46,7 +46,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
       <body className={`${inter.className} antialiased bg-gray-50 overflow-x-hidden`}>
-        <NotificationBanner />
         <Navigation />
         <main className="min-h-screen pb-20">
           {children}
