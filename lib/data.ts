@@ -281,7 +281,7 @@ export async function getExternalUpdates(): Promise<Announcement[]> {
 
   try {
     const response = await fetch(SHEET_URL, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     const csvData = await response.text();
 
