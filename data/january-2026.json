@@ -28,22 +28,71 @@
     {
       "weekStart": "2026-01-05",
       "weekEnd": "2026-01-09",
-      "dictationWords": ["boat", "foam", "cone", "coal", "rose", "bow", "road", "soak", "goat", "hope", "note", "load"],
+      "dictationWords": [
+        "boat",
+        "foam",
+        "cone",
+        "coal",
+        "rose",
+        "bow",
+        "road",
+        "soak",
+        "goat",
+        "hope",
+        "note",
+        "load"
+      ],
       "days": [
         {
           "date": "2026-01-05",
           "dayOfWeek": "Monday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Recap of Digraphs - Phonic Book - Words ending with ff, zz" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Use of It is, I am" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Hands on activity" },
-            { "time": "11:30-12:00", "subject": "NUMERACY", "activity": "Subtraction - Take away" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter ಮ" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "Reading and framing sentences" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Recap of Digraphs - Phonic Book - Words ending with ff, zz"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Literacy Book - Use of It is, I am"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Hands on activity"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Take away"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter ಮ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "Reading and framing sentences"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -51,15 +100,51 @@
           "dayOfWeek": "Tuesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Words ending with ss - Fun Time activity" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Fun Time Activity" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Concept of zero" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Save Our Nature" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "ष स" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Digraph (writing and drawing objects)" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Words ending with ss - Fun Time activity"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Fun Time Activity"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Concept of zero"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Save Our Nature"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "ष स"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "4 Line Note Book - Digraph (writing and drawing objects)"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -67,15 +152,51 @@
           "dayOfWeek": "Wednesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with ar, er, ir" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Use of He is, she is, His/her" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Horizontal Subtraction" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Discussion on how trees and plants help us?" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Numbers 1-10 - Activity on letters learnt" },
-            { "time": "12:30-12:50", "subject": "ART", "activity": "Art and craft" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Introduction to words ending with ar, er, ir"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Literacy Book - Use of He is, she is, His/her"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Horizontal Subtraction"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Discussion on how trees and plants help us?"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Numbers 1-10 - Activity on letters learnt"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "ART",
+              "activity": "Art and craft"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -83,15 +204,51 @@
           "dayOfWeek": "Thursday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with or, ur, ou" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Fun Time" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Subtraction - Matching" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Save Our Nature" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "ह क्ष" },
-            { "time": "12:30-12:50", "subject": "STORY", "activity": "Intro to story - The Brave boy of Holland" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Introduction to words ending with or, ur, ou"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Literacy Book - Fun Time"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Matching"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Save Our Nature"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "ह क्ष"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "STORY",
+              "activity": "Intro to story - The Brave boy of Holland"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -99,38 +256,123 @@
           "dayOfWeek": "Friday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Introduction to words ending with ow, oy, oi" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Introduction to words ending with ow, oy, oi" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "4 Line Note Book - Digraph (writing and drawing objects)" },
-            { "time": "11:30-12:00", "subject": "NUMERACY", "activity": "Subtraction - Big numbers" },
-            { "time": "12:00-12:30", "subject": "NUMERACY", "activity": "Subtraction - Big numbers" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel o words" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "General Assembly",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Introduction to words ending with ow, oy, oi"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Introduction to words ending with ow, oy, oi"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "4 Line Note Book - Digraph (writing and drawing objects)"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Big numbers"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "NUMERACY",
+              "activity": "Subtraction - Big numbers"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "4 Line Note Book - Dictation on long vowel o words"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         }
       ]
     },
     {
       "weekStart": "2026-01-12",
-      "weekEnd": "2026-01-16",
-      "dictationWords": ["cube", "tube", "fuse", "tune", "mute", "glue", "blue", "June", "flute", "cure", "jute", "mule"],
+      "weekEnd": "2026-01-18",
+      "dictationWords": [
+        "cube",
+        "tube",
+        "fuse",
+        "tune",
+        "mute",
+        "glue",
+        "blue",
+        "June",
+        "flute",
+        "cure",
+        "jute",
+        "mule"
+      ],
       "days": [
         {
           "date": "2026-01-12",
           "dayOfWeek": "Monday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap on different sound words" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Days of the week" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Days of the week" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Introduction to Seasons" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letters ಪ to ಮ in 2 lines note book" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation long vowel u words" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Recap on different sound words"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Days of the week"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Days of the week"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Introduction to Seasons"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letters ಪ to ಮ in 2 lines note book"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "4 Line Note Book - Dictation long vowel u words"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -138,15 +380,51 @@
           "dayOfWeek": "Tuesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap on different sound words" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Days of the week" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Backward Counting" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Summer season and its characteristics" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "त्र ज्ञ" },
-            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Little Christmas Tree (Activity)" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Recap on different sound words"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Days of the week"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Backward Counting"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Summer season and its characteristics"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "त्र ज्ञ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "STORY",
+              "activity": "The Little Christmas Tree (Activity)"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -154,15 +432,51 @@
           "dayOfWeek": "Wednesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "MAKAR SANKRANTI ACTIVITY", "activity": "Celebration activity" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Recap of Preposition (Activity)" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Horizontal addition" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Spring season and its characteristics" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಯ, ರ" },
-            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland (question and answers)" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "MAKAR SANKRANTI ACTIVITY",
+              "activity": "Celebration activity"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Recap of Preposition (Activity)"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Horizontal addition"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Spring season and its characteristics"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter - ಯ, ರ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "STORY",
+              "activity": "The Brave boy of Holland (question and answers)"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -177,16 +491,66 @@
           "dayOfWeek": "Friday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Recap activities" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Vertical addition" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Rainy season and its characteristics" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "श्र" },
-            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 51-70" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "General Assembly",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Recap"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Recap activities"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Vertical addition"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Rainy season and its characteristics"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "श्र"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "NUMERACY",
+              "activity": "Dictation - Number names 51-70"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
+        },
+        {
+          "date": "2026-01-17",
+          "dayOfWeek": "Saturday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
+          "schedule": []
+        },
+        {
+          "date": "2026-01-18",
+          "dayOfWeek": "Sunday",
+          "isHoliday": true,
+          "holidayName": "Weekend",
+          "schedule": []
         }
       ]
     },
@@ -200,15 +564,51 @@
           "dayOfWeek": "Monday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Different sound of (c)" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Months of Year" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Big numbers addition" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Autumn season and its characteristics" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಲ, ವ" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel o and u words" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Different sound of (c)"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Months of Year"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Big numbers addition"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Autumn season and its characteristics"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter - ಲ, ವ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "4 Line Note Book - Dictation on long vowel o and u words"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -216,15 +616,51 @@
           "dayOfWeek": "Tuesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Different sound of (g)" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Months of Year" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Ordinal numbers" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Winter season and its characteristics" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Recap of Warn Mala" },
-            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Months of the year" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Different sound of (g)"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Months of Year"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Ordinal numbers"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Winter season and its characteristics"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "Recap of Warn Mala"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "NUMERACY",
+              "activity": "Months of the year"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -232,15 +668,51 @@
           "dayOfWeek": "Wednesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Fun Time" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Word Formation" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction horizontal" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Activity on Seasons" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಶ, ಷ" },
-            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 71-100" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Fun Time"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Word Formation"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Subtraction horizontal"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Activity on Seasons"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter - ಶ, ಷ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "NUMERACY",
+              "activity": "Dictation - Number names 71-100"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -248,15 +720,51 @@
           "dayOfWeek": "Thursday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Picture Talk" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Rearrange the sentence" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction Vertical" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concept Air" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti - Do Akshar wale shabd" },
-            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland (Activity)" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Picture Talk"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Rearrange the sentence"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Subtraction Vertical"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Recap of concept Air"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "Nirjhar Moti - Do Akshar wale shabd"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "STORY",
+              "activity": "The Brave boy of Holland (Activity)"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -264,15 +772,51 @@
           "dayOfWeek": "Friday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "Phonic Book - Recap" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "My Literacy - Rearrange the sentence" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Subtraction big numbers" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concepts done so far" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಸ, ಹ" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "My Literacy - What is your name?" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "General Assembly",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "Phonic Book - Recap"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Rearrange the sentence"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Subtraction big numbers"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Recap of concepts done so far"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter - ಸ, ಹ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "My Literacy - What is your name?"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         }
       ]
@@ -294,15 +838,51 @@
           "dayOfWeek": "Tuesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Rebus Story" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Picture Composition" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Backward counting 50-1" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap on Water - Save water" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti" },
-            { "time": "12:30-12:50", "subject": "LITERACY", "activity": "4 Line Note Book - Dictation on long vowel a,e,i,o and u words" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Rebus Story"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Picture Composition"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Backward counting 50-1"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Recap on Water - Save water"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "Nirjhar Moti"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "LITERACY",
+              "activity": "4 Line Note Book - Dictation on long vowel a,e,i,o and u words"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -310,15 +890,51 @@
           "dayOfWeek": "Wednesday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Picture Description" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Picture Composition" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 2's" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Story: The Greedy dog (Water Reflection)" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Letter - ಳ" },
-            { "time": "12:30-12:50", "subject": "NUMERACY", "activity": "Dictation - Number names 71-100" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Picture Description"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Picture Composition"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Skip counting by 2's"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Story: The Greedy dog (Water Reflection)"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Letter - ಳ"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "NUMERACY",
+              "activity": "Dictation - Number names 71-100"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -326,15 +942,51 @@
           "dayOfWeek": "Thursday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "Prayer/Rhymes & Circle Time", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Reading time (A)" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Comprehension Passage (Question and Answers)" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 5's" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Uses of water (tip, tip story)" },
-            { "time": "12:00-12:30", "subject": "HINDI", "activity": "Nirjhar Moti" },
-            { "time": "12:30-12:50", "subject": "STORY", "activity": "The Brave boy of Holland - Roleplay" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "Prayer/Rhymes & Circle Time",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Reading time (A)"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Comprehension Passage (Question and Answers)"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Skip counting by 5's"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Uses of water (tip, tip story)"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "HINDI",
+              "activity": "Nirjhar Moti"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "STORY",
+              "activity": "The Brave boy of Holland - Roleplay"
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         },
         {
@@ -342,15 +994,51 @@
           "dayOfWeek": "Friday",
           "isHoliday": false,
           "schedule": [
-            { "time": "9:10-9:30", "subject": "General Assembly", "activity": "" },
-            { "time": "9:30-10:00", "subject": "LITERACY", "activity": "My Literacy - Reading time (A)" },
-            { "time": "10:00-10:30", "subject": "LITERACY", "activity": "Literacy Book - Reading time (A)" },
-            { "time": "10:30-11:00", "subject": "Snack Break", "activity": "" },
-            { "time": "11:00-11:30", "subject": "NUMERACY", "activity": "Square line note book - Skip counting by 10's" },
-            { "time": "11:30-12:00", "subject": "GENERAL AWARENESS", "activity": "Recap of concepts done so far" },
-            { "time": "12:00-12:30", "subject": "KANNADA", "activity": "Activity" },
-            { "time": "12:30-12:50", "subject": "SOCIO EMOTIONAL SKILLS", "activity": "" },
-            { "time": "12:50-1:00", "subject": "Meditation", "activity": "" }
+            {
+              "time": "9:10-9:30",
+              "subject": "General Assembly",
+              "activity": ""
+            },
+            {
+              "time": "9:30-10:00",
+              "subject": "LITERACY",
+              "activity": "My Literacy - Reading time (A)"
+            },
+            {
+              "time": "10:00-10:30",
+              "subject": "LITERACY",
+              "activity": "Literacy Book - Reading time (A)"
+            },
+            {
+              "time": "10:30-11:00",
+              "subject": "Snack Break",
+              "activity": ""
+            },
+            {
+              "time": "11:00-11:30",
+              "subject": "NUMERACY",
+              "activity": "Square line note book - Skip counting by 10's"
+            },
+            {
+              "time": "11:30-12:00",
+              "subject": "GENERAL AWARENESS",
+              "activity": "Recap of concepts done so far"
+            },
+            {
+              "time": "12:00-12:30",
+              "subject": "KANNADA",
+              "activity": "Activity"
+            },
+            {
+              "time": "12:30-12:50",
+              "subject": "SOCIO EMOTIONAL SKILLS",
+              "activity": ""
+            },
+            {
+              "time": "12:50-1:00",
+              "subject": "Meditation",
+              "activity": ""
+            }
           ]
         }
       ]
