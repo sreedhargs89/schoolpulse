@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { UpdatesProvider } from "@/context/UpdatesContext";
+import HomeworkDuePopup from '@/components/HomeworkDuePopup';
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import InstallPrompt from "@/components/InstallPrompt";
@@ -34,7 +36,6 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-import { UpdatesProvider } from "@/context/UpdatesContext";
 
 export default function RootLayout({
   children,
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased bg-gray-50 overflow-x-hidden`}>
         <UpdatesProvider>
           <Navigation />
+          <HomeworkDuePopup />
           <main className="min-h-screen pb-20">
             {children}
           </main>
