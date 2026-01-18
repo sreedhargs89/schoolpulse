@@ -2,17 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useUpdates } from '@/context/UpdatesContext';
 
 export default function Navigation() {
   const pathname = usePathname();
+  const { homeworkCount } = useUpdates();
 
   const links = [
     { href: '/', label: 'Today', icon: '📖' },
     { href: '/week', label: 'Week', icon: '7️⃣' },
+    { href: '/homework', label: 'Homework', icon: '📚' },
     { href: '/month', label: 'Month', icon: '🗓️' },
     { href: '/dates', label: 'Events', icon: '🔔' },
     { href: '/rhymes', label: 'Rhymes', icon: '🎵' },
-    { href: '/admin', label: 'Admin', icon: '⚙️' },
+    // { href: '/admin', label: 'Admin', icon: '⚙️' },
   ];
 
   return (
@@ -30,11 +33,18 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-1 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive
-                      ? 'bg-orange-100 text-orange-700'
-                      : 'text-gray-600 hover:bg-gray-100'
+                  className={`relative px-1 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive
+                    ? 'bg-orange-100 text-orange-700'
+                    : 'text-gray-600 hover:bg-gray-100'
                     }`}
                 >
+                  {/* Badge for Homework */}
+                  {link.label === 'Homework' && homeworkCount > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white animate-pulse">
+                      {homeworkCount}
+                    </span>
+                  )}
+
                   {/* Mobile: Icon + Small Text */}
                   <div className="sm:hidden flex flex-col items-center gap-0.5">
                     <span className="text-lg">{link.icon}</span>

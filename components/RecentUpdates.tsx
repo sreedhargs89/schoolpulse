@@ -54,12 +54,14 @@ export default function RecentUpdates() {
       }));
 
     // Combine all updates
-    const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates].sort((a, b) => {
-      // Sort by priority (1 is highest)
-      if (a.priority !== b.priority) return (a.priority || 3) - (b.priority || 3);
-      // Then by date (newest first)
-      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    });
+    const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates]
+      .filter(u => !u.category?.toLowerCase().includes('homework') && !u.category?.toLowerCase().includes('home work') && u.type !== 'homework') // Exclude homework from notifications
+      .sort((a, b) => {
+        // Sort by priority (1 is highest)
+        if (a.priority !== b.priority) return (a.priority || 3) - (b.priority || 3);
+        // Then by date (newest first)
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
 
     return allUpdates;
   }, [externalUpdates]);
@@ -160,7 +162,7 @@ export default function RecentUpdates() {
                   {/* Category Grouping Logic */}
                   {[
                     { title: 'Urgent Action / High Priority', items: updates.filter(u => u.category?.toLowerCase().includes('urgent')) },
-                    { title: 'Home Work / Daily Tasks', items: updates.filter(u => u.category?.toLowerCase().includes('home') || u.category?.toLowerCase().includes('homework')) },
+                    // { title: 'Home Work / Daily Tasks', items: updates.filter(u => u.category?.toLowerCase().includes('home') || u.category?.toLowerCase().includes('homework')) },
                     { title: 'School Actions & Notices', items: updates.filter(u => u.category?.toLowerCase().includes('school')) },
                     { title: 'Holidays & Closures', items: updates.filter(u => u.category?.toLowerCase().includes('holiday')) },
                     { title: 'Upcoming Events', items: updates.filter(u => u.category?.toLowerCase().includes('event')) },

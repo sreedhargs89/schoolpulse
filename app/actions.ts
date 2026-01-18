@@ -2,18 +2,26 @@
 
 import { Announcement } from '@/lib/data';
 
+// Define Homework Interface locally or import if available
+export interface Homework {
+    id: string;
+    status: string;
+    subject: string;
+    content: string;
+    submissionDate: string;
+    notes?: string;
+    createdAt?: string;
+}
+
+const UPDATES_REVALIDATE_SECONDS = 60;
+
 export async function fetchExternalUpdates(): Promise<Announcement[]> {
     const SHEET_URL = process.env.NEXT_PUBLIC_UPDATES_SHEET_URL;
-
-    // console.log('SERVER ACTION: Fetching updates...');
-    // console.log('SERVER ACTION: Env Var Check:', process.env.NEXT_PUBLIC_UPDATES_SHEET_URL ? 'Exists' : 'Missing');
 
     if (!SHEET_URL) {
         console.error('SERVER ACTION ERROR: NEXT_PUBLIC_UPDATES_SHEET_URL is missing');
         return [];
     }
-
-    // console.log('SERVER ACTION: URL is:', SHEET_URL);
 
     try {
         const response = await fetch(SHEET_URL, {
@@ -169,6 +177,42 @@ export async function fetchExternalUpdates(): Promise<Announcement[]> {
 
     } catch (error) {
         console.error('SERVER ACTION ERROR: Exception during fetch/parse', error);
+        return [];
+    }
+}
+
+export async function fetchHomework(): Promise<Homework[]> {
+    try {
+        // Reuse the main updates fetcher
+        const allUpdates = await fetchExternalUpdates();
+
+        // Filter only homework items
+        const homeworkUpdates = allUpdates.filter(u => {
+            const isHw = u.category?.toLowerCase().includes('homework') || u.type === 'homework';
+            if (u.title?.includes('NOF')) {
+                console.log('DEBUG: Found NOF Item. Category:', u.category, 'Type:', u.type, 'IsHW:', isHw);
+            }
+            return isHw;
+        });
+
+        return homeworkUpdates.map((u, idx) => {
+            // Map Announcement fields to Homework fields
+            // Title -> Subject
+            // Message -> Content
+            // ExpiresAt -> Submission Date
+            return {
+                id: `hw-${u.id}`,
+                status: 'Active',
+                subject: u.title || 'General',
+                content: u.message,
+                submissionDate: u.expiresAt,
+                notes: u.link ? `Link: ${u.link}` : '',
+                createdAt: u.createdAt
+            } as Homework;
+        });
+
+    } catch (error) {
+        console.error('Failed to fetch homework from updates', error);
         return [];
     }
 }

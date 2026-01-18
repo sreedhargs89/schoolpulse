@@ -91,7 +91,7 @@ export interface Announcement {
   title?: string;
   priority?: number;
   category?: string;
-  type: 'info' | 'warning' | 'holiday' | 'important' | 'urgent' | 'notice' | 'event';
+  type: 'info' | 'warning' | 'holiday' | 'important' | 'urgent' | 'notice' | 'event' | 'homework';
   link?: string;
   linkText?: string;
   createdAt: string;

@@ -6,6 +6,7 @@ import { Announcement } from '@/lib/data';
 
 interface UpdatesContextType {
     updates: Announcement[];
+    homeworkCount: number;
     loading: boolean;
     refreshUpdates: () => Promise<void>;
 }
@@ -42,11 +43,19 @@ export function UpdatesProvider({ children }: { children: ReactNode }) {
         return () => clearInterval(intervalId);
     }, [loadUpdates]);
 
+    const homeworkCount = useMemo(() => {
+        return updates.filter(u =>
+            u.category?.toLowerCase().includes('homework') ||
+            u.type === 'homework'
+        ).length;
+    }, [updates]);
+
     const value = useMemo(() => ({
         updates,
+        homeworkCount,
         loading,
         refreshUpdates: loadUpdates
-    }), [updates, loading, loadUpdates]);
+    }), [updates, homeworkCount, loading, loadUpdates]);
 
     return (
         <UpdatesContext.Provider value={value}>
