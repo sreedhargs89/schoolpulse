@@ -26,6 +26,14 @@ export default function WeekPage() {
     }
   }, []);
 
+  // Scroll selected week into view
+  useEffect(() => {
+    const selectedBtn = document.getElementById(`week-btn-${selectedWeekIndex}`);
+    if (selectedBtn) {
+      selectedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [selectedWeekIndex]);
+
   if (weeks.length === 0 || !monthInfo) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -52,12 +60,13 @@ export default function WeekPage() {
   return (
     <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
       {/* Week Selector */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 no-scrollbar">
         {weeks.map((week, index) => (
           <button
             key={week.weekStart}
+            id={`week-btn-${index}`}
             onClick={() => setSelectedWeekIndex(index)}
-            className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors ${selectedWeekIndex === index
+            className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors flex-shrink-0 ${selectedWeekIndex === index
               ? 'bg-orange-500 text-white'
               : 'bg-white border border-gray-200 text-gray-700 hover:border-orange-300'
               }`}
