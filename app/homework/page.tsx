@@ -6,25 +6,29 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
 
+import { useUpdates } from '@/context/UpdatesContext';
+
 function HomeworkContent() {
-  const [homeworkList, setHomeworkList] = useState<Homework[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { updates, loading, refreshUpdates } = useUpdates();
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      const data = await fetchHomework();
-      setHomeworkList(data);
-      setLoading(false);
-    };
+  // Filter homework from the global updates context
+  const homeworkList: Homework[] = updates
+    .filter(u => u.category?.toLowerCase().includes('homework') || u.type === 'homework')
+    .map(u => ({
+      id: `hw-${u.id}`,
+      status: 'Active',
+      subject: u.title || 'General',
+      content: u.message,
+      submissionDate: u.expiresAt,
+      notes: u.link ? `Link: ${u.link}` : '',
+      createdAt: u.createdAt
+    }));
 
-    loadData();
-  }, [searchParams]);
-
-  const handleRefresh = () => {
-    router.replace('/homework?refresh=' + Date.now());
+  const handleRefresh = async () => {
+    // router.replace('/homework?refresh=' + Date.now()); // No longer needed for data refresh
+    await refreshUpdates();
   };
 
   const getSubjectColor = (subject: string) => {
