@@ -19,7 +19,7 @@ function HomeworkContent() {
     .map(u => ({
       id: `hw-${u.id}`,
       status: 'Active',
-      subject: u.title || 'General',
+      subject: (u.title || 'General').replace(/^home\s*work\s*-\s*/i, '').trim(),
       content: u.message,
       submissionDate: u.expiresAt,
       notes: u.link ? `Link: ${u.link}` : '',
