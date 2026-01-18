@@ -24,6 +24,7 @@ import {
   WeekData,
   MonthInfo,
   ImportantDate,
+  getToday,
 } from '@/lib/data';
 
 function HomeContent() {
@@ -61,7 +62,7 @@ function HomeContent() {
     const dates = getAllDates(selectedMonthId);
     setAvailableDates(dates);
 
-    const today = new Date().toISOString().split('T')[0];
+    const today = getToday();
 
     // Priority 1: URL parameter (deep linking)
     if (urlDate) {

@@ -127,9 +127,17 @@ export function findMonthForDate(date: string): string | null {
   return null;
 }
 
+// Helper to get local YYYY-MM-DD string
+function toLocalDateString(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 export function getCurrentMonthId(): string {
   // Try to find the month that contains today's date
-  const today = new Date().toISOString().split('T')[0];
+  const today = toLocalDateString(new Date());
   const monthForToday = findMonthForDate(today);
 
   // If today's date is found in any month data, use that month
@@ -189,7 +197,7 @@ export function formatShortDate(dateStr: string): string {
 }
 
 export function getToday(): string {
-  return new Date().toISOString().split('T')[0];
+  return toLocalDateString(new Date());
 }
 
 export function getAllDates(monthId?: string): string[] {
@@ -213,8 +221,8 @@ export function getUpcomingEvents(daysAhead: number = 7): ImportantDate[] {
   const futureDate = new Date();
   futureDate.setDate(today.getDate() + daysAhead);
 
-  const todayStr = today.toISOString().split('T')[0];
-  const futureStr = futureDate.toISOString().split('T')[0];
+  const todayStr = toLocalDateString(today);
+  const futureStr = toLocalDateString(futureDate);
 
   // Gather from all months
   const months = getAvailableMonths();

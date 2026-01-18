@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import DaySchedule from '@/components/DaySchedule';
 import DictationWords from '@/components/DictationWords';
 import WeekendRevision from '@/components/WeekendRevision';
-import { getMonthData, WeekData, formatShortDate } from '@/lib/data';
+import { getMonthData, WeekData, formatShortDate, getToday } from '@/lib/data';
 
 export default function WeekPage() {
   const [weeks, setWeeks] = useState<WeekData[]>([]);
@@ -17,7 +17,7 @@ export default function WeekPage() {
     setMonthInfo({ month: data.month, year: data.year });
 
     // Find current week based on today's date
-    const today = new Date().toISOString().split('T')[0];
+    const today = getToday();
     const currentWeekIndex = data.weeks.findIndex((week) => {
       return week.days.some((day) => day.date === today);
     });
