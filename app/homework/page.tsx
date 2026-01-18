@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { fetchHomework, Homework } from '../actions';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
 
-export default function HomeworkPage() {
+function HomeworkContent() {
   const [homeworkList, setHomeworkList] = useState<Homework[]>([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
@@ -130,5 +130,18 @@ export default function HomeworkPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function HomeworkPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mb-4"></div>
+        <p className="text-gray-500 animate-pulse">Loading homework tracker...</p>
+      </div>
+    }>
+      <HomeworkContent />
+    </Suspense>
   );
 }
