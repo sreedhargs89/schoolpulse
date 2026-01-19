@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { UpdatesProvider } from "@/context/UpdatesContext";
@@ -36,7 +38,6 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +63,8 @@ export default function RootLayout({
             </div>
           </footer>
           <InstallPrompt />
+          <Analytics />
+          <SpeedInsights />
         </UpdatesProvider>
       </body>
     </html>
