@@ -22,6 +22,13 @@ export default function PickupCompanionPopup() {
     const [greeting, setGreeting] = useState('');
 
     useEffect(() => {
+        // Request notification permission
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    }, []);
+
+    useEffect(() => {
         const checkTime = () => {
             const now = new Date();
             const hour = now.getHours();
@@ -50,6 +57,14 @@ export default function PickupCompanionPopup() {
                     const randomGreeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
                     setGreeting(randomGreeting);
                     setShowPopup(true);
+
+                    // Send push notification
+                    if ('Notification' in window && Notification.permission === 'granted') {
+                        new Notification('Pickup Time! 🚗', {
+                            body: 'Time to pick up your Super Kid! 🎒',
+                            icon: '/icons/icon-192.png'
+                        });
+                    }
                 }
             }
         };
