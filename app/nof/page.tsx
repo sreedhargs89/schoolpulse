@@ -86,42 +86,40 @@ function NOFContent() {
 
             {/* Schedule Section */}
             <div className="bg-white rounded-2xl shadow-xl shadow-blue-50 overflow-hidden border border-blue-100">
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-6 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-4 py-5 text-white relative overflow-hidden text-center">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl"></div>
-                    <h2 className="text-2xl font-bold relative z-10 text-center">🏆 Exam Schedule</h2>
-                    <p className="text-blue-100 text-center text-sm mt-1 mb-2 font-medium">Exam Window: 09:00 AM to 08:00 PM (IST)</p>
+                    <h2 className="text-xl sm:text-2xl font-bold relative z-10">🏆 Exam Schedule</h2>
+                    <p className="text-blue-100 text-xs sm:text-sm mt-1 font-medium relative z-10">09:00 AM to 08:00 PM (IST)</p>
                 </div>
 
-                <div className="overflow-x-auto">
-                    <table className="w-full">
-                        <thead className="bg-gray-50 border-b border-gray-100">
-                            <tr>
-                                <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Date & Day</th>
-                                <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Subject</th>
-                                <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Eligible Classes</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-50">
-                            {schedule.map((item, idx) => (
-                                <tr key={idx} className="hover:bg-blue-50/30 transition-colors group">
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="flex flex-col">
-                                            <span className="font-bold text-gray-800">{item.date}</span>
-                                            <span className="text-xs text-blue-500 font-medium">{item.day}</span>
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-100 group-hover:bg-indigo-100">
-                                            {item.subject}
-                                        </span>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <span className="text-sm text-gray-600 font-medium">{item.class}</span>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                <div className="divide-y divide-gray-100">
+                    <div className="bg-gray-50 flex text-[10px] uppercase tracking-wider text-gray-500 font-bold py-2 px-3">
+                        <div className="w-20">Date</div>
+                        <div className="flex-1">Subject</div>
+                        <div className="w-24 text-right">Eligible Class</div>
+                    </div>
+
+                    {schedule.map((item, idx) => (
+                        <div key={idx} className="flex items-center py-3 px-3 hover:bg-blue-50/30 transition-colors gap-2">
+                            {/* Date Group */}
+                            <div className="w-20 flex flex-col justify-center">
+                                <span className="font-bold text-gray-800 text-sm leading-none">{item.date.split('-')[0]}-{item.date.split('-')[1]}</span>
+                                <span className="text-[10px] text-blue-500 font-medium mt-0.5 uppercase">{item.day.slice(0, 3)}</span>
+                            </div>
+
+                            {/* Subject */}
+                            <div className="flex-1">
+                                <span className="inline-block px-2 py-1 rounded-md text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-100">
+                                    {item.subject}
+                                </span>
+                            </div>
+
+                            {/* Class */}
+                            <div className="w-24 text-right text-xs text-gray-600 font-medium leading-tight">
+                                {item.class}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
