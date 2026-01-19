@@ -44,9 +44,17 @@ function HomeworkContent() {
 
   const getDueDateStatus = (dateStr: string) => {
     if (!dateStr) return null;
+
+    // Create 'today' at local midnight
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const due = new Date(dateStr);
+
+    // Parse 'due' string (YYYY-MM-DD) into local midnight
+    // new Date("YYYY-MM-DD") often parses as UTC, which causes timezone shifts.
+    // Constructing with (y, m, d) forces local time.
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const due = new Date(year, month - 1, day);
+    due.setHours(0, 0, 0, 0);
 
     if (isNaN(due.getTime())) return null;
 
@@ -58,9 +66,9 @@ function HomeworkContent() {
     if (diffDays === 1) return { label: 'Due Tomorrow', color: 'bg-amber-100 text-amber-700 border-amber-200' };
 
     // Format regular due date
-    const day = due.getDate();
-    const month = due.toLocaleString('default', { month: 'short' });
-    return { label: `Due: ${day} ${month}`, color: 'bg-blue-50 text-blue-600 border-blue-100' };
+    const d = due.getDate();
+    const m = due.toLocaleString('default', { month: 'short' });
+    return { label: `Due: ${d} ${m}`, color: 'bg-blue-50 text-blue-600 border-blue-100' };
   };
 
   return (
