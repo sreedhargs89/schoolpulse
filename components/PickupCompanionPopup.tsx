@@ -28,11 +28,9 @@ export default function PickupCompanionPopup() {
             const minutes = now.getMinutes();
             const totalMinutes = hour * 60 + minutes;
 
-            // Time window: 1:30 PM (13:30) to 2:30 PM (14:30)
-            // Adjusting based on user request "1:30 pm and 1:30 pm" -> likely meant a window around pickup.
-            // Let's set it to 13:00 (1:00 PM) to 14:30 (2:30 PM) to catch the bus/pickup time safely.
-            const START_TIME = 13 * 60; // 1:00 PM
-            const END_TIME = 14 * 60 + 30; // 2:30 PM
+            // Time window: 12:30 PM to 2:00 PM
+            const START_TIME = 12 * 60 + 30; // 12:30 PM
+            const END_TIME = 14 * 60; // 2:00 PM
 
             if (totalMinutes >= START_TIME && totalMinutes <= END_TIME) {
                 const todayStr = getToday();
@@ -70,7 +68,7 @@ export default function PickupCompanionPopup() {
                         👋
                     </div>
                     <h3 className="text-xl font-black text-gray-800 mb-2">Welcome Back!</h3>
-                    <p className="text-gray-500 text-sm font-medium uppercase tracking-wide mb-6">Ask your superhero:</p>
+                    <p className="text-gray-500 text-sm font-medium uppercase tracking-wide mb-6">Ask your Super Kid:</p>
 
                     <div className="bg-green-50 p-4 rounded-xl border border-green-100 mb-6">
                         <p className="text-lg font-bold text-green-800 leading-snug">
