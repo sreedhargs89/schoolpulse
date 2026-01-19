@@ -42,3 +42,4 @@ next-env.d.ts
 
 # Newsletter PDFs (large files)
 newsletters/
+.env*.local

@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { UpdatesProvider } from "@/context/UpdatesContext";
 import HomeworkDuePopup from '@/components/HomeworkDuePopup';
+import PickupCompanionPopup from '@/components/PickupCompanionPopup';
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import InstallPrompt from "@/components/InstallPrompt";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <UpdatesProvider>
           <Navigation />
           <HomeworkDuePopup />
+          <PickupCompanionPopup />
           <main className="min-h-screen pb-20">
             {children}
           </main>
