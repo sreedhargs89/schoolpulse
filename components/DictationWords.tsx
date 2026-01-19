@@ -13,33 +13,27 @@ export default function DictationWords({ words }: DictationWordsProps) {
         <span>📝</span> Dictation Words for This Week
       </h3>
       <div className="space-y-4">
-        {Object.entries(
+        {Object.values(
           words.reduce((groups, word) => {
-            // Simple heuristic to group by ending sound (last 2-3 chars)
-            // Prioritize longer matches for specific families like 'une', 'ube', 'ute'
-            // Fallback to 'Mixed'
-            let key = 'Mixed';
-            if (word.endsWith('ube')) key = '-ube Words';
-            else if (word.endsWith('ute')) key = '-ute Words';
-            else if (word.endsWith('use')) key = '-use Words';
-            else if (word.endsWith('une')) key = '-une Words';
-            else if (word.endsWith('ule')) key = '-ule Words';
-            else if (word.endsWith('ure')) key = '-ure Words';
-            else if (word.endsWith('ue')) key = '-ue Words';
-            else if (word.endsWith('oat')) key = '-oat Words';
-            else if (word.endsWith('ose')) key = '-ose Words';
-            else if (word.endsWith('one')) key = '-one Words';
-            else if (word.endsWith('oal')) key = '-oal Words';
+            let key = 'mixed';
+
+            // patterns
+            if (/[a-z][^aeiou]e$/.test(word)) key = 'split_digraph'; // e.g. cube, tube, cone
+            else if (/ee|ea/.test(word)) key = 'long_e';
+            else if (/ai|ay/.test(word)) key = 'long_a';
+            else if (/oa|ow/.test(word)) key = 'long_o'; // e.g. boat, bow
+            else if (/ue|ew/.test(word)) key = 'long_u'; // e.g. glue
+            else if (/oo/.test(word)) key = 'oo';
+            else if (/ou/.test(word)) key = 'ou';
+            else if (/oi|oy/.test(word)) key = 'oi';
+            else if (/ar|er|ir|or|ur/.test(word)) key = 'r_controlled';
 
             if (!groups[key]) groups[key] = [];
             groups[key].push(word);
             return groups;
           }, {} as Record<string, string[]>)
-        ).map(([groupName, groupWords]) => (
-          <div key={groupName}>
-            <h4 className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold mb-1.5 ml-1">
-              {groupName}
-            </h4>
+        ).map((groupWords, groupIndex, allGroups) => (
+          <div key={groupIndex}>
             <div className="flex flex-wrap gap-2">
               {groupWords.map((word, index) => (
                 <span
@@ -50,6 +44,10 @@ export default function DictationWords({ words }: DictationWordsProps) {
                 </span>
               ))}
             </div>
+            {/* Show separator line if not the last group */}
+            {groupIndex < allGroups.length - 1 && (
+              <div className="ml-1 my-3 w-12 h-1 bg-indigo-200/50 rounded-full" />
+            )}
           </div>
         ))}
       </div>
