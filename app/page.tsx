@@ -197,22 +197,22 @@ function HomeContent() {
                   <span className={showAI ? 'animate-pulse' : 'animate-slow-pulse'}> ✨ </span>
                 </div>
                 <div className="text-left">
-                  <h3 className={`font-bold text-xs sm:text-sm tracking-tight ${showAI ? 'text-purple-900' : 'text-gray-600'
+                  <h3 className={`font-semibold text-sm tracking-normal ${showAI ? 'text-purple-900' : 'text-gray-700'
                     }`}>
                     Daily Recap Mission
                   </h3>
-                  <p className="text-[9px] text-gray-400 font-bold uppercase tracking-tight">
+                  <p className="text-xs text-gray-400 font-medium opacity-80">
                     {showAI ? 'Mission Active' : 'Action-Oriented Learning'}
                   </p>
                 </div>
               </div>
 
-              <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[9px] font-bold uppercase transition-all duration-500 ${showAI
+              <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-[10px] font-bold uppercase transition-all duration-500 ${showAI
                 ? 'bg-purple-50 border-purple-200 text-purple-600'
                 : 'bg-gray-50 border-gray-100 text-gray-400'
                 }`}>
                 <span>{showAI ? 'Hide' : 'Show'}</span>
-                <div className={`w-1 h-1 rounded-full ${showAI ? 'bg-purple-500 animate-pulse' : 'bg-gray-300'}`} />
+                <div className={`w-1.5 h-1.5 rounded-full ${showAI ? 'bg-purple-500 animate-pulse' : 'bg-gray-300'}`} />
               </div>
             </div>
           </button>
