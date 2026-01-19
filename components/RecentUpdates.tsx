@@ -125,21 +125,32 @@ export default function RecentUpdates() {
 
   return (
     <>
-      {/* Updates Button */}
-      <button
-        onClick={handleOpen}
-        className="relative flex items-center gap-1.5 px-3 py-1.5 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition-all text-sm font-medium"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg>
-        <span className="hidden sm:inline">Updates</span>
-        {updates.length > 0 && (
-          <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-sm ring-2 ring-white animate-pulse">
-            {updates.length}
-          </span>
-        )}
-      </button>
+      <div className="flex items-center gap-2">
+        {/* NOF Button */}
+        <Link
+          href="/nof"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-full hover:bg-indigo-200 transition-all text-sm font-bold shadow-sm"
+        >
+          <span className="text-base hidden sm:inline">🏆</span>
+          <span className="inline">NOF</span>
+        </Link>
+
+        {/* Updates Button */}
+        <button
+          onClick={handleOpen}
+          className="relative flex items-center gap-1.5 px-3 py-1.5 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition-all text-sm font-medium"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+          <span className="hidden sm:inline">Updates</span>
+          {updates.length > 0 && (
+            <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-sm ring-2 ring-white animate-pulse">
+              {updates.length}
+            </span>
+          )}
+        </button>
+      </div>
 
       {/* Modal */}
       {isOpen && (
