@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getToday } from '@/lib/data';
+import { getToday, getDaySchedule } from '@/lib/data';
 
 // A collection of "loud words" / conversation starters
 const GREETINGS = [
@@ -28,12 +28,21 @@ export default function PickupCompanionPopup() {
             const minutes = now.getMinutes();
             const totalMinutes = hour * 60 + minutes;
 
+            // 1. Don't show on Weekends (0 = Sunday, 6 = Saturday)
+            const dayOfWeek = now.getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) return;
+
+            // 2. Don't show on Holidays
+            const todayStr = getToday();
+            const daySchedule = getDaySchedule(todayStr);
+            if (daySchedule?.isHoliday) return;
+
             // Time window: 12:30 PM to 2:00 PM
             const START_TIME = 12 * 60 + 30; // 12:30 PM
             const END_TIME = 14 * 60; // 2:00 PM
 
             if (totalMinutes >= START_TIME && totalMinutes <= END_TIME) {
-                const todayStr = getToday();
+                // todayStr is already defined above
                 const hasSeen = sessionStorage.getItem(`seen_pickup_popup_${todayStr}`);
 
                 if (!hasSeen) {
