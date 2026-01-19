@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { useUpdates } from '@/context/UpdatesContext';
 import {
@@ -22,6 +23,22 @@ export default function RecentUpdates() {
 
   const updates = useMemo(() => {
     const today = new Date().toISOString().split('T')[0];
+
+    // 1. Static/Promotional Updates (NOF Corner)
+    // Only add if not already present in external updates to avoid duplication
+    const hasExternalNOF = externalUpdates.some(u => u.title?.includes('NOF') || u.category?.includes('NOF'));
+    const distinctNOFUpdate: Update[] = !hasExternalNOF ? [{
+      id: 8000,
+      createdAt: new Date().toISOString(), // Always fresh
+      title: '🏆 NOF Champions League',
+      message: 'View the exam schedule and latest updates for the National Olympiad Foundation 2025-26.',
+      type: 'notice',
+      priority: 2,
+      category: 'School Actions & Notices',
+      link: '/nof',
+      linkText: 'Open NOF Corner',
+      expiresAt: '2026-03-01' // Expires after exams
+    }] : [];
 
     // 2. Get today's events from lib/data.ts (System events)
     const todayEvent = getTodayEvent();
@@ -54,7 +71,7 @@ export default function RecentUpdates() {
       }));
 
     // Combine all updates
-    const allUpdates = [...todayEventUpdate, ...externalUpdates, ...eventUpdates]
+    const allUpdates = [...todayEventUpdate, ...distinctNOFUpdate, ...externalUpdates, ...eventUpdates]
       .filter(u => !u.category?.toLowerCase().includes('homework') && !u.category?.toLowerCase().includes('home work') && u.type !== 'homework') // Exclude homework from notifications
       .sort((a, b) => {
         // Sort by priority (1 is highest)
@@ -189,17 +206,29 @@ export default function RecentUpdates() {
                                 {update.message}
                               </p>
                               {update.link && (
-                                <a
-                                  href={update.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-md hover:bg-orange-600 transition-all shadow-sm shadow-orange-100 uppercase tracking-wide"
-                                >
-                                  {update.linkText || 'Learn More'}
-                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                  </svg>
-                                </a>
+                                update.link.startsWith('/') ? (
+                                  <Link
+                                    href={update.link}
+                                    className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-md hover:bg-orange-600 transition-all shadow-sm shadow-orange-100 uppercase tracking-wide"
+                                  >
+                                    {update.linkText || 'View Details'}
+                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                  </Link>
+                                ) : (
+                                  <a
+                                    href={update.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-md hover:bg-orange-600 transition-all shadow-sm shadow-orange-100 uppercase tracking-wide"
+                                  >
+                                    {update.linkText || 'Learn More'}
+                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                  </a>
+                                )
                               )}
                             </div>
                           ))}
