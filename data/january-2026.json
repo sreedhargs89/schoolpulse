@@ -1417,7 +1417,18 @@
     {
       "weekStart": "2026-01-26",
       "weekEnd": "2026-01-30",
-      "dictationWords": [],
+      "dictationWords": [
+        "cake",
+        "lake",
+        "tree",
+        "bee",
+        "kite",
+        "bike",
+        "boat",
+        "cone",
+        "cube",
+        "glue"
+      ],
       "days": [
         {
           "date": "2026-01-26",
