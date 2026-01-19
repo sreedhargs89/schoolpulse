@@ -7,12 +7,13 @@ import { useUpdates } from '@/context/UpdatesContext';
 function NOFContent() {
     const { updates } = useUpdates();
 
-    // Filter updates related to NOF/Olympiad
+    // Filter updates related to NOF/Olympiad, but exclude the self-referential promo (ID 8000)
     const nofUpdates = updates.filter(u =>
-        u.title?.toUpperCase().includes('NOF') ||
-        u.title?.toUpperCase().includes('OLYMPIAD') ||
-        u.message?.toUpperCase().includes('NOF') ||
-        u.category?.toUpperCase().includes('NOF')
+        (u.title?.toUpperCase().includes('NOF') ||
+            u.title?.toUpperCase().includes('OLYMPIAD') ||
+            u.message?.toUpperCase().includes('NOF') ||
+            u.category?.toUpperCase().includes('NOF')) &&
+        u.id !== 8000
     );
 
     const schedule = [
@@ -56,14 +57,23 @@ function NOFContent() {
                                     </div>
                                     <p className="text-gray-600 mb-3 leading-relaxed">{update.message}</p>
                                     {update.link && (
-                                        <a
-                                            href={update.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:underline bg-blue-50 px-3 py-1.5 rounded-lg transition-colors"
-                                        >
-                                            {update.linkText || "View Details"} ↗
-                                        </a>
+                                        update.link.startsWith('/') ? (
+                                            <Link
+                                                href={update.link}
+                                                className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:underline bg-blue-50 px-3 py-1.5 rounded-lg transition-colors"
+                                            >
+                                                {update.linkText || "View Details"} ↗
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                href={update.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:underline bg-blue-50 px-3 py-1.5 rounded-lg transition-colors"
+                                            >
+                                                {update.linkText || "View Details"} ↗
+                                            </a>
+                                        )
                                     )}
                                 </div>
                             </div>
