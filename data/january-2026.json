@@ -928,7 +928,32 @@
     {
       "weekStart": "2026-01-19",
       "weekEnd": "2026-01-23",
-      "dictationWords": [],
+      "dictationWords": [
+        "boat",
+        "foam",
+        "cone",
+        "coal",
+        "rose",
+        "bow",
+        "road",
+        "soak",
+        "goat",
+        "hope",
+        "note",
+        "load",
+        "cube",
+        "tube",
+        "fuse",
+        "tune",
+        "mute",
+        "glue",
+        "blue",
+        "June",
+        "flute",
+        "cure",
+        "jute",
+        "mule"
+      ],
       "days": [
         {
           "date": "2026-01-19",
