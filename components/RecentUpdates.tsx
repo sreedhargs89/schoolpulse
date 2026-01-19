@@ -131,8 +131,8 @@ export default function RecentUpdates() {
           href="/nof"
           className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-full hover:bg-indigo-200 transition-all text-sm font-bold shadow-sm"
         >
-          <span className="text-base">🏆</span>
-          <span className="hidden sm:inline">NOF</span>
+          <span className="text-base hidden sm:inline">🏆</span>
+          <span className="inline">NOF</span>
         </Link>
 
         {/* Updates Button */}
