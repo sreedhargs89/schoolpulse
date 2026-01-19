@@ -235,12 +235,6 @@ function HomeContent() {
         <ShareButton day={dayData} />
       </div>
 
-      {/* Dictation Words */}
-      {weekData && weekData.dictationWords.length > 0 && (
-        <div className="mt-6">
-          <DictationWords words={weekData.dictationWords} />
-        </div>
-      )}
 
       {/* Important Dates */}
       {importantDates.length > 0 && (
