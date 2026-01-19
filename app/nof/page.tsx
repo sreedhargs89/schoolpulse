@@ -13,7 +13,9 @@ function NOFContent() {
             u.title?.toUpperCase().includes('OLYMPIAD') ||
             u.message?.toUpperCase().includes('NOF') ||
             u.category?.toUpperCase().includes('NOF')) &&
-        u.id !== 8000
+        u.id !== 8000 &&
+        !u.title?.toUpperCase().includes('CORNER') && // Exclude redundant "Corner" announcements
+        u.link !== '/nof' // Exclude self-links
     );
 
     const schedule = [
