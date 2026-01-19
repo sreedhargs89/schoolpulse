@@ -76,6 +76,13 @@ export default function WeekPage() {
         ))}
       </div>
 
+      {/* Dictation Words for the Week */}
+      {selectedWeek.dictationWords.length > 0 && (
+        <div className="mb-6">
+          <DictationWords words={selectedWeek.dictationWords} />
+        </div>
+      )}
+
       {/* Week Revision Summary (if available) */}
       {saturdayRevision && saturdayRevision.weekendRevisionContent && (
         <div className="mb-6">
@@ -83,13 +90,6 @@ export default function WeekPage() {
             content={saturdayRevision.weekendRevisionContent}
             date={saturdayRevision.date}
           />
-        </div>
-      )}
-
-      {/* Dictation Words for the Week */}
-      {selectedWeek.dictationWords.length > 0 && (
-        <div className="mb-6">
-          <DictationWords words={selectedWeek.dictationWords} />
         </div>
       )}
 
