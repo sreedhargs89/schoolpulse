@@ -12,44 +12,44 @@ export default function DictationWords({ words }: DictationWordsProps) {
       <h3 className="font-semibold text-indigo-800 mb-3 flex items-center gap-2">
         <span>📝</span> Dictation Words for This Week
       </h3>
-      <div className="space-y-4">
-        {Object.values(
-          words.reduce((groups, word) => {
-            let key = 'mixed';
+      <div className="flex flex-col gap-3">
+        {(() => {
+          // Broad categorisation for specific visual separation request
+          const oWords = words.filter(w => /oa|ow|oe|o[^aeiou]e$|o.e$/.test(w));
+          const uWords = words.filter(w => /ue|ew|ui|oo|u[^aeiou]e$|u.e$/.test(w));
+          const otherWords = words.filter(w => !oWords.includes(w) && !uWords.includes(w));
 
-            // patterns
-            if (/[a-z][^aeiou]e$/.test(word)) key = 'split_digraph'; // e.g. cube, tube, cone
-            else if (/ee|ea/.test(word)) key = 'long_e';
-            else if (/ai|ay/.test(word)) key = 'long_a';
-            else if (/oa|ow/.test(word)) key = 'long_o'; // e.g. boat, bow
-            else if (/ue|ew/.test(word)) key = 'long_u'; // e.g. glue
-            else if (/oo/.test(word)) key = 'oo';
-            else if (/ou/.test(word)) key = 'ou';
-            else if (/oi|oy/.test(word)) key = 'oi';
-            else if (/ar|er|ir|or|ur/.test(word)) key = 'r_controlled';
-
-            if (!groups[key]) groups[key] = [];
-            groups[key].push(word);
-            return groups;
-          }, {} as Record<string, string[]>)
-        ).map((groupWords, groupIndex, allGroups) => (
-          <div key={groupIndex}>
+          const renderList = (list: string[]) => (
             <div className="flex flex-wrap gap-2">
-              {groupWords.map((word, index) => (
+              {list.map((word, index) => (
                 <span
-                  key={index}
+                  key={`${word}-${index}`}
                   className="px-3 py-1 bg-white rounded-full text-sm font-medium text-indigo-700 border border-indigo-200 shadow-sm"
                 >
                   {word}
                 </span>
               ))}
             </div>
-            {/* Show separator line if not the last group */}
-            {groupIndex < allGroups.length - 1 && (
-              <div className="ml-1 my-3 w-12 h-1 bg-indigo-200/50 rounded-full" />
-            )}
-          </div>
-        ))}
+          );
+
+          return (
+            <>
+              {oWords.length > 0 && renderList(oWords)}
+
+              {oWords.length > 0 && uWords.length > 0 && (
+                <div className="h-px bg-indigo-200/60 w-full" />
+              )}
+
+              {uWords.length > 0 && renderList(uWords)}
+
+              {(oWords.length > 0 || uWords.length > 0) && otherWords.length > 0 && (
+                <div className="h-px bg-indigo-200/60 w-full" />
+              )}
+
+              {otherWords.length > 0 && renderList(otherWords)}
+            </>
+          );
+        })()}
       </div>
       <p className="text-xs text-indigo-600 mt-3">
         Practice these words at home for dictation
