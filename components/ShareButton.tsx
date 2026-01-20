@@ -12,9 +12,9 @@ export default function ShareButton({ day, className = '' }: ShareButtonProps) {
     // Basic text construction
     let text = '';
     if (day.isHoliday) {
-      text = `📅 *${formatDate(day.date)}*\n\n🎉 *${day.holidayName}*\nSchool Holiday`;
+      text = `*${formatDate(day.date)}*\n\n🎉 *${day.holidayName}*\nSchool Holiday`;
     } else {
-      text = `📅 *${formatDate(day.date)}*\n\n🏫 *Today's Schedule*\n\n`;
+      text = `*${formatDate(day.date)}*\n\n🏫 *Today's Schedule*\n\n`;
       for (const item of day.schedule) {
         if (item.subject === 'Snack Break') {
           text += `☕ ${item.time} - Break\n`;
