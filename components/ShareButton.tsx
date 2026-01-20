@@ -9,29 +9,30 @@ interface ShareButtonProps {
 
 export default function ShareButton({ day, className = '' }: ShareButtonProps) {
   const generateShareText = () => {
+    // Basic text construction
+    let text = '';
     if (day.isHoliday) {
-      return `📅 *${formatDate(day.date)}*\n\n🎉 *${day.holidayName}*\nSchool Holiday\n\n_via SchoolPulse_`;
-    }
-
-    let text = `📅 *${formatDate(day.date)}*\n\n`;
-    text += `🏫 *Today's Schedule*\n\n`;
-
-    for (const item of day.schedule) {
-      if (item.subject === 'Snack Break') {
-        text += `☕ ${item.time} - Break\n`;
-      } else if (item.subject === 'Meditation') {
-        text += `🧘 ${item.time} - Meditation\n`;
-      } else {
-        const emoji = getSubjectEmoji(item.subject);
-        text += `${emoji} ${item.time} - *${item.subject}*`;
-        if (item.activity) {
-          text += `\n   _${item.activity}_`;
+      text = `📅 *${formatDate(day.date)}*\n\n🎉 *${day.holidayName}*\nSchool Holiday`;
+    } else {
+      text = `📅 *${formatDate(day.date)}*\n\n🏫 *Today's Schedule*\n\n`;
+      for (const item of day.schedule) {
+        if (item.subject === 'Snack Break') {
+          text += `☕ ${item.time} - Break\n`;
+        } else if (item.subject === 'Meditation') {
+          text += `🧘 ${item.time} - Meditation\n`;
+        } else {
+          const emoji = getSubjectEmoji(item.subject);
+          text += `${emoji} ${item.time} - *${item.subject}*`;
+          if (item.activity) {
+            text += `\n   _${item.activity}_`;
+          }
+          text += '\n';
         }
-        text += '\n';
       }
     }
 
-    text += `\n_via SchoolPulse_ 💓`;
+    // Append Footer with Link
+    text += `\n_via SchoolPulse_ 💓\nhttps://schoolpuls.in/`;
     return text;
   };
 
@@ -57,6 +58,61 @@ export default function ShareButton({ day, className = '' }: ShareButtonProps) {
     return '📌';
   };
 
+  const generateCalendarIcon = async (dateStr: string): Promise<File | null> => {
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return null;
+
+      const date = new Date(dateStr);
+      const day = date.getDate();
+      const month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
+      const weekday = date.toLocaleString('default', { weekday: 'long' });
+
+      // Draw Icon Background (White with rounded corners simulated by simple rect if mask handles it, but let's be nice)
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.rect(0, 0, 512, 512); // Simple rect is safer for full bleed
+      ctx.fill();
+
+      // Header (Month) - Red
+      ctx.fillStyle = '#ef4444'; // Tailwind red-500
+      ctx.fillRect(0, 0, 512, 160);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 100px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(month, 256, 80);
+
+      // Body (Date) - Black
+      ctx.fillStyle = '#111827'; // Tailwind gray-900
+      ctx.font = 'bold 240px sans-serif';
+      ctx.fillText(day.toString(), 256, 310);
+
+      // Weekday - Gray
+      ctx.fillStyle = '#6b7280'; // Tailwind gray-500
+      ctx.font = '50px sans-serif';
+      ctx.fillText(weekday, 256, 450);
+
+      // Convert to Blob/File
+      return new Promise((resolve) => {
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(new File([blob], 'daily-schedule.png', { type: 'image/png' }));
+          } else {
+            resolve(null);
+          }
+        }, 'image/png');
+      });
+    } catch (e) {
+      console.error('Failed to generate icon', e);
+      return null;
+    }
+  };
+
   const shareViaWhatsApp = () => {
     const text = generateShareText();
     const encoded = encodeURIComponent(text);
@@ -65,16 +121,29 @@ export default function ShareButton({ day, className = '' }: ShareButtonProps) {
 
   const shareNative = async () => {
     const text = generateShareText();
+    let shareData: ShareData = {
+      title: `Schedule for ${formatDate(day.date)}`,
+      text: text,
+    };
+
+    // Try to generate and attach image using dynamic icon
+    if (typeof navigator.canShare === 'function') {
+      const iconFile = await generateCalendarIcon(day.date);
+      if (iconFile) {
+        const fileShareData = { ...shareData, files: [iconFile] };
+        // Check if files sharing is supported
+        if (navigator.canShare(fileShareData)) {
+          shareData = fileShareData;
+        }
+      }
+    }
 
     if (navigator.share) {
       try {
-        await navigator.share({
-          title: `Schedule for ${formatDate(day.date)}`,
-          text: text,
-        });
+        await navigator.share(shareData);
       } catch (err) {
-        // User cancelled or error - fallback to WhatsApp
-        shareViaWhatsApp();
+        console.error('Share failed/cancelled', err);
+        // Fallback or ignore
       }
     } else {
       shareViaWhatsApp();
