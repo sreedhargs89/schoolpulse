@@ -16,7 +16,7 @@ function RhymesContent() {
     transliteration: string;
     meaning: string;
   } | null>(null);
-  const [story, setStory] = useState<{ title: string; moral: string } | null>(null);
+  const [story, setStory] = useState<{ title: string; content?: string; moral: string } | null>(null);
   const [monthInfo, setMonthInfo] = useState<{ month: string; year: number } | null>(null);
   const [availableMonths, setAvailableMonths] = useState<MonthInfo[]>([]);
 
@@ -61,20 +61,49 @@ function RhymesContent() {
     <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
       {/* Header */}
       <div className="mb-6">
-        <div className="flex items-center justify-between mb-1">
+        <div className="flex items-center justify-between mb-4">
           <MonthSelector
             months={availableMonths}
             selectedMonthId={selectedMonthId}
             onMonthChange={setSelectedMonthId}
           />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Rhymes & Shloka</h1>
-        <p className="text-sm text-gray-500">Practice these at home with your child</p>
+
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Rhymes & Shloka</h1>
+        <p className="text-sm text-gray-500 mb-4">Practice these at home with your child</p>
+
+        {/* Quick Navigation / Table of Contents */}
+        <div className="flex flex-wrap gap-2">
+          {shloka && (
+            <button
+              onClick={() => document.getElementById('shloka-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 text-amber-700 border border-amber-200 rounded-full text-xs font-semibold hover:bg-amber-100 transition-colors"
+            >
+              <span>🙏</span> Shloka
+            </button>
+          )}
+          {rhymes.length > 0 && (
+            <button
+              onClick={() => document.getElementById('rhymes-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-semibold hover:bg-blue-100 transition-colors"
+            >
+              <span>🎵</span> Rhymes
+            </button>
+          )}
+          {story && (
+            <button
+              onClick={() => document.getElementById('story-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded-full text-xs font-semibold hover:bg-indigo-100 transition-colors"
+            >
+              <span>📖</span> Story
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Shloka */}
       {shloka && (
-        <div className="mb-8 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200 p-6">
+        <div id="shloka-section" className="mb-8 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200 p-6 scroll-mt-20">
           <h2 className="text-lg font-semibold text-amber-800 mb-4 flex items-center gap-2">
             <span>🙏</span> Shloka of the Month
           </h2>
@@ -94,7 +123,7 @@ function RhymesContent() {
       )}
 
       {/* Rhymes */}
-      <div className="mb-8">
+      <div id="rhymes-section" className="mb-8 scroll-mt-20">
         <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
           <span>🎵</span> Rhymes for the Month
         </h2>
@@ -121,11 +150,16 @@ function RhymesContent() {
 
       {/* Story */}
       {story && (
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-6">
+        <div id="story-section" className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-6 scroll-mt-20">
           <h2 className="text-lg font-semibold text-indigo-800 mb-3 flex items-center gap-2">
             <span>📖</span> Story of the Month
           </h2>
           <p className="text-xl font-medium text-indigo-900 mb-2">{story.title}</p>
+          {story.content && (
+            <div className="text-indigo-900/80 whitespace-pre-line font-sans text-sm leading-7 mb-4 pl-1">
+              {story.content}
+            </div>
+          )}
           <div className="bg-white/50 rounded-lg p-3 mt-3">
             <p className="text-sm font-medium text-indigo-700">Moral:</p>
             <p className="text-indigo-800">{story.moral}</p>
