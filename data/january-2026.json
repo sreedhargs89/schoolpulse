@@ -1417,7 +1417,18 @@
     {
       "weekStart": "2026-01-26",
       "weekEnd": "2026-01-30",
-      "dictationWords": [],
+      "dictationWords": [
+        "cake",
+        "lake",
+        "tree",
+        "bee",
+        "kite",
+        "bike",
+        "boat",
+        "cone",
+        "cube",
+        "glue"
+      ],
       "days": [
         {
           "date": "2026-01-26",
@@ -1776,6 +1787,14 @@
     {
       "title": "Seasons",
       "content": "These are the four seasons of the year\nSpring, Summer, Autumn & Winter\nThe flowers & The leaves are growing fast\nAll spring Long!\nThe flowers on the trees are colourful & bright\nAll summer Long!\nThe flowers & The leaves are falling on the ground\nAll autumn Long!\nThe snow is covering\nThe trees and the ground\nAll winter Long"
+    },
+    {
+      "title": "Bannada Buguri (Color Top)",
+      "content": "ನನ್ನ ಬುಗುರಿ ಬಣ್ಣದ ಬುಗುರಿ\nಗುರು ಗುರು ಸದ್ದನು ಮಾಡುವ ಬುಗುರಿ\nಜಾಳಿಗೆ ಸುತ್ತಿ ಕೈಯನು ಎತ್ತಿ\nಬೀಸಲು ಬರದೆ ಸುತ್ತಿವ ಬುಗುರಿ\nಕಚಗುಳಿ ಕೊಡುವ ಮೀಜಿನ ಬುಗುರಿ\nಕಾಮನ ಬಲ್ಲನು ಭೂಮಿಗೆ ಇಳಿಸಿ\nಗರ ಗಾರ ಸುತ್ತಿವ ಬಣ್ಣದ ಬುಗುರಿ\n\nNannaya buguri bannada buguri\nguru guru saddanu maaduva buguri\njaalige sutti kaiyyanu yetti\nbeesalu baradi suttuva buguri\nkachaguli koduva moojina buguri\nkaamana billanu bhumige ilisi\ngara gara suttuva bannada buguri"
+    },
+    {
+      "title": "Maze Maze Mein",
+      "content": "Ek do teen chaar,\nUchlo sare ek sath.\nPach-chha-saat-aath,\nUpar karo hilao hath.\n\nEk do teen char,\nGol ghumo ek sath.\nPach-chha-saat-aath,\nKursi pe baidho ek sath.\n\nEk do teen char,\nHanso sare ek sath.\nPach-chha-saat-aath,\nUdo sare ek sath.\n\nEk do teen chaar\nBaid jao chup-chap\nPach-chha-saat-aath\nAakhe band karo sathi\nNou das, aab bas."
     }
   ],
   "shloka": {
@@ -1785,6 +1804,7 @@
   },
   "story": {
     "title": "The Brave Boy of Holland",
+    "content": "A long time ago, in a faraway country, there was a little town surrounded by tall, thick walls called dikes. These dikes were built to keep the sea from flooding the land because the country was lower than the sea. Everyone knew how important the dikes were, even the children. If the walls ever broke, the water would flood the land, covering the homes and fields.\n\nIn this town lived a boy named Hans. One day, Hans took his little brother to play in the green fields near the dike. While playing, Han’s little brother spotted something strange. \"Look, Hans! There's a little hole in the dike, and it's bubbling!\" he called out.\n\nHans quickly slid down the dike to see. Sure enough, there was a tiny hole in the wall, and water was slowly dripping through. Hans knew this was very dangerous. A small hole could grow bigger, and soon the entire dike could collapse, letting the sea flood their town.\n\nHans thought fast. He looked around, but there was no one nearby to help. The town was too far away for them to get help quickly. So, Hans bravely put his finger in the hole to stop the water from leaking. He turned to his little brother and said, \"Run to the town and tell the men there's a hole in the dike! Hurry!\"\n\nHan’s brother ran as fast as he could toward the town. Hans stayed behind, pressing his finger tight into the hole. He watched his brother get smaller and smaller in the distance until he could no longer see him.\n\nAll alone by the dike, Hans listened to the water slapping against the wall. His finger started to feel cold and numb. He tried to warm it, but soon the cold spread up his arm, making it ache. Still, Hans didn’t move. He knew the town depended on him.\n\nTime passed, and his arm hurt more and more. Hans kept looking down the road, hoping to see help coming, but no one was in sight. His whole body was cold, and his arm was stiff and sore. He leaned his head against the dike to rest.\n\nAs he leaned, he heard the sea whispering through the wall, \"I am the great sea. You are just a small boy. You cannot stop me. Run, run before I break through!\"\n\nFor a moment, Hans wanted to pull his finger out and run away. He was scared. But then he thought of his family, his friends, and all the people in the town. If he left, the water would break through, and the town would be in great danger. Hans whispered to himself, \"I won't run. I won't let the sea win.\"\n\nJust when Hans felt he couldn’t hold on any longer, he heard a shout from far away. He looked up and saw a cloud of dust on the road. The men from the town were coming! They were running toward him with shovels and tools, shouting, \"We're coming, Hans! Hold on!\"\n\nThe men reached Hans, and when they saw what he had done, they cheered. Hans had saved the town by keeping the water from breaking through the dike. They gently pulled him up, rubbed his aching arm, and called him a hero.\n\nAfter fixing the dike, the men carried Hans on their shoulders all the way home, celebrating his bravery. Thanks to Hans, the town was safe. From that day on, everyone in the town told the story of how brave little Hans saved them all.",
     "moral": "Courage and determination can overcome challenges."
   },
   "importantDates": [
