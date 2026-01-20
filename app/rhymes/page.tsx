@@ -98,16 +98,22 @@ function RhymesContent() {
         <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
           <span>🎵</span> Rhymes for the Month
         </h2>
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {rhymes.map((rhyme, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-gray-200 p-5 hover:border-blue-200 transition-colors"
+              className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 hover:shadow-md transition-shadow relative overflow-hidden group"
             >
-              <h3 className="font-semibold text-blue-800 mb-3">{rhyme.title}</h3>
-              <pre className="text-gray-700 whitespace-pre-wrap font-sans text-sm leading-relaxed">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -mr-8 -mt-8 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+              <h3 className="font-bold text-gray-800 mb-3 pb-2 border-b border-gray-50 flex items-center justify-between">
+                <span>{rhyme.title}</span>
+                <span className="text-xs font-normal text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full">#{index + 1}</span>
+              </h3>
+
+              <div className="text-gray-600 whitespace-pre-wrap font-sans text-sm leading-7 tracking-wide pl-1">
                 {rhyme.content}
-              </pre>
+              </div>
             </div>
           ))}
         </div>
