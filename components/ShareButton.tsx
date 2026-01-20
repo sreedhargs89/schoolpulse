@@ -127,7 +127,7 @@ export default function ShareButton({ day, className = '' }: ShareButtonProps) {
     };
 
     // Try to generate and attach image
-    if (navigator.canShare && navigator.share) {
+    if (typeof navigator.canShare === 'function') {
       const iconFile = await generateCalendarIcon(day.date);
       if (iconFile) {
         const fileShareData = { ...shareData, files: [iconFile] };
