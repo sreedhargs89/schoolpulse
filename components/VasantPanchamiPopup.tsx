@@ -12,8 +12,10 @@ export default function VasantPanchamiPopup() {
 
         if (now > expirationDate) return;
 
-        // 2. Check if user has already seen the popup
-        const hasSeen = localStorage.getItem('seen_vasant_panchami_2026');
+        // 2. Check if user has already seen the popup in this session
+        // Using sessionStorage so it shows again if they close and reopen the app,
+        // but stays dismissed if they just refresh the page.
+        const hasSeen = sessionStorage.getItem('seen_vasant_panchami_2026');
 
         if (!hasSeen) {
             setShowPopup(true);
@@ -22,7 +24,7 @@ export default function VasantPanchamiPopup() {
 
     const handleDismiss = () => {
         setShowPopup(false);
-        localStorage.setItem('seen_vasant_panchami_2026', 'true');
+        sessionStorage.setItem('seen_vasant_panchami_2026', 'true');
     };
 
     if (!showPopup) return null;
