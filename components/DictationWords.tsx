@@ -19,13 +19,19 @@ export default function DictationWords({ words, sentences }: DictationWordsProps
           <h4 className="text-sm font-medium text-indigo-600 mb-2 uppercase tracking-wide">Words</h4>
           <div className="flex flex-col gap-3">
             {(() => {
-              // Broad categorisation for specific visual separation request
-              const oWords = words.filter(w => /oa|ow|oe|o[^aeiou]e$|o.e$/.test(w));
-              const uWords = words.filter(w => /ue|ew|ui|oo|u[^aeiou]e$|u.e$/.test(w));
-              const otherWords = words.filter(w => !oWords.includes(w) && !uWords.includes(w));
+              const groups = { a: [] as string[], e: [] as string[], i: [] as string[], o: [] as string[], u: [] as string[], other: [] as string[] };
+              words.forEach(w => {
+                const lower = w.toLowerCase();
+                if (/a[^aeiou]e$|ai|ay/i.test(lower)) groups.a.push(w);
+                else if (/ee|ea|e[^aeiou]e$/i.test(lower)) groups.e.push(w);
+                else if (/i[^aeiou]e$|ie|igh|y$/i.test(lower)) groups.i.push(w);
+                else if (/oa|ow|oe|o[^aeiou]e$|o.e$/i.test(lower)) groups.o.push(w);
+                else if (/ue|ew|ui|oo|u[^aeiou]e$|u.e$/i.test(lower)) groups.u.push(w);
+                else groups.other.push(w);
+              });
 
-              const renderList = (list: string[]) => (
-                <div className="flex flex-wrap gap-2">
+              const renderList = (list: string[], key: string) => (
+                <div key={key} className="flex flex-wrap gap-2">
                   {list.map((word, index) => (
                     <span
                       key={`${word}-${index}`}
@@ -37,21 +43,16 @@ export default function DictationWords({ words, sentences }: DictationWordsProps
                 </div>
               );
 
+              const allGroups = [groups.a, groups.e, groups.i, groups.o, groups.u, groups.other].filter(g => g.length > 0);
+
               return (
                 <>
-                  {oWords.length > 0 && renderList(oWords)}
-
-                  {oWords.length > 0 && uWords.length > 0 && (
-                    <div className="h-px bg-indigo-200/60 w-full" />
-                  )}
-
-                  {uWords.length > 0 && renderList(uWords)}
-
-                  {(oWords.length > 0 || uWords.length > 0) && otherWords.length > 0 && (
-                    <div className="h-px bg-indigo-200/60 w-full" />
-                  )}
-
-                  {otherWords.length > 0 && renderList(otherWords)}
+                  {allGroups.map((group, idx) => (
+                    <div key={idx} className="flex flex-col gap-3">
+                      {renderList(group, `group-${idx}`)}
+                      {idx < allGroups.length - 1 && <div className="h-px bg-indigo-200/60 w-full" />}
+                    </div>
+                  ))}
                 </>
               );
             })()}
