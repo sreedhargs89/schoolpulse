@@ -1429,6 +1429,18 @@
         "cube",
         "glue"
       ],
+      "dictationSentences": [
+        "The cake is sweet and yummy.",
+        "We saw a duck in the lake.",
+        "The tree is very tall and green.",
+        "A bee likes to make honey.",
+        "I can fly my kite high in the sky.",
+        "I ride my red bike to the park.",
+        "The boat sails on the big blue water.",
+        "I put ice cream in a cone.",
+        "An ice cube is very cold.",
+        "Use glue to stick the paper."
+      ],
       "days": [
         {
           "date": "2026-01-26",
@@ -1726,32 +1738,33 @@
             "weekCovered": "Jan 26-30, 2026",
             "subjects": {
               "Literacy": [
-                "My Literacy - Rebus Story",
+                "My Literacy - Rebus Story & Picture Description",
                 "Picture Composition",
-                "My Literacy - Picture Description",
-                "Dictation on long vowel a, e, i, o and u words"
+                "Reading Time (Level A)",
+                "Comprehension Passage (Q&A)",
+                "Dictation: Long vowel a, e, i, o and u words"
               ],
               "Numeracy": [
                 "Backward counting 50-1",
-                "Skip counting by 2's",
-                "Skip counting by 5's"
+                "Skip counting by 2's, 5's and 10's",
+                "Number names 71-100 (Dictation)"
               ],
               "General Awareness": [
-                "Recap on Water - Save water",
-                "Story: The Greedy dog (Water Reflection)",
-                "Uses of water (tip, tip story)"
+                "Water Conservation - Save Water",
+                "Story: The Greedy Dog (Water Reflection)",
+                "Uses of water (Tip Tip Story)"
               ],
               "Socio Emotional Skills": [
-                "Republic Day celebration (Jan 26)"
+                "Republic Day celebration (Jan 26) - National Pride"
               ],
               "Kannada": [
-                "Letter ಳ"
+                "Letter ಳ (Lla)"
               ],
               "Hindi": [
-                "Nirjhar Moti"
+                "Nirjhar Moti - Reading Practice"
               ],
               "Story": [
-                "The Brave boy of Holland - Roleplay"
+                "The Brave Boy of Holland - Roleplay & Moral"
               ]
             }
           },

@@ -77,9 +77,12 @@ export default function WeekPage() {
       </div>
 
       {/* Dictation Words for the Week */}
-      {selectedWeek.dictationWords.length > 0 && (
+      {(selectedWeek.dictationWords.length > 0 || (selectedWeek.dictationSentences && selectedWeek.dictationSentences.length > 0)) && (
         <div className="mb-6">
-          <DictationWords words={selectedWeek.dictationWords} />
+          <DictationWords
+            words={selectedWeek.dictationWords}
+            sentences={selectedWeek.dictationSentences}
+          />
         </div>
       )}
 

@@ -44,6 +44,7 @@ export interface WeekData {
   weekStart: string;
   weekEnd: string;
   dictationWords: string[];
+  dictationSentences?: string[];
   days: DaySchedule[];
 }
 
