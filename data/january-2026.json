@@ -1824,24 +1824,6 @@
   },
   "importantDates": [
     {
-      "date": "2026-01-07",
-      "event": "Goloka Shades 2026",
-      "type": "activity",
-      "description": "School activity event"
-    },
-    {
-      "date": "2026-01-15",
-      "event": "Sankranti Festival Holiday",
-      "type": "holiday",
-      "description": "Makar Sankranti - School closed"
-    },
-    {
-      "date": "2026-01-25",
-      "event": "BGS Marathon",
-      "type": "event",
-      "description": "Annual school marathon event - Register and participate!"
-    },
-    {
       "date": "2026-01-26",
       "event": "Republic Day",
       "type": "holiday",
