@@ -29,9 +29,13 @@ jobs:
 
     - name: Run Build Check
       run: npm run build
+      env:
+        NEXT_PUBLIC_UPDATES_SHEET_URL: "https://docs.google.com/spreadsheets/d/12fbL7PKO6wSeK2zx76hPf-CgJJze32Sse2t7UQm8pds/export?format=csv"
 
     - name: Run Tests (The Vote)
       run: npx playwright test
+      env:
+        NEXT_PUBLIC_UPDATES_SHEET_URL: "https://docs.google.com/spreadsheets/d/12fbL7PKO6wSeK2zx76hPf-CgJJze32Sse2t7UQm8pds/export?format=csv"
       
     - name: Upload Test Report
       if: always()

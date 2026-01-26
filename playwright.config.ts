@@ -1,4 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load .env.local if present
+dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 
 export default defineConfig({
     testDir: './tests',
@@ -26,5 +31,8 @@ export default defineConfig({
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
         timeout: 120 * 1000,
+        env: {
+            NEXT_PUBLIC_UPDATES_SHEET_URL: process.env.NEXT_PUBLIC_UPDATES_SHEET_URL || '',
+        },
     },
 });
