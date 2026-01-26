@@ -5,7 +5,7 @@ test.describe('SchoolPulse Smoke Tests', () => {
     test('home page loads', async ({ page }) => {
         await page.goto('/');
         await expect(page).toHaveTitle(/SchoolPulse/);
-        await expect(page.getByText('SchoolPulse')).toBeVisible();
+        await expect(page.getByText('SchoolPulse').first()).toBeVisible();
     });
 
     test('homework page loads', async ({ page }) => {
