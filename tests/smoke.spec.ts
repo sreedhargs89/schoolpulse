@@ -6,7 +6,9 @@ test.describe('SchoolPulse Smoke Tests', () => {
         await page.goto('/');
         await expect(page).toHaveTitle(/SchoolPulse/);
         // Use a more specific selector to avoid strict mode violations (header vs footer)
-        await expect(page.getByRole('link', { name: /SchoolPulse/i }).first()).toBeVisible();
+        // Check for the main heading or brand text which should be visible
+        // Check for something visible on both mobile and desktop (e.g., the 'Today' navigation item)
+        await expect(page.locator('a[href="/"]', { hasText: 'Today' })).toBeVisible();
     });
 
     test('homework page loads', async ({ page }) => {
@@ -19,7 +21,8 @@ test.describe('SchoolPulse Smoke Tests', () => {
     test('dates page loads', async ({ page }) => {
         await page.goto('/dates');
         await expect(page).toHaveTitle(/SchoolPulse/);
-        await expect(page.getByText('Important Dates')).toBeVisible();
+        // Use .first() as the text might appear in multiple places (header vs page title)
+        await expect(page.getByText('Important Dates').first()).toBeVisible();
     });
 
     test('rhymes page loads', async ({ page }) => {
@@ -40,7 +43,10 @@ test.describe('SchoolPulse Smoke Tests', () => {
     // Test that checks navigation from home
     test('navigation works', async ({ page }) => {
         await page.goto('/');
-        await page.getByText('Homework').click();
-        await expect(page.url()).toContain('/homework');
+        // Click the first Homework link found (likely the navigation item)
+        // Click the visible Homework link (handles mobile/desktop distinct elements)
+        // Click the visible Homework link
+        await page.click('a[href="/homework"]:visible');
+        await expect(page).toHaveURL(/.*\/homework/);
     });
 });
