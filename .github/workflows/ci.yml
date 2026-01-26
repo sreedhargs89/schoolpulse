@@ -1,0 +1,46 @@
+name: Validation (The Vote)
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  vote:
+    name: 🗳️ Validate Pages
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Build Check
+      run: npm run build
+      env:
+        NEXT_PUBLIC_UPDATES_SHEET_URL: "https://docs.google.com/spreadsheets/d/12fbL7PKO6wSeK2zx76hPf-CgJJze32Sse2t7UQm8pds/export?format=csv"
+
+    - name: Run Tests (The Vote)
+      run: npx playwright test
+      env:
+        NEXT_PUBLIC_UPDATES_SHEET_URL: "https://docs.google.com/spreadsheets/d/12fbL7PKO6wSeK2zx76hPf-CgJJze32Sse2t7UQm8pds/export?format=csv"
+      
+    - name: Upload Test Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
